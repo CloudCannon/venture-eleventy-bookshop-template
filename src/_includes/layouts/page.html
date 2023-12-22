@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% include 'partials/head/meta.html' %}
+        {% include 'partials/head/stylesheets.html' %}
+
+        <script src="/assets/js/main.js" defer></script>
+        <title>{{ title }}{% if seo.title %} | {{ seo.title }}{% endif %}</title>
+        {% include 'partials/head/google-fonts.html' %}
+    </head>
+    <body>
+        {% include 'partials/nav/navigation.html' %}
+        <main id="main">
+            {% bookshop_include "hero" hero: hero title: title permalink: permalink %}
+
+            {% bookshop_include "page" content_blocks: content_blocks %}
+            {{ content }}
+        </main>
+        {% include 'partials/footer/footer.html' %}
+    </body>
+    {% if content_blocks %}
+        {% assign include-map = content_blocks | contains_block: "simple/google-map-embed" %}
+        {% if site.google_maps_api_key and include-map %}
+            {% include 'partials/map/map-initialisation.html' %}
+        {% endif %}
+    {% endif %}
+</html>

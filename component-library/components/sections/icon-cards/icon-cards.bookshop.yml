@@ -1,0 +1,106 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: "Icon Cards"
+  description: A grid layout of cards with icons
+  icon: table_chart
+  tags: ['grid', 'icon']
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    id:
+    heading: bookshop:generic/heading!
+    description: Description text to compliment the block
+    grid_items:
+      - icon:
+        heading: bookshop:generic/heading!
+        description: These versatile cards can be used to talk about your services or products, or anything else you are keen to share with your audience. They come with an action link to get your users into the journey you’ve crafted for them.
+        buttons: [bookshop:generic/button]    
+    buttons: [bookshop:generic/button]
+  styles:
+    color_group: "primary"
+    card_color_group: "primary"
+    content_alignment: center
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  content:
+    heading: bookshop:generic/heading
+    description: Card Grid Description
+    grid_items:
+      - icon:
+          hero_library_icon_name: academic-cap
+          icon_type: solid
+        description: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+      - icon:
+          hero_library_icon_name: adjustments-horizontal
+          icon_type: outline
+        eyebrow_headline: Eyebrow Heading
+        primary_heading: Primary Heading
+        description: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+      - icon:
+          icon_path: /assets/images/icons/social/youtube.svg
+          icon_type: solid
+        description: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+    buttons:
+      - _bookshop_name: generic/button
+        url: "#"
+        open_in_new_tab: false
+        text: Button text
+        variant: primary
+        arrow: right
+  styles:
+    color_group: "primary"
+    content_alignment: center
+    card_color_group: "primary"
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:     
+  icon:
+    type: object
+    options:
+      structures: _structures.icon_types
+_structures:
+  icon_types:
+    values:
+      - label: Hero Library Icon
+        value:
+          hero_library_icon_name: academic-cap
+          icon_type:
+        _inputs:
+          icon_type:
+            comment: Choose outline if you want lines to be filled with color and solid if you want the whole image filled with color
+            type: choice
+            options:
+              allow_empty: false
+              values:
+                - solid
+                - outline
+      - label: Custom Icon
+        value:
+          icon_path:
+          icon_type:
+        _inputs:
+          icon_type:
+            comment: Choose outline if you want lines to be filled with color and solid if you want the whole image filled with color
+            type: choice
+            options:
+              allow_empty: false
+              values:
+                - solid
+                - outline
+          icon_path:
+            type: image

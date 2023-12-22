@@ -1,0 +1,148 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Form Builder"
+  description: Build a CloudCannon form with the developed inputs
+  icon: dynamic_form
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  id: 
+  form_submission_type: email/cloudcannon
+  inbox_key: 
+  subject:
+  success_page: ""
+  form_elements: [bookshop:structure:form_blocks]
+  submit_button:
+    text: "Button text"
+    variant: "primary"
+    arrow: "right"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  id: 727a56cc-0bfc-4ab4-901e-144f407cd1ae
+  success_page: /
+  form_elements:
+    - _bookshop_name: generic/form/text-input
+      label: Full name
+      placeholder: John Smith
+      id: full_name
+      required: true
+      helper_text: You do not need to include any middle names
+    - _bookshop_name: generic/form/email-input
+      id: email
+      label: Email
+      required: false
+      placeholder: mybusiness@smallbusiness.com
+      helper_text: Your personal email
+    - _bookshop_name: generic/form/phone-input
+      label: Phone number
+      placeholder: +64 21 859292
+      id: phone_number
+      required: false
+      helper_text: Your personal phone number
+    - _bookshop_name: generic/form/radio-button-group
+      label: Radio Button group
+      required: true
+      id: bd65738b-49b7-4225-be21-47b7b41a16a9
+      radio_buttons:
+        - label: Radio button 1
+          checked: false
+          id: cb850e02-a4d0-4f7d-86a8-d1f619549e23
+        - label: Radio button 2
+          checked: true
+          id: a0bdcf1e-8d56-43d7-96ce-c27431ea3102
+        - label: Radio button 3
+          checked: false
+          id: c72e1877-b3e1-4b49-922b-255e6ea87b19
+        - label: Radio button 4
+          checked: false
+          id: 3ec28810-f058-4e91-bf82-59cc0b88a6f7
+      arrangement: inline
+      helper_text: Radio button 1 is only available on weekends
+    - _bookshop_name: generic/form/checkbox-group
+      label: Checkbox group
+      checkboxes:
+        - _bookshop_name: generic/form/checkbox-input
+          group_name:
+          label: Checkbox
+          checked: false
+          required: false
+          id: 0cd76c37-3678-4b71-b676-061de9061eca
+        - _bookshop_name: generic/form/checkbox-input
+          group_name:
+          label: Checkbox
+          checked: true
+          required: false
+          id: b73cc3d9-a34d-43dc-b9ce-40c8b9670583
+        - _bookshop_name: generic/form/checkbox-input
+          group_name:
+          label: Checkbox
+          checked: false
+          required: false
+          id: 7c97077e-b0eb-42ba-8e6e-3da627e1684e
+      arrangement: inline
+      helper_text: Do not select more than 2
+    - _bookshop_name: generic/form/country-select-input
+      id: country-selector
+      label: Country
+      placeholder: Select your country
+      helper_text: The country you primarily reside in
+    - _bookshop_name: generic/form/date-input
+      id: date
+      label: Choose a date
+      required: false
+      min_today: true
+      max: 2023-11-16T00:00:00Z
+      helper_text: The date cannot be in the past
+    - _bookshop_name: generic/form/time-input
+      label: Choose a time slot
+      placeholder: '15:00'
+      id: time
+      min: 9:00 am
+      max: 3:00 pm
+      helper_text: Select a time between 9:00 and 15:00
+    - _bookshop_name: generic/form/select-input
+      id: option-selector
+      label: Select
+      options:
+        - key: Option 1
+        - key: Option 2
+        - key: Option 3
+        - key: Option 4
+      helper_text: Option 1 is only available on weekdays
+    - _bookshop_name: generic/form/text-area-input
+      label: Comment
+      placeholder: Any helpful information we should know about
+      id: comment
+      rows: 2
+      required: false
+      helper_text: Let us know things such as if you have any allergies
+    - _bookshop_name: generic/form/checkbox-group
+      label: Terms and conditions
+      checkboxes:
+        - _bookshop_name: generic/form/checkbox-input
+          group_name:
+          label: Do you accept the terms and conditions?
+          checked: false
+          required: true
+          id: beff4820-604b-4d23-a74b-47625baa2c3f
+      arrangement: inline
+      helper_text: You can view the terms and conditions at /terms-and-conditions
+  submit_button:
+    text: "Button text"
+    variant: "primary"
+    arrow: "right"
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  form_submission_type:
+    type: disabled
+  success_page:
+    type: url
+    comment:  The page to redirect to after submission
+  inbox_key:
+    comment: The key that you configured for your cloudcannon inbox. If not set it will go to the default inbox you set up. Instructions for setting up an inbox key can be found [here](https://cloudcannon.com/documentation/articles/creating-an-inbox-to-receive-your-forms/).
+  subject:
+    comment: The subject line for the form submission emails

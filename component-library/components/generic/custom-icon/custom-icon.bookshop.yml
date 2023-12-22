@@ -1,0 +1,29 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - card_imagery_blocks
+    - icon_blocks
+  label: "Custom Icon"
+  description: An icon (that you upload) with an optional border and customisable color
+  icon: bolt
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  icon_path: 
+  icon_size: small
+  icon_type: solid
+  rounded_border: false
+  theme_color: false
+  default_color: false
+  color: "#7d7f7c"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  icon_path: /assets/images/icons/social/youtube.svg
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  theme_color:
+    comment: Use your theme color for the icon color (if the icon is an svg) and the rounded border color (if one is included)
+    type: checkbox

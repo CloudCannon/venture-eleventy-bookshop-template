@@ -1,0 +1,8 @@
+{% assign_local c = 'c-labelled-icon' %}
+
+<div class="{{ c }} {{ c }}--{{ arrangement }}">
+    {% if icon %}        
+      {% bookshop "{{icon._bookshop_name}}" bind:icon %}
+    {% endif %}
+    {% bookshop "generic/text-block" bind:text %}
+</div>

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/assets/js/map.js"],
+  "sourcesContent": ["document.addEventListener(\"DOMContentLoaded\", function(){\n    let maps = document.getElementsByClassName(\"c-map-embed\");\n\n    for (let i = 0; i < maps.length; i++) {\n        let mapEl = maps[i];\n        let map = L.map(mapEl, { scrollWheelZoom: false });\n        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',\n            {attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'})\n            .addTo(map);\n        let latitude = mapEl.getAttribute('maplat');\n        let longitude = mapEl.getAttribute('maplong');\n        let marker = L.marker([latitude, longitude]).addTo(map);\n        let bounds = [[latitude, longitude]];\n        map.fitBounds(bounds);\n    }\n});"],
+  "mappings": "MAAA,SAAS,iBAAiB,mBAAoB,UAAU,CACpD,IAAIA,EAAO,SAAS,uBAAuB,aAAa,EAExD,QAASC,EAAI,EAAGA,EAAID,EAAK,OAAQC,IAAK,CAClC,IAAIC,EAAQF,EAAKC,CAAC,EACdE,EAAM,EAAE,IAAID,EAAO,CAAE,gBAAiB,EAAM,CAAC,EACjD,EAAE,UAAU,qDACR,CAAC,YAAa,yFAAyF,CAAC,EACvG,MAAMC,CAAG,EACd,IAAIC,EAAWF,EAAM,aAAa,QAAQ,EACtCG,EAAYH,EAAM,aAAa,SAAS,EACxCI,EAAS,EAAE,OAAO,CAACF,EAAUC,CAAS,CAAC,EAAE,MAAMF,CAAG,EAClDI,EAAS,CAAC,CAACH,EAAUC,CAAS,CAAC,EACnCF,EAAI,UAAUI,CAAM,CACxB,CACJ,CAAC",
+  "names": ["maps", "i", "mapEl", "map", "latitude", "longitude", "marker", "bounds"]
+}

@@ -1,0 +1,16 @@
+.c-hero--simple {
+    display: grid;
+    grid-template-columns: var(--twelve-column-grid);
+    row-gap: var(--gap-extra-large);
+    place-items:flex-start;
+    text-align:left;
+
+    &__heading, .c-text-block {
+        grid-column: 2 / -2;
+    }
+
+    &--content-align-center {
+        place-items: center;
+        text-align: center;
+    }
+}

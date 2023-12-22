@@ -1,0 +1,49 @@
+.c-card {
+  display: flex;
+  flex-direction: column;    
+  color: var(--main-text-color);
+  background-color: var(--main-background-color);
+  gap: var(--gap-large);    
+  text-align: left;
+  width: 100%;
+  justify-content:flex-end;
+
+  &--icon{
+    gap:var(--gap-normal);
+  }
+
+  &--icon &__imagery{
+    padding: 24px 24px 0;
+  }
+
+  &--image &__imagery {
+    max-height: 210px;
+
+    .c-image,
+    .c-image--live-editing,
+    picture {
+      max-height: 210px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+
+  &__content-wrapper{
+    display: flex;
+    flex-direction: column;  
+    gap: var(--gap-normal);
+    padding: 24px;
+  }
+
+  &--image &__content-wrapper, &--icon &__content-wrapper{
+    padding:0 24px 24px;
+  }
+
+  &__content {
+      font-size: var(--paragraph);
+      font-weight: var(--font-weight-body);
+      line-height: var(--line-height);
+  }
+}

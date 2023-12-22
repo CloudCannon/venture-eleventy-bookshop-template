@@ -1,0 +1,2 @@
+(()=>{document.addEventListener("DOMContentLoaded",function(){let o=document.getElementsByClassName("c-map-embed");for(let t=0;t<o.length;t++){let e=o[t],a=L.map(e,{scrollWheelZoom:!1});L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(a);let l=e.getAttribute("maplat"),n=e.getAttribute("maplong"),p=L.marker([l,n]).addTo(a),r=[[l,n]];a.fitBounds(r)}});})();
+//# sourceMappingURL=map.js.map

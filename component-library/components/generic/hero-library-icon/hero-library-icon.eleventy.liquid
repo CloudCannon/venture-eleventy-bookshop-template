@@ -1,0 +1,11 @@
+{% assign_local c = "c-hero-library-icon" %}
+
+{% assign_local icon_path = "/assets/images/icons/" | append: icon_type | append: "/" | append: hero_library_icon_name  | append: '.svg' %}
+
+<span class="{{ c }} {{ c }}--{{ icon_size }} {{ c }}--{{ icon_type }} {% if rounded_border %}{{c}}--round{% endif %}" style="--c-hero-library-icon-color: {% if theme_color %}var(--main-text-color){% else %}{{ color }}{% endif %}">
+    {% if env_bookshop_live %}
+        <span class="{{ c }}__image" style="--url: url('{{ icon_path }}')"></span>
+    {% else %}
+        {{ '/src' | append: icon_path  | svgContents: "c-hero-library-icon__svg" }}
+    {% endif %}
+</span>

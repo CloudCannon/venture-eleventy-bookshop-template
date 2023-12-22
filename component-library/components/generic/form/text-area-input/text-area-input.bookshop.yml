@@ -1,0 +1,39 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - form_blocks
+  label: "Text Area Input"
+  description: Longer simple text input
+  icon: create
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  label: ""
+  placeholder: ""
+  id:
+  rows: 2
+  required: false
+  helper_text:
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  label: Comment
+  placeholder: Any helpful information we should know about
+  rows: 2
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  rows:
+    type: range
+    options:
+      step: 1
+      min: 2
+      max: 10
+  helper_text:
+    comment: Helpful text for the user such as 'You do not need to enter your middle name(s)'
+  placeholder:
+    type: textarea
+  id:
+    _instance_value: UUID
+    hidden: true

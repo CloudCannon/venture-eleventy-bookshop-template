@@ -1,0 +1,34 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Image Gallery"
+  description: A grid layout of images
+  icon: collections
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  show_note: true
+  images: [bookshop:generic/image]
+  button: 
+    _bookshop_name: generic/button
+    text: Load more
+    variant: primary
+    arrow: down
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  show_note: true
+  images:
+    - bookshop:generic/image
+    - bookshop:generic/image
+    - bookshop:generic/image
+    - bookshop:generic/image
+    - bookshop:generic/image
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  show_note:
+    hidden: true
+  images:
+    comment: Your images will be cropped into squares for the best presentation

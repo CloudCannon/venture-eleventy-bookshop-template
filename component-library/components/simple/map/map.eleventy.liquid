@@ -1,0 +1,20 @@
+{% assign_local c = "c-map-embed" %}
+
+{% if env_bookshop_live %}
+
+<div class="{{c}} {{c}}--live-editing" style="background-image: url('/assets/images/map/placeholder.png'); background-size: cover">
+    <div class="{{c}}--live-editing__message">
+        <p>This is a placeholder map. The Map will not render in live editing.</p>
+    </div>
+</div>
+
+{% else %}
+
+    <div class="{{c}}" 
+        id="map"
+        maplat={{ latitude }}
+        maplong={{ longitude }}
+        mapzoom={{ zoom_level }}>
+    </div>
+
+{% endif %}

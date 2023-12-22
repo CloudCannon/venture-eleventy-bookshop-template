@@ -1,0 +1,30 @@
+{% assign_local c = "c-price-list" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }} {{ c }}--content-align-{{ styles.content_alignment }} component component--{{ styles.color_group }}">
+
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}{% bookshop "generic/heading" bind:content.heading %}{% endif %}
+            {% if content.description %}{% bookshop "generic/text-block" text:content.description %}{% endif %}
+        </div>
+    {% endif %}
+
+    <div class="{{ c }}__lists">
+        {% for list in content.lists %}
+            <h4 class="{{ c }}__lists__list__heading">{{ list.list_heading }}</h4>
+            <ul class="{{ c }}__lists__list">
+                {% for item in list.list_items %}
+                    <li class="{{ c }}__lists__list__item">
+                        <p class="{{ c }}__lists__list__item__label">{{ item.label }}</p>
+                        <span class="{{ c }}__lists__list__item__seperator"></span>
+                        <p class="{{ c }}__lists__list__item__detail">{{ item.detail }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+    {% if content.button %}
+        <div class="{{ c }}__button">
+            {% bookshop "generic/button" bind:content.button %}
+        </div>
+    {% endif %}
+</section>

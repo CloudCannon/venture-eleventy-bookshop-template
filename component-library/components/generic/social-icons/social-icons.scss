@@ -1,0 +1,41 @@
+.c-social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-normal);
+
+  --dynamic-fill-color: var(--fill-color, var(--main-text-color, #F9F9FB));
+  --dynamic-hover-color: var(--hover-color, var(--main-text-color, #F9F9FB));
+  --dynamic-fill-color-hover: var(--fill-color-hover, var(--main-background-color, #3B3B3D));
+
+  &__icon {
+    transition: background-color 300ms ease-out, fill 300ms ease-out;
+    border-radius: 50%;
+
+    svg {
+      * {
+        fill: var(--dynamic-fill-color);
+        transition: fill 300ms ease-out;
+      }
+    }
+    &:hover {
+      background-color: var(--dynamic-hover-color);
+
+      * {
+        fill: var(--dynamic-fill-color-hover);
+      }
+    }
+
+    // Live editing fallback for mask colors
+    .c-custom-icon__image {
+      background-color: var(--dynamic-fill-color);
+    }
+
+    &:hover {
+      .c-custom-icon__image {
+        background-color: var(--dynamic-fill-color-hover);
+      }
+    }
+  }
+}

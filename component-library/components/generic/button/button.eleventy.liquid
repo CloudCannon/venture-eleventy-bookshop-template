@@ -1,0 +1,18 @@
+{% assign_local c = "c-button" %}
+{% assign_local arrow_type = "arrow-" | append: arrow %}
+
+{% if url and url!=''%}
+    <a href="{{ url }}" class="{{c}} {{c}}--{{ variant }} {{ c }}--{{ arrow_type }}" {% if open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %} {% if onclick %}onclick="{{ onclick }}"{% endif %}>
+        {{ text }}
+        {% if arrow %}
+            {% bookshop "generic/hero-library-icon" hero_library_icon_name:arrow_type icon_type:"solid" icon_size:'extra-small'  color:'transparent' %}
+        {% endif %}
+    </a>
+{% else %}
+    <button class="{{c}} {{c}}--{{ variant }} {{ c }}--{{ arrow_type }}" {% if onclick %}onclick="{{ onclick }}"{% endif %}>
+        {{ text }}
+        {% if arrow %}
+            {% bookshop "generic/hero-library-icon" hero_library_icon_name:arrow_type icon_type:"solid" icon_size:'extra-small'  color:'transparent' %}
+        {% endif %}
+    </button>
+{% endif %}

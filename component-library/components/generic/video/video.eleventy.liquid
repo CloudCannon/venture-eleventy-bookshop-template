@@ -1,0 +1,23 @@
+{% assign_local c = "c-video" %}
+<div class="{{ c }}__video-aspect-wrapper">
+  <div class="{{ c }}__video">
+    {% if fallback_image.image_path %}
+      {% bookshop "generic/image" image_path:fallback_image.image_path image_alt:fallback_image.image_alt image_sizes:image_sizes  %}
+    {% endif %}
+
+    {% if video_url %}
+      {% if video_source == "Vimeo" %}
+        {% assign_local url = video_url | remove: 'https://vimeo.com/' %}
+            <iframe class="{{ c }}__vimeo" src="https://player.vimeo.com/video/{{ url }}" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      {% elsif video_source == "YouTube" %}
+        {% if video_url contains 'youtu.be' %}
+          {% assign_local url = video_url | replace: 'https://youtu.be/', 'https://www.youtube.com/embed/' %}
+        {% else %}
+          {% assign_local url = video_url | replace: 'watch?v=', 'embed/' | replace: 'watch?time_continue=1&v=', 'embed/' | remove: '&feature=emb_logo' | remove: '&feature=youtu.be' %}
+        {% endif %}
+            <iframe class="{{ c }}__youtube" src="{{ url }}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      {% endif %}
+    {% endif %}
+
+    </div>
+</div>

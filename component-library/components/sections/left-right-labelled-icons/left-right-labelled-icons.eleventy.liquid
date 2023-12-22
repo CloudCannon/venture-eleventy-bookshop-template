@@ -1,0 +1,40 @@
+{% assign_local c = "c-left-right-block--featured-icons" %}
+{%  assign block_icons = "" %}
+
+{% for icon_data in content.icons %}
+  {% if icon_data.hero_library_icon_name %}
+    {% capture labelled-icon %}
+      - _bookshop_name: generic/labelled-icon
+        arrangement: stacked
+        text: '{{ icon_data.icon_text }}'
+        icon:
+          _bookshop_name: generic/hero-library-icon
+          hero_library_icon_name: {{ icon_data.hero_library_icon_name }}
+          icon_size: large
+          icon_type: {{ icon_data.icon_type }}
+          rounded_border: true
+          theme_color: true
+    {% endcapture %}
+    {%  assign block_icons = block_icons | append: labelled-icon %}    
+  {% else %}
+    {% capture labelled-icon %}
+      - bookshop: generic/labelled-icon
+        arrangement: stacked
+        text: {{ icon_data.icon_text }}
+        icon:
+          _bookshop_name: generic/custom-icon
+          icon_path: {{ icon_data.icon_path }}
+          icon_size: large
+          icon_type: {{ icon_data.icon_type }}
+          rounded_border: true
+          theme_color: true
+    {% endcapture %}
+    {%  assign block_icons = block_icons | append: labelled-icon %}
+  {% endif %}
+{% endfor %}
+
+{% assign block_icons = block_icons | ymlify %}
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }}">
+  {% bookshop "generic/left-right-block" heading:content.heading buttons:content.buttons icons:block_icons image:content.image image_alignment:styles.image_alignment color_group:styles.color_group %}
+</section>

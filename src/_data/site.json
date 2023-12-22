@@ -1,0 +1,60 @@
+{
+  "base_url": "http://example.com",
+  "social_media_links": [
+    {
+      "link_url": "https://www.youtube.com/",
+      "icon_path": "/assets/images/icons/social/youtube.svg",
+      "label": "Youtube"
+    },
+    {
+      "link_url": "https://www.facebook.com/",
+      "icon_path": "/assets/images/icons/social/facebook.svg",
+      "label": "Facebook"
+    },
+    {
+      "link_url": "https://www.linkedin.com/",
+      "icon_path": "/assets/images/icons/social/linkedin.svg",
+      "label": "LinkedIn"
+    },
+    {
+      "link_url": "https://www.twitter.com/",
+      "icon_path": "/assets/images/icons/social/x.svg",
+      "label": "Twitter"
+    },
+    {
+      "link_url": "https://www.instagram.com/",
+      "icon_path": "/assets/images/icons/social/instagram.svg",
+      "label": "Instagram"
+    }
+  ],
+  "_inputs": {
+    "social_media_links": {
+      "type": "array",
+      "options": {
+        "structures": {
+          "values": [
+            {
+              "label": "Social Media Link",
+              "icon": "link",
+              "value": {
+                "link_url": null,
+                "icon_path": null
+              },
+              "_inputs": {
+                "icon_path": {
+                  "type": "image",
+                  "comment": "This input is restricted to only allow images with type SVG",
+                  "options": {
+                    "accepts_mime_types": [
+                      "image/svg+xml"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

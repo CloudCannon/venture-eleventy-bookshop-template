@@ -1,0 +1,18 @@
+.c-map-embed {
+    min-height: 200px;
+    height: 100%;
+    -webkit-filter: invert(1) grayscale(1);
+    filter: invert(1) grayscale(1);
+}
+
+.c-map-embed .c-map-embed--live-editing__message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: red;
+}

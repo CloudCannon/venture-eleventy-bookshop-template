@@ -1,0 +1,69 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - hero_blocks
+  label: "Hero"
+  description: Provide concise information at the top of the page to engage website visitors
+  icon: feed
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    heading: bookshop:generic/heading!
+    description: Description text to compliment the block
+    button: bookshop:generic/button!
+    image: bookshop:generic/image
+  styles:
+    image_alignment: left
+    color_group: "primary"
+
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  styles:
+    image_alignment: left
+    color_group: "primary"
+  content:
+    heading:
+      _bookshop_name: generic/heading
+      eyebrow_headline: a small business template
+      eyebrow_headline_hierarchy: h3
+      primary_heading: Empower Your Business with This Brilliant Template
+      primary_heading_hierarchy: h2
+    button:
+      url: "#"
+      open_in_new_tab: false
+      text: Primary
+      variant: primary
+      arrow: right
+      onclick: console.log(this)
+    description: "We wanted you to have a couple of options to use above the fold, and give you the customisation you need to display your product/service in the best way possible."
+    image:
+      _bookshop_name: generic/image
+      image_path: /assets/images/Testimonial--background-feature.png
+      image_alt: A woman laughing
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  image_alignment:
+    comment: "If an image is provided, determines how the image will display: on the left, the right, or covering the full background of the hero"
+    type: choice
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - name: Left
+          id: left
+          icon: format_align_left
+        - name: Right
+          id: right
+          icon: format_align_right
+        - name: Full
+          id: full-background
+          icon: open_in_full

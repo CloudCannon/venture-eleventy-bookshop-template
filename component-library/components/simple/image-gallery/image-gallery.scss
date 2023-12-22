@@ -1,0 +1,43 @@
+.c-gallery {
+    display: grid;
+    gap: var(--gap-extra-large);
+    place-items: center;
+
+    &__tiles {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center;
+        gap: var(--gap-large);
+        width:100%;
+
+        &__tile {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            box-shadow: 0px 0px 0px 1px var(--main-text-color) inset;
+
+            /* Tablet view */
+            @media screen and (min-width: 480px) {
+                width: calc((100% - 24px) / 2);
+            }
+    
+            /* Desktop view */
+            @media screen and (min-width: 769px) {
+                width: calc((100% - 48px) / 3);
+            }
+
+            .c-image,
+            .c-image--live-editing,
+            picture {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
+            }
+
+            &--hidden {
+                display: none;
+            }
+        }
+
+    }
+}

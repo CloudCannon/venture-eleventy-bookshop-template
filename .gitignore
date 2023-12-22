@@ -1,0 +1,8 @@
+_site/
+.DS_Store
+node_modules/
+.jampack
+.cache
+src/assets/styles/bookshop.css
+css/
+.vscode/

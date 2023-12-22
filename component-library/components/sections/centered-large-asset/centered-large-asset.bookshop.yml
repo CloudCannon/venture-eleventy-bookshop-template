@@ -1,0 +1,35 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: "Centered Large Asset"
+  description: A centred asset (such as image or video)
+  icon: web_asset
+  tags: ['video', 'image']
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    id:
+    heading: bookshop:generic/heading!
+    description: Description text to compliment the block
+    asset: bookshop:structure:asset_blocks
+    button: bookshop:generic/button
+  styles:
+    color_group: "primary"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  content:
+    heading:
+      _bookshop_name: generic/heading
+      eyebrow_headline: EYEBROW HEADLINE
+      primary_heading: Display a video or image
+    description: >-
+        Whether your business is a restaurant, a barber shop, a gym, or a café, our small business template has you covered. Add your services to the list below, as many as you like, and let people contact you or book now.
+    button: bookshop:generic/button
+  styles:
+    color_group: "primary"
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:

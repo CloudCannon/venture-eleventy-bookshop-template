@@ -1,0 +1,16 @@
+footer_logo_image: /assets/uploads/venture-logo.svg
+logo_text: Venture
+navigation_items:
+  - label: Our Services
+    link_url: /#services
+    open_in_new_tab: false
+  - label: Book Now
+    link_url: /booking
+    open_in_new_tab: false
+  - label: Contact Us
+    link_url: /contact
+    open_in_new_tab: false
+footer_content: >-
+  ©Enter your copyright and [terms and conditions](/terms-and-conditions/ "Terms
+  and Conditions").
+footer_color_group: primary

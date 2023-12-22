@@ -1,0 +1,14 @@
+{% assign_local c = "c-grid--gallery-images" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }} {{ c }}--content-align-{{ styles.content_alignment }} component component--{{ styles.color_group }}">
+    
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}{% bookshop "generic/heading" bind:content.heading %}{% endif %}
+            {% if content.description %}{% bookshop "generic/text-block" text:content.description %}{% endif %}
+        </div>
+    {% endif %}
+
+    <div class="{{ c }}__gallery">
+        {% bookshop "simple/image-gallery" bind:content.gallery show_note:content.show_note image_sizes:"(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw" %}
+    </div>
+</section>

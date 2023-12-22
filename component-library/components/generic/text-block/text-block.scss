@@ -1,0 +1,21 @@
+.c-text-block {
+    display: grid;
+    gap: var(--gap-normal);
+    width:100%;
+    place-items: inherit;
+
+    a {
+        color: inherit;
+    }
+
+    h1{ font-size:var(--heading-extra-large) }
+    h2{ font-size:var(--heading-large) }
+    h3{ font-size:var(--heading-medium) }
+    h4{ font-size:var(--heading-small) }
+
+    p, li{
+        font-size:var(--paragraph);
+        line-height: var(--line-height);
+        max-width:80ch;
+    }
+}

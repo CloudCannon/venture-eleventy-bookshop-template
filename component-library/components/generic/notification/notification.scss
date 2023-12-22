@@ -1,0 +1,22 @@
+.c-notification {
+    --notification-text-color: #163D91;
+    --notification-background-color: #E7EEFF;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 3px;
+    border: 1px solid var(--notification-text-color);
+    border-left-width: 4px;
+    background: var(--notification-background-color);
+    text-align: left;
+
+    &__text {
+        color: #1B1B1D;
+        &__heading {
+            color: var(--notification-text-color);
+            font-size: var(--paragraph-large);
+        }
+    }
+}

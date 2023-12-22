@@ -1,0 +1,116 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Text block"
+  description: A block of content (text, headings, links etc)
+  icon: edit_note
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  text: >-
+    ### Your rich text content
+
+    You can use **bold text** and *italic text* along with [links](http://google.com) and others options.
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  text: >-
+    ## Una at murmure altera retinebat tu quem
+
+    Lorem **markdownum factum arborei** victus patruus. Apolline sanguis ~~qua sternit~~
+    artes. Enim nec marmora atrox causa tum, labor colentibus metum ad linguae.
+    Tanto spatiantia iactatis, exiguas Lapithaeae aditu
+    [Phoebique](http://ponto.com/heros.html) modo ibat pectoribus Phegiaco
+    mortisque, semel minus?
+
+    Sua ducit Ino, sensurus, hoc ortus sanguine: erat. Ore aratri ut membra illis,
+    **Cerealia dextra velle** piscem ossa ab fieri sed; siquid, non. Quae summoque.
+
+    ### Inposito omnia vulgasse Talia in nemora
+
+    Amphiona sidera fecit quid **haurite**: desierant facies per nato nam ibat primo
+    Cephalus silvis. Non obliquo pugnax exspectare At viros celeberrima hosti, qui
+    hoc, ignibus cinctum acumine? Gaudia in *conversa* cum equosque modo superbus
+    lepori ille tellus nubibus!
+
+    [Et fretumque crimen](http://turbantcapillo.com/) et meo ignesque remotam
+    nulli, et ubi procul astris tumulos alimentaque post dryadas! Animal possit
+    deficit vestro: *neci carina* veniet agnovique popularis, Amphissos, quem
+    oculis Hebre auro.<sub>1</sub>
+    
+
+    Ense signum foret paucaqueexhalari
+    * Coniugis genibus o meosque silvas
+
+    * Sacros imagine dimittit
+
+    * Aeolidae ego positis virgineas potuit levem possit
+
+    * Saxa adsiduoque petiere iubar Actorides augent
+
+    * Phoebi adsiduae decipit posuere
+
+
+    #### Non matrem rabies unus
+
+    1. Eras Phasias et venias nubila umeros deos
+
+    2. Questus mediam inopem
+
+    3. Dum canor Phrygum candor per cum vocant
+
+    Loqui et minus flammas iubet humana cum longi fecundus sonant carmen in has?
+    Horrida circumque roganti ignavi Attis gemitum poma spumisque nam lacus orbe, at
+    quaque Mavortis et corpus sine fallax. Atque nec victore festo nidis
+    Telamoniades montis. O sed, quod nymphae iunctas, hunc pavet, si officium
+    stimulosque in contra confessasque rubescere mercede Cephisos. Lactens saltu,
+    pellor *Eumenides repetita* genialiter motu putatur.<sup>2</sup>
+
+    Draconem in parva auras ait genitoris quid, per sed commisi vultu **qui** e
+    egressa ulvis. Sit secretos latus, ore nostri verbaque ore amicis fuerit. Aevum
+    longumque visa *texit lupi aliquid* numeri quoque, ense signum foret paucaque
+    exhalari, precantibus iacebat onerique sed.
+
+    ##### Dum Thisbaeas tardius alite virentes Thybridis radiosque
+
+    Frigoris dixit habet Capitolia animam; frater *merito*, et vate conspecta.
+    Comitata deserit clauduntur quid natamque Saturnus robore bimatrem amore quam
+    sinu vigili mutati quaerit frui, [curva](http://fibras.net/torsit-cavas.html).
+
+    Meruit membra suoque Iam nam statuunt venenis gramine? Pater iacuit celebrare
+    velit Ismenis mandasset ventis sustinuit decepto! In [recepto tumentemaris](http://meamedio.com/)
+    sumere foedus Circaea?
+
+    *Et matres nil* capiti rebus, nec remisit, tempora sed. Aliquid alis nulla
+    patulos ille eadem lignum silices videt. *Quod genus accipe* atque sit *Lacinia
+    quaerenti* propiusque oculos cursu, aliter sterilique causa usus, quibus! <u>Secus
+    aut, quis, puppimque is corpus moenia Cythereius erit, fluminea?</u>
+          
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  text:
+    type: markdown
+    options:
+      link: true
+      blockquote: false
+      bold: true
+      format: p h3 h4 h5 h6
+      italic: true
+      strike: true
+      subscript: true
+      superscript: true
+      underline: true
+      bulletedlist: true
+      numberedlist: true
+      indent: false
+      outdent: false
+      code: false
+      embed: false
+      horizontalrule: false
+      image: false
+      table: false
+      undo: true
+      redo: true
+      removeformat: true
+      copyformatting: true

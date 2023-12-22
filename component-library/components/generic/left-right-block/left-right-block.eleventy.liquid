@@ -1,0 +1,50 @@
+{% assign_local c = "c-left-right-block" %}
+
+{% capture social_icon_styles %}
+  icon_background_hover_color: "var(--main-text-color)"
+  icon_color: "var(--main-text-color)"
+  icon_hover_color: "var(--main-background-color)"
+{% endcapture %}
+{% assign_local social_icons_style = social_icon_styles | ymlify %}
+
+<div class="{{ c }} component {% if image_padding != true %}component--full-height{% endif %} {{ c }}--{{ image_alignment }} 
+  component--{{ color_group }}">
+
+  <div class="{{ c }}__content">
+    <div class="{{ c }}__content-wrapper">
+      {% if display_social_icons %}
+        {% bookshop "generic/social-icons" social_media_links:site.social_media_links style:social_icons_style show_note:show_social_icons_note %}
+      {% endif %}
+      {% if heading %}
+        {% bookshop "generic/heading" bind:heading %}
+      {% endif %}
+      {% if text %}
+        <div class="{{ c }}__content-text">
+          {% bookshop "generic/text-block" bind:description %}
+        </div>
+      {% endif %}
+      {% if icons %}
+        <div class="{{ c }}__icons">
+          {% for icon in icons %}
+            {% bookshop "generic/labelled-icon" bind:icon %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if buttons and buttons.size > 0 %}
+        <div class="{{ c }}__buttons">
+          {% for button in buttons %}
+            {% bookshop "generic/button" bind:button %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="{{ c }}__media {% if image_padding %}{{ c }}__media--auto-height{% endif %}">
+    {% if image %}
+      {% bookshop "generic/image" bind:image image_sizes:"(min-width: 769px) 700px, 100vw" %}
+    {% endif %}
+    {% if map %}
+      {% bookshop "simple/map" bind:map %}
+    {% endif %}
+  </div>
+</div>

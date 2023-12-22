@@ -1,0 +1,44 @@
+.c-checkbox-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--main-text-color, #F9F9FB);
+
+  &__input {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--main-text-color, #F9F9FB);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &:focus {
+        border: 2px solid var(--interaction-color, #2566F2);
+        outline: none;
+    }
+
+    &:checked:not(:focus) {
+      border: 2px solid var(--main-text-color, #F9F9FB);
+    }
+
+    &:focus:checked:after {
+      color: var(--interaction-color, #2566F2);
+    }
+
+    &:checked:after {
+      content: '✔';
+      position: absolute;
+      font-size: var(--paragraph-small);
+      line-height: var(--paragraph-small);
+      color: var(--main-text-color, #F9F9FB);
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+}

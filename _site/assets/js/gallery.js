@@ -1,0 +1,2 @@
+(()=>{var a=document.querySelectorAll(".c-gallery"),o=(e,r,l,i,n)=>{for(let t=e;t<e+r;t++)l[t]?.classList.remove("c-gallery__tiles__tile--hidden");return e+=r,i<=e&&(n.style.display="none"),e};a.forEach(e=>{let l=e.querySelector(".c-gallery__tiles").children,i=l.length,n=e.querySelector(".c-gallery__button"),t=window.innerWidth>=769?6:3,c=o(0,t,l,i,n);e.querySelector(".c-button").addEventListener("click",u=>{c=o(c,t,l,i,n)})});})();
+//# sourceMappingURL=gallery.js.map

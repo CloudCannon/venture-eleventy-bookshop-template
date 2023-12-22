@@ -1,0 +1,28 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Map Embed"
+  description: Map embed with custom center point to mark a location
+  icon: explore
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  latitude:
+  longitude:
+  zoom_level: 9
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  latitude: 37.782046
+  longitude: -122.4514212
+  zoom_level: 9
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  zoom_level:
+    type: range
+    options:
+      step: 1
+      max: 13
+      min: 0

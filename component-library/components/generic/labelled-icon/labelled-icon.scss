@@ -1,0 +1,27 @@
+.c-labelled-icon {
+    $c: &;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+
+    &--inline {
+        flex-direction: row;
+    }
+
+    &--stacked {
+        flex-direction: column;
+        text-align: center;
+        .c-text-block {
+            max-width: 5rem;
+            font-size: var(--paragraph-small);
+        }
+    }
+
+    &__text {
+        text-align: center;
+        margin: 0;
+        word-break: auto-phrase;
+        hyphens: auto;
+    }
+}

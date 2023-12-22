@@ -1,0 +1,19 @@
+<div class="c-gallery">
+    {% if env_bookshop_live %}
+        {% if show_note %}
+            {% bookshop "generic/notification" heading:"Gallery Tile Display" text:"All tiles and the 'Load more' button will be visible when live editing. However, the live site will display 6 (desktop) or 3 (mobile) images initially, with a 'Load more' button to load more tiles. <br> This note only will only show in live editing." %}
+        {% endif %}
+        <div class="c-gallery__tiles">
+            {% for image in images %}
+                <div class="c-gallery__tiles__tile">{% bookshop "generic/image" bind:image %}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="c-gallery__tiles">
+            {% for image in images %}
+                <div class="c-gallery__tiles__tile c-gallery__tiles__tile--hidden">{% bookshop "generic/image" bind:image %}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="c-gallery__button">{% bookshop "generic/button" bind:button %}</div>
+</div>

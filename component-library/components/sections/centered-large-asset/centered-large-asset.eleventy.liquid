@@ -1,0 +1,20 @@
+{% assign_local c = "c-centered-large-asset" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }} component component--{{ styles.color_group }}">
+    
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}{% bookshop "generic/heading" bind:content.heading %}{% endif %}
+            {% if content.description %}{% bookshop "generic/text-block" text:content.description %}{% endif %}
+        </div>
+    {% endif %}
+
+    {% if content.asset %}
+        <div class="{{ c }}__asset">
+            {% bookshop "{{content.asset._bookshop_name}}" bind:content.asset image_sizes:"(min-width: 769px) 960px, 91vw" %}
+        </div>
+    {% endif %}
+
+    {% if content.button %}
+        <div class="{{ c }}__button">{% bookshop "generic/button" bind:content.button %}</div>
+    {% endif %}
+</section>

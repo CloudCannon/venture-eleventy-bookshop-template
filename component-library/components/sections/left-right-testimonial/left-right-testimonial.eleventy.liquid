@@ -1,0 +1,12 @@
+{% assign_local c = "c-left-right-block--testimonial" %}
+
+{% capture heading %}
+  eyebrow_headline: {{ content.eyebrow_headline }}
+  primary_heading: "&ldquo;{{ content.quote }}&rdquo;"
+{% endcapture %}
+{% assign_local heading = heading | ymlify %}
+
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }}">
+  {% bookshop "generic/left-right-block" heading:heading buttons:content.buttons text:content.author_name image:content.image image_alignment:styles.image_alignment color_group:styles.color_group %}
+</section>

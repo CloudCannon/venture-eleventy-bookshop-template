@@ -1,0 +1,36 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: "Text block with image"
+  description: Heading, text and buttons with supporting image
+  icon: art_track
+  tags: ['two column', 'image']
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    id:
+    heading: bookshop:generic/heading!
+    description: Description text to compliment the block
+    buttons: [bookshop:generic/button]
+    image: bookshop:generic/image!
+  styles:
+    image_padding: true
+    color_group: "primary"
+    image_alignment: left
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  content:
+    description:
+      _bookshop_name: generic/text-block
+      text: >-
+        A classic component, you can select to have your image to the left or the right, add a button or two, and give the viewer a quick intro to your brand.
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  image_padding:
+    label: Content block padding
+    comment: Adds padding on the top and bottom of this content block
+    type: switch

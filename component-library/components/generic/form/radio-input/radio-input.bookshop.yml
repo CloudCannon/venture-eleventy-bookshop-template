@@ -1,0 +1,27 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Radio Input"
+  description: A single radio button input to be used in a radiobutton group
+  icon: radio_button_unchecked
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  label: ""
+  group_name:
+  checked: false
+  required: false
+  id:
+  
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  label: "Radio button"
+  id: ee000804-eaa8-4801-b5aa-94935e37e823
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+
+_inputs:
+  id:
+    _instance_value: UUID
+    hidden: true

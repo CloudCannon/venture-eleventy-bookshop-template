@@ -1,0 +1,30 @@
+{% assign_local c = "c-social-icons" %}
+
+<div class="{{ c }}" style="
+    {% if style.icon_background_hover_color %}
+        --hover-color: {{ style.icon_background_hover_color }};
+    {% else %}
+        --hover-color: var(--main-text-color, #F9F9FB);
+    {% endif %}
+    
+    {% if style.icon_color and style.icon_color != '' %}
+        --fill-color: {{ style.icon_color }};
+    {% else %}
+        --fill-color: var(--main-text-color, #F9F9FB);
+    {% endif %} 
+    
+    {% if style.icon_hover_color %}
+        --fill-color-hover: {{ style.icon_hover_color }};
+    {% else %}
+        --fill-color-hover: var(--main-background-color, #3B3B3D);
+    {% endif %}
+">
+    {% if env_bookshop_live and content.show_note %}
+        {% bookshop "generic/notification" heading:"Social Icons" text:"This is where your social icons will appear on your live website, but will not show in live editing in CloudCannon <br> You can edit the icons and their details in /data/site <br> This note will only show in live editing" %}
+    {% endif %}
+    {% for item in social_media_links %}
+          <a class="{{ c }}__icon" href="{{ item.link_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ item.label | default: 'social media link' }}">
+              {% bookshop "generic/custom-icon" icon_path:item.icon_path icon_size:'small' icon_type:'solid' rounded_border:true no_border:true color:style.icon_color %}
+          </a>
+    {% endfor %}
+</div>

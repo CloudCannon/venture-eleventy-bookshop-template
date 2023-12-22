@@ -1,0 +1,18 @@
+{% assign_local c = "c-form-builder" %}
+<form class="{{ c }}"
+    id="{{ id }}"
+    action="{{ success_page }}"
+    method="post"
+    novalidate
+    onsubmit="return validateFormSubmit(event, this)">
+
+    {% for element in form_elements %}
+        {% bookshop "{{element._bookshop_name}}" bind: element %}
+    {% endfor %}
+
+    <input type="text" name="_gotcha" style="display: none;">
+    {% if inbox_key %}<input type="hidden" name="inbox_key" value="{{ inbox_key }}">{% endif %}
+    {% if subject %}<input type="hidden" name="_subject" value="{{ subject }}">{% endif %}
+
+    <div class="{{ c }}__submit-button">{% bookshop "generic/button" bind:submit_button %}</div>
+</form>

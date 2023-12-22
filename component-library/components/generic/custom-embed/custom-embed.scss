@@ -1,0 +1,10 @@
+.c-custom-embed {
+    aspect-ratio: var(--c-custom-embed-ratio);
+    width: 100%;
+
+    iframe {
+        border:none;
+        aspect-ratio: var(--c-custom-embed-ratio);
+        width: 100%;
+    }
+}

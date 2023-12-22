@@ -1,0 +1,43 @@
+:root {
+--secondary0__background : #1b1b1d;
+--secondary0__foreground : #d9d9dc;
+--secondary0__interaction : undefined;
+}
+
+.component {
+--main-background-color: #3B3B3D;
+--main-text-color: #F9F9FB;
+--interaction-color: #2566f2;
+background-color: var(--main-background-color);
+color: var(--main-text-color);
+&--primary{--main-background-color : #3b3b3d;
+--main-text-color : #f9f9fb;
+--interaction-color : #2566f2;
+}
+&--secondary0 {
+--main-background-color: var(--secondary0__background);
+--main-text-color: var(--secondary0__foreground);
+--interaction-color: var(--secondary0__interaction);
+}
+}
+
+.c-navigation {
+--main-background-color: #1B1B1D;
+--main-text-color: #D9D9DC;
+&--secondary0 {
+--main-background-color: var(--secondary0__background);
+--main-text-color: var(--secondary0__foreground);
+--interaction-color: var(--secondary0__interaction);
+}
+}
+
+.c-footer {
+--main-background-color: #1B1B1D;
+--main-text-color: #D9D9DC;
+&--secondary0 {
+--main-background-color: var(--secondary0__background);
+--main-text-color: var(--secondary0__foreground);
+--interaction-color: var(--secondary0__interaction);
+}
+}
+

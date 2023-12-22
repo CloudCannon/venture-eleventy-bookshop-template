@@ -1,0 +1,90 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: "Price List"
+  description: List products or services with prices
+  icon: format_list_numbered_rtl
+  tags: ['price list', 'services', 'list']
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    id:
+    heading: bookshop:generic/heading!
+    description: Description text to compliment the block
+    lists:
+      - list_heading: List heading
+        list_items:
+          - label: List item
+            detail: $
+    button: bookshop:generic/button
+  styles:
+    color_group: "primary"
+    content_alignment: center
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  content:
+    heading:
+      _bookshop_name: generic/heading
+      eyebrow_headline: EYEBROW HEADLINE
+      primary_heading: List your services and products
+    description: >-
+      Whether your business is a restaurant, a barber shop, a gym, or a café, our
+      small business template has you covered. Add your services to the list
+      below, as many as you like, and let people contact you or book now.
+    lists:
+      - list_heading: Subheadings available
+        list_items:
+          - label: Service 1
+            detail: $40
+          - label: Service 2
+            detail: $40
+          - label: Service 3
+            detail: $40
+      - list_heading: Subheadings available
+        list_items:
+          - label: Service 1
+            detail: $40
+          - label: Service 2
+            detail: $40
+          - label: Service 3
+            detail: $40
+    button:
+      url: "#"
+      open_in_new_tab: false
+      text: Book Now
+      variant: primary
+      arrow: right
+  styles:
+    color_group: "primary"
+    content_alignment: center
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  lists:
+    type: array
+    options:
+      structures: _structures.list_details
+  
+
+_structures:
+  list_details:
+    values:
+      - label: List
+        _inputs:
+          list_items:
+            type: array
+            options:
+              structures: 
+                values:
+                  - label: List item
+                    value:
+                      label: List item
+                      detail: $
+        value:
+          list_heading: List heading
+          list_items: 
+            - label: List item
+              detail: $

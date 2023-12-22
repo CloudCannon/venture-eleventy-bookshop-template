@@ -1,0 +1,7 @@
+.c-error-message {
+  display: none;
+  color: var(--error-color, #BF2323);
+  gap: 8px;
+  font-size: var(--paragraph-small);
+  line-height: var(--line-height);
+}

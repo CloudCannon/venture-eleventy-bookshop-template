@@ -1,0 +1,45 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Custom Embed"
+  description: Enter code for a custom embed along with any extra styles
+  icon: web_asset
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  embed: 
+  ratio: default
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  embed:
+    type: code
+  ratio:
+    comment: The ratio of the width to height for the embed container (The second number indicates how many x the width the height will be)
+    type: select
+    options:
+      value_key: ratio_value
+      preview:
+        text: 
+          - key: name
+      values:
+        - name: Default
+          ratio_value: auto
+        - name: A4 Document
+          ratio_value: 1 / 1.41
+        - name: Video
+          ratio_value: 16 / 9
+        - name: 1 / 0.5
+          ratio_value: 1 / 0.5
+        - name: 1 / 0.75
+          ratio_value: 1 / 0.75
+        - name: 1 / 1
+          ratio_value: 1 / 1          
+        - name: 1 / 1.25
+          ratio_value: 1 / 1.25
+        - name: 1 / 1.5
+          ratio_value: 1 / 1.5

@@ -1,0 +1,26 @@
+.c-checkbox-group {
+    color: var(--main-text-color, #F9F9FB);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-extra-small);
+
+    &__group {
+        padding: 12px 16px;
+        border-radius: 4px;
+        border: 2px solid;
+
+        &__label {
+            font-size: var(--label);
+            line-height: var(--line-height);
+        }
+
+        &__inputs {
+            &--arrangement-inline {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+    }
+}

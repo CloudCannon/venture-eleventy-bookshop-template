@@ -1,0 +1,55 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Left/Right block"
+  description: Content that can be arranged left-right or right-left
+  icon: art_track
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  heading: bookshop:generic/heading
+  display_social_icons: true
+  show_social_icons_note: true
+  description:
+  buttons: [bookshop:generic/button]
+  icons: [bookshop:generic/labelled-icon]
+  image: bookshop:generic/image
+  map: bookshop:simple/map
+  color_group: "primary"
+  image_alignment: left
+  image_padding: false
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  heading:
+    _bookshop_name: generic/heading
+    eyebrow_headline: Let your features shine
+    primary_heading: A featured icons left right block
+  display_social_icons: true
+  description: >-
+    This is a simple yet powerful block to display not only your location by using OpenStreetMaps, but also any other contact details you wish to share with your customers.
+  buttons:
+    - url: "#"
+      open_in_new_tab: false
+      text: "Button text"
+      variant: "primary"
+      disabled: false
+      arrow: "right"
+      onclick:
+  icons:
+    - _bookshop_name: generic/labelled-icon
+      arrangement: inline
+      text: Great customer service
+      icon:
+        _bookshop_name: generic/hero-library-icon
+        hero_library_icon_name: academic-cap
+        icon_size: small
+        icon_type: solid
+        rounded_border: true
+        theme_color: true
+  image_alignment: left
+  color_group: "primary"
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:

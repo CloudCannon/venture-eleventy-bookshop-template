@@ -1,0 +1,22 @@
+{% assign_local c = "c-date-input" %}
+<div class="{{ c }}">
+    <label class="{{ c }}__label" for="{{ id }}">{{ label }}{% if required %} *{% endif %}</label>
+    <input class="{{ c }}__input {% if min_today %}{{ c }}__input--min-today{% endif %} {% if max_today %}{{ c }}__input--max-today{% endif %}"
+        type="date"
+        id="{{ id }}" 
+        name="{{ label }}" 
+        {% if min_today %}min="{{ 'now' | date: '%Y-%m-%d' }}"{% elsif min_today %}min="{{ min | date: '%Y-%m-%d' }}"{% endif %}
+        {% if max_today %}max="{{ 'now' | date: '%Y-%m-%d' }}"{% elsif max_today %}max="{{ max | date: '%Y-%m-%d' }}"{% endif %}
+        onfocus="setMinMaxDateToday(this)"
+        onblur="validateInput(this)"
+        {% if required %}required{% endif %}
+        {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+    <div class="{{ c }}__icon">{% bookshop "generic/hero-library-icon" hero_library_icon_name:"calendar-days" icon_type:"outline" icon_size:'extra-small' rounded_border:false color:'white' %}</div>
+    <div class="{{ c }}__dropdown-arrow">{% bookshop "generic/hero-library-icon" hero_library_icon_name:"chevron-down" icon_type:"solid" icon_size:'extra-small' rounded_border:false color:'white' %}</div>
+
+    {% if helper_text %}
+        {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+    {% endif %}
+
+    {% bookshop "generic/form/error-message" id={{ id }} %}
+</div>

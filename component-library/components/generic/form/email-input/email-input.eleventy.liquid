@@ -1,0 +1,19 @@
+{% assign_local c = "c-email-input" %}
+<div class="{{ c }}">
+    <label class="{{ c }}__label" for="{{ id }}">{{ label }}{% if required %} *{% endif %}</label>
+    <input class="{{ c }}__input"
+        type="email" 
+        id="{{ id }}" 
+        name="_replyto" 
+        placeholder="{{ placeholder }}"
+        {% if required %}required{% endif %}
+        onblur="validateInput(this)"
+        oninput="validateInputTyping(this)"
+        {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+
+    {% if helper_text %}
+        {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+    {% endif %}
+
+    {% bookshop "generic/form/error-message" id={{ id }} %}
+</div>

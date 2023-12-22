@@ -1,0 +1,32 @@
+.c-form {
+    color: var(--main-text-color);
+    display: grid;
+    grid-template-columns: var(--twelve-column-grid);
+    row-gap: var(--gap-extra-large);
+    align-items: flex-start;
+    text-align: left;
+
+    &__form{
+        width:100%;
+    }
+
+    &__heading, &__form {
+        grid-column: 2 / -2;
+    }
+
+    &--content-align-center {
+        place-items: center;
+        text-align: center;
+    }
+
+    /* Desktop view */
+    @media screen and (min-width: 769px) {
+        &__heading {
+            grid-column: 4 / -4;
+        }
+
+        &__form {
+            grid-column: 5 / -5;
+        }
+    }
+}

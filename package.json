@@ -1,0 +1,50 @@
+{
+  "name": "small-business-template-eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch-theme-variables": "node ./utils/fetch-theme-variables.js",
+    "bookshop-sass:build": "bookshop-sass -b component-library -o css/bookshop.css",
+    "bookshop-sass:watch": "bookshop-sass -b component-library -o css/bookshop.css -w",
+    "bookshop:browser": "bookshop-browser",
+    "bookshop:new": "npx @bookshop/init --component",
+    "bookshop:update": "npx @bookshop/up@latest",
+    "eleventy:build": "eleventy",
+    "eleventy:watch": "ELEVENTY_ENV=development eleventy --serve",
+    "sass:watch": "sass --no-source-map --watch src/assets/styles:css",
+    "sass:build": "sass --no-source-map src/assets/styles:css",
+    "start": "npm-run-all fetch-theme-variables sass:build bookshop-sass:build --parallel bookshop-sass:watch sass:watch bookshop:browser eleventy:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CloudCannon/small-business-template-eleventy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CloudCannon/small-business-template-eleventy/issues"
+  },
+  "homepage": "https://github.com/CloudCannon/small-business-template-eleventy#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.8",
+    "@bookshop/sass": "^3.6.5",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "outdent": "^0.8.0"
+  },
+  "dependencies": {
+    "@bookshop/browser": "3.6.5",
+    "@bookshop/eleventy-bookshop": "3.6.5",
+    "@bookshop/eleventy-engine": "^3.8.1",
+    "@bookshop/generate": "3.6.5",
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "esbuild": "^0.19.4",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^13.0.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.66.1",
+    "sharp": "^0.32.6"
+  }
+}

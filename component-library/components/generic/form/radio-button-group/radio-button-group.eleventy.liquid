@@ -1,0 +1,22 @@
+{% assign_local c = "c-radio-button-group" %}
+<div class="{{ c }}">
+    <fieldset class="{{ c }}__group" onClick="validateInputGroup(this)" {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+        {% if label and label != '' %}
+            <legend class="{{ c }}__group__label">{{ label }}{% if required %} *{% endif %}</legend>
+        {% endif %}
+        <div class="{{ c }}__group__inputs {{ c }}__group__inputs--arrangement-{{ arrangement }}">
+            {% assign_local group_name = label | append: "-" | append: id %}
+            {% for item in radio_buttons %}
+                {% bookshop "generic/form/radio-input" bind:item required:required group_name:group_name id:radio_id %}
+            {% endfor %}
+        </div>
+
+    </fieldset>
+
+    {% if helper_text %}
+        {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+    {% endif %}
+
+    {% bookshop "generic/form/error-message" id={{ id }} %}
+
+</div>

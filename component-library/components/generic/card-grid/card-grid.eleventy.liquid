@@ -1,0 +1,32 @@
+{% assign_local c = "c-card-grid" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{c}} 
+            {% if _bookshop_name contains 'grid--image-cards' %}
+              {{c}}--image-cards
+            {% endif %}
+            {{ c }}--content-align-{{ styles.content_alignment }} 
+            component 
+            component--{{ styles.color_group }}">
+
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}{% bookshop "generic/heading" bind:content.heading %}{% endif %}
+            {% if content.description %}{% bookshop "generic/text-block" text:content.description %}{% endif %}
+        </div>
+    {% endif %}
+
+    {% if content.grid_items %}
+      <div class="{{c}}__grid">
+        {% for item in content.grid_items %}          
+          {% bookshop "generic/card" bind:item card_color_group:styles.card_color_group %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if content.buttons %}
+      <div class="{{c}}__buttons">
+        {% for button in content.buttons %}
+          {% bookshop "generic/button" bind:button disabled:false arrow:button.arrow %}
+        {% endfor % %}
+      </div>
+    {% endif %}
+</section>

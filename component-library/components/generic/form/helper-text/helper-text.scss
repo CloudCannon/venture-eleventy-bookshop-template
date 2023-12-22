@@ -1,0 +1,7 @@
+.c-helper-text {
+  display: flex;
+  gap: 8px;
+  font-size: var(--paragraph-small);
+  line-height: var(--line-height);
+  color: var(--main-text-color, #F9F9FB);
+}

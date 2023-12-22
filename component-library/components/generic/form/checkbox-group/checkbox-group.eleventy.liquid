@@ -1,0 +1,20 @@
+{% assign_local c = "c-checkbox-group" %}
+<div class="{{ c }}">
+    <fieldset class="{{ c }}__group" onClick="validateInputGroup(this)" {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+        {% if label and label != '' %}
+            <legend class="{{ c }}__group__label">{{ label }}</legend>
+        {% endif %}
+        <div class="{{ c }}__group__inputs {{ c }}__group__inputs--arrangement-{{ arrangement }}">
+            {% assign_local group_name = label | append: "-" | append: id %}
+            {% for item in checkboxes %}
+                {% bookshop "generic/form/checkbox-input" bind:item group_name:group_name %}
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    {% if helper_text %}
+        {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+    {% endif %}
+
+    {% bookshop "generic/form/error-message" id={{ id }} %}
+</div>

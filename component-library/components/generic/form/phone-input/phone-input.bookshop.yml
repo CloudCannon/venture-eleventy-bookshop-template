@@ -1,0 +1,29 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - form_blocks
+  label: "Phone Input"
+  description: Phone number input
+  icon: call
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  label: ""
+  placeholder: ""
+  id:
+  required: false
+  helper_text:
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  label: Phone number
+  placeholder: +64 21 859292
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'Please use your personal phone number'
+  id:
+    _instance_value: UUID
+    hidden: true

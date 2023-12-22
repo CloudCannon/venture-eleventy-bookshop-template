@@ -1,0 +1,14 @@
+{% if hero %}
+    {% bookshop {{hero._bookshop_name}} bind:hero %}
+{% elsif permalink != "/components/" %}
+    {% capture default_hero %}
+        content:
+            heading:
+                primary_heading: {{ title }}
+        styles:
+            content_alignment: center
+            color_group: "primary"
+    {% endcapture %}
+    {% assign default_hero = default_hero | ymlify %}
+    {% bookshop "sections/hero--simple" bind: default_hero %}
+{% endif %}

@@ -1,0 +1,185 @@
+---
+draft: false
+_schema: default
+title: Contact
+page_description:
+featured_image:
+  image_path:
+  image_alt:
+layout: layouts/page.html
+permalink: /contact/ 
+eleventyExcludeFromCollections: false
+hero:
+  _bookshop_name: sections/hero
+  content:
+    heading:
+      _bookshop_name: generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Contact us
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Add some description text to complement the block.
+    button:
+      _bookshop_name: generic/button
+      url: '#contact-form'
+      open_in_new_tab: false
+      text: Contact us
+      variant: primary
+      arrow: right
+      onclick:
+    image:
+      _bookshop_name: generic/image
+      image_path: /assets/images/Left-Right--featured-image.png
+      image_alt: Barber shop bench with tools sitting on it
+      image_sizes:
+  styles:
+    image_alignment: right
+    color_group: secondary0
+content_blocks:
+  - _bookshop_name: sections/form
+    content:
+      id: contact-form
+      heading:
+        _bookshop_name: generic/heading
+        eyebrow_headline: Eyebrow Heading
+        primary_heading: Contact us
+        eyebrow_headline_hierarchy: h3
+        primary_heading_hierarchy: h2
+      description: Invite your customers to get in touch with you.
+      form:
+        _bookshop_name: simple/form-builder
+        id:
+        form_submission_type: email/cloudcannon
+        inbox_key:
+        subject:
+        success_page: ''
+        form_elements:
+          - _bookshop_name: generic/form/text-input
+            label: Full name
+            placeholder: John Smith
+            id:
+            required: true
+            helper_text:
+          - _bookshop_name: generic/form/email-input
+            label: Email address
+            id:
+            required: true
+            placeholder: mybusiness@mybusiness.com
+            helper_text:
+          - _bookshop_name: generic/form/text-area-input
+            label: Message
+            placeholder: Leave your message here
+            id:
+            rows: 2
+            required: false
+            helper_text:
+        submit_button:
+          text: Submit
+          variant: primary
+          arrow: right
+    styles:
+      color_group: primary
+      content_alignment: center
+  - _bookshop_name: sections/image-cards
+    content:
+      id:
+      heading:
+        _bookshop_name: generic/heading
+        eyebrow_headline: Bite-sized information
+        primary_heading: An image card grid
+        eyebrow_headline_hierarchy: h3
+        primary_heading_hierarchy: h2
+      description: >-
+        These image cards combine a short written message and a strong visual
+        image.
+      grid_items:
+        - image:
+            _bookshop_name: generic/image
+            image_path: /assets/images/gallery/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg
+            image_alt: Three people at a table laughing and using their laptops
+            image_sizes:
+          heading:
+            _bookshop_name: generic/heading
+            eyebrow_headline: Eyebrow Heading
+            primary_heading: Primary Heading
+            eyebrow_headline_hierarchy: h3
+            primary_heading_hierarchy: h2
+          description: >-
+            These versatile cards can be used to talk about your services or
+            products, or anything else you are keen to share with your audience.
+          buttons: []
+        - image:
+            _bookshop_name: generic/image
+            image_path: /assets/images/gallery/brooke-cagle-X4RJG4aNi8o-unsplash.jpg
+            image_alt: Pouring milk into a coffee in a café
+            image_sizes:
+          heading:
+            _bookshop_name: generic/heading
+            eyebrow_headline: Eyebrow Heading
+            primary_heading: Primary Heading
+            eyebrow_headline_hierarchy: h3
+            primary_heading_hierarchy: h2
+          description: >-
+            These versatile cards can be used to talk about your services or
+            products, or anything else you are keen to share with your audience.
+          buttons: []
+        - image:
+            _bookshop_name: generic/image
+            image_path: /assets/images/gallery/brooke-cagle-WHWYBmtn3_0-unsplash.jpg
+            image_alt: Person smiling at laptop
+            image_sizes:
+          heading:
+            _bookshop_name: generic/heading
+            eyebrow_headline: Eyebrow Heading
+            primary_heading: Primary Heading
+            eyebrow_headline_hierarchy: h3
+            primary_heading_hierarchy: h2
+          description: >-
+            These versatile cards can be used to talk about your services or
+            products, or anything else you are keen to share with your audience.
+          buttons: []
+      buttons: []
+    styles:
+      color_group: secondary0
+      card_color_group: primary
+      content_alignment: center
+  - _bookshop_name: sections/left-right-contact
+    content:
+      show_note: true
+      id:
+      display_social_icons: true
+      heading: A contact block
+      description: >-
+        This is a simple yet powerful block to display not only your location by
+        using OpenStreetMaps, but also any other contact details you wish to share
+        with your customers.
+      contact_details:
+        - _type: Email
+          text: 'Email address: mybusiness@business.com'
+          hero_library_icon_name: envelope
+        - _type: Phone
+          text: 'Phone number: 312 325 326'
+          hero_library_icon_name: phone
+        - _type: Address
+          text: 'Address: 1 Fake St, Faketown'
+          hero_library_icon_name: map-pin
+        - _type: Hours
+          text: 'Opening hours: 9-5pm, Monday to Friday'
+          hero_library_icon_name: clock
+      map:
+        _bookshop_name: simple/map
+        latitude: -45.8715491
+        longitude: 170.5130604
+        zoom_level: 9
+      buttons:
+        - _bookshop_name: generic/button
+          url: '#contact-form'
+          open_in_new_tab: false
+          text: Contact us
+          variant: primary
+          arrow: right
+          onclick:
+    styles:
+      color_group: primary
+      image_alignment: left
+---

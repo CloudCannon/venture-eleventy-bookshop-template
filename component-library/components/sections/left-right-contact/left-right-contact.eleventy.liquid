@@ -1,0 +1,30 @@
+{% assign_local c = "c-left-right-block--featured-map" %}
+
+{%  assign featured_map_icons = "" %}
+
+{% capture heading %}
+  primary_heading: {{ content.heading }}
+{% endcapture %}
+{% assign_local heading = heading | ymlify %}
+
+{% for detail in content.contact_details %}
+  {% capture labelled-icon %}
+    - _bookshop_name: generic/labelled-icon
+      arrangement: inline
+      text: '{{ detail.text }}'
+      icon:
+        _bookshop_name: generic/hero-library-icon
+        hero_library_icon_name: {{ detail.hero_library_icon_name }}
+        icon_size: small
+        icon_type: outline
+        rounded_border: true
+        theme_color: true
+  {% endcapture %}
+  {%  assign featured_map_icons = featured_map_icons | append: labelled-icon %}
+{% endfor %}
+
+{% assign featured_map_icons = featured_map_icons | ymlify %}
+
+<section class="{{ c }}">
+  {% bookshop "generic/left-right-block" display_social_icons:content.display_social_icons show_social_icons_note:content.show_note heading:heading text:content.description icons:featured_map_icons buttons:content.buttons map:content.map image_alignment:styles.image_alignment color_group:styles.color_group %}
+</section>

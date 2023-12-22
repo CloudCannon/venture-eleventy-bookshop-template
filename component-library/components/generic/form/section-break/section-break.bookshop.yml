@@ -1,0 +1,21 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - form_blocks
+  label: "Form Section Break"
+  description: Provides a break in the form to separate sections
+  icon: density_large
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  line: false
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  line:
+    type: switch
+    comment: Add a dividing line to this form section break (otherwise will leave a blank space)

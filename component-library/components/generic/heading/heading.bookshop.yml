@@ -1,0 +1,40 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Heading"
+  description: Header text for your content
+  icon: view_headline
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  eyebrow_headline: Eyebrow Heading
+  primary_heading: Primary Heading
+  eyebrow_headline_hierarchy: h3
+  primary_heading_hierarchy: h2
+
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  eyebrow_headline: EYEBROW HEADLINE
+  primary_heading: A simple text block
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  eyebrow_headline_hierarchy:
+    hidden: true
+    type: select
+    options:
+      values:
+        - h2
+        - h3
+        - h4
+  primary_heading_hierarchy:
+    hidden: true
+    type: select
+    options:
+      values:
+        - h1
+        - h2
+        - h3
+        - h4

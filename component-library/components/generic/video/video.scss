@@ -1,0 +1,35 @@
+.c-video {
+
+	&__video-aspect-wrapper {
+		position: relative;
+		display: flex;
+		flex: 1 350px;
+	}
+
+	&__video {
+		height: 0;
+		padding-bottom: 56.25%;
+		width: 100%;
+		
+		iframe {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

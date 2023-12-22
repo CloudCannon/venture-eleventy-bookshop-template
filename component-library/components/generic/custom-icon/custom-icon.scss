@@ -1,0 +1,19 @@
+.c-custom-icon {
+  .c-image,
+  .c-image--live-editing,
+  picture {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  &--icon-default-color &__image {
+    background-image: var(--url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+  }
+}

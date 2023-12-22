@@ -1,0 +1,81 @@
+{% assign_local c = "c-navigation" %}
+<header class="c-header">
+    <nav class="{{c}} {{c}}--close {{c}}--{{nav.nav_color_group}}" aria-label="Main menu" id="main-menu">
+        <div class="{{c}}__skip-to-content-link" >
+            {% bookshop "generic/button"
+                url: '#main'
+                text: "Skip to contents"
+                variant: "primary"
+                arrow: "down"
+            %}
+        </div>
+
+        <div class="{{c}}__contents">                        
+            <div class="{{c}}__logo-block">
+                <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ nav.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
+                    {% if nav.logo_image != '' %}
+                        {% bookshop "generic/image" image_path:nav.nav_logo_image image_alt:"Site logo" _liveRender:false %}
+                    {% else %}
+                        <span class="{{c}}__logo-link__text">{{ nav.logo_text }}</span>
+                    {% endif %}
+                </a>
+                <button class="{{ c }}__burger-menu" id="main-menu-toggle" aria-label="Menu">
+                    <div class="{{ c }}__burger-menu__burger"></div>
+                </button>
+            </div>
+            <div class="{{ c }}__navlist--wrapper {{ c }}__navlist--wrapper-desktop">
+                <div class="{{c}}__navlist--overflow">
+                    <ul class="{{ c }}__navlist">
+                        {% for navitem in nav.navigation_items %}
+                            {% assign nav_item_with_slash = navitem.link_url | append: "/" %}
+                            {% if page.url == navitem.link_url or page.url == nav_item_with_slash %}
+                                <li class="{{ c }}__navlist__item {{ c }}__navlist__item--active" aria-current="page">
+                                    <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
+                                </li>
+                            {% else %}
+                                <li class="{{ c }}__navlist__item">
+                                    <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="{{ c }}__navlist--wrapper {{c}}__navlist--wrapper-mobile">
+                <div class="{{c}}__navlist--overflow">
+                    <ul class="{{ c }}__navlist">
+                        {% for navitem in nav.navigation_items %}
+                            {% assign nav_item_with_slash = navitem.link_url | append: "/" %}
+                            {% if page.url == navitem.link_url or page.url == nav_item_with_slash %}
+                                <li class="{{ c }}__navlist__item {{ c }}__navlist__item--active" aria-current="page">
+                                    <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
+                                </li>
+                            {% else %}
+                                <li class="{{ c }}__navlist__item">
+                                    <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="{{c}}__contents--top">
+                <div class="{{c}}__social-icons--overflow">
+                    <div class="{{ c }}__social-icons">
+                        {% capture social_icon_styles %}
+                            icon_background_hover_color: "var(--main-text-color)"
+                            icon_color: "var(--main-text-color)"
+                            icon_hover_color: "var(--main-background-color)"
+                        {% endcapture %}
+                        {% assign_local social_icons_style = social_icon_styles | ymlify %}
+                        {% bookshop "generic/social-icons" social_media_links:site.social_media_links style:social_icons_style _liveRender:false %}
+                    </div>                
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+    <div class="{{ c }}__placeholder"></div>
+</header>

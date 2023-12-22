@@ -1,0 +1,18 @@
+{% assign_local c = "c-select-input" %}
+<div class="{{ c }}">
+  <label class="{{ c }}__label" for="{{ id }}">{{ label }}</label>
+  <select class="{{ c }}__input"
+    name="{{ label }}"
+    id="{{ id }}"
+    {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+    {% for option in options %}
+        <option value="{{ option.name }}">{{ option.name }}</option>
+    {% endfor %}
+  </select>
+  <div class="{{ c }}__dropdown-arrow">{% bookshop "generic/hero-library-icon" hero_library_icon_name:"chevron-down" icon_type:"solid" icon_size:'extra-small' rounded_border:false color:'white' %}</div>
+
+  {% if helper_text %}
+    {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+  {% endif %}
+
+</div>

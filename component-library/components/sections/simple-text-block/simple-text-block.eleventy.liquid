@@ -1,0 +1,12 @@
+{%  assign_local c = 'c-simple-text-block' %}
+
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class='{{c}} component component--{{ styles.color_group }}'>
+
+{% if content.heading or content.text %}
+    <div class='{{c}}__content'>
+        {% bookshop "generic/heading" bind:content.heading %}
+        {% if content.text %}{% bookshop "generic/text-block" bind:content.text %}{% endif %}
+    </div>
+{% endif %}
+</section>

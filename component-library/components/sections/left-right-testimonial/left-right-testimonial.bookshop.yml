@@ -1,0 +1,47 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: "Testimonial"
+  description: Short statement, feedback or recommendation
+  icon: format_quote
+  tags: ['two column', 'image']
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  content:
+    id:
+    eyebrow_headline: What your customers say
+    quote: Their customer service is second to none.
+    author_name: John Smith
+    buttons: [bookshop:generic/button]
+    image: bookshop:generic/image!
+  styles:
+    color_group: "primary"
+    image_alignment: left
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  content:
+    eyebrow_headline: What your customers say
+    quote: "Their customer service is second to none."
+    author_name: John Smith
+    buttons:
+      - _bookshop_name: generic/button
+        url: "#"
+        open_in_new_tab: false
+        text: "Button text"
+        variant: "primary"
+        disabled: false
+        arrow: "right"
+        onclick:
+    image:
+      bookshop: generic/image
+      image_path: https://placekitten.com/300/500
+      image_alt: A cute kitten
+  styles:
+    color_group: "primary"
+    image_alignment: left
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:

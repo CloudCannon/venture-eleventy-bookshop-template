@@ -1,0 +1,50 @@
+:root {
+  /* Grid layout */
+  --twelve-column-grid: 1fr repeat(12, calc(min(96px, 7.78%))) 1fr;
+
+  /* Layouts */
+  --desktop-large: 1400px;
+  --desktop: 1279px;
+  --laptop: 1022px;
+  --tablet: 768px;
+  --mobile: 479px;
+
+  /* Type scale */
+  --heading-extra-large: 3.052rem;
+  --heading-large: 2.441rem;
+  --heading-medium: 1.953rem;
+  --heading-small: 1.563rem;
+  --eyebrow-heading: 1rem;
+  --paragraph-large: 1.25rem;
+  --paragraph: 1rem;
+  --paragraph-small: 0.8rem;
+  --label: 0.64rem;
+  --button: 1rem;
+  --line-height: normal;
+  --letter-spacing: 0;
+  --letter-spacing-wide: 0.25rem;
+  --font-weight-headings: 700;
+  --font-weight-body: 400;
+  --font-weight-bold: 700;
+
+  /* User editable theme fonts */
+  --heading-font: Lato;
+  --content-font: Lato;
+  --logo-font: Major Mono Display;
+
+  // Red - error
+  --error-color: #bf2323;
+
+  // Blue - interaction
+  --interaction-color: #2566f2;
+
+  // Gaps
+  --gap-extra-small: 4px;
+  --gap-small: 8px;
+  --gap-normal: 16px;
+  --gap-large: 24px;
+  --gap-extra-large: 48px;
+
+  // Misc
+  --nav-height: 1px;
+}

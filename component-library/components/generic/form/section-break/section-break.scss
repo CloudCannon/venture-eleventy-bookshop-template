@@ -1,0 +1,10 @@
+.c-form-section-break {
+    &__divider{
+        margin:1rem 0 0;
+        border: 1px solid transparent;
+        
+        &--line{
+            border-bottom: 1px solid var(--main-text-color);
+        }
+    }
+}

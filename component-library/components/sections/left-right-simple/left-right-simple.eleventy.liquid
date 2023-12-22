@@ -1,0 +1,5 @@
+{% assign_local c = "c-left-right-block--simple" %}
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }}">
+  {% bookshop "generic/left-right-block" heading:content.heading buttons:content.buttons text:content.description image:content.image image_alignment:styles.image_alignment color_group:styles.color_group image_padding:styles.image_padding %}
+</section>

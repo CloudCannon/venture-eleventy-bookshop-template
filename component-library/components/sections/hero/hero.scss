@@ -1,0 +1,108 @@
+.c-hero {
+  $c: &;    
+  height: calc(100svh - var(--nav-height));
+  padding:0;
+  display: grid;
+  grid-template-columns: var(--twelve-column-grid);
+  grid-template-rows: minmax(0, 1fr);
+  color: var(--main-text-color);
+  &__cover {
+    background-color: var(--main-background-color);
+    opacity:.4;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+  }
+  & .c-image,
+  .c-image--live-editing,
+  picture {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  &__content {
+    z-index:1;
+    display: grid;
+    gap: var(--gap-large);
+    grid-row: 1 / -1;
+    grid-column: 2 / -2;
+    align-self: center;
+    .c-heading__primary_heading {
+      text-wrap: pretty;
+      max-width: 20ch;
+    }
+    .c-text-block {
+      font-size: var(--paragraph-large);
+      text-wrap: balance;
+      max-width: 60ch; //recommended characters per line
+    }
+  }
+
+  // fix for small height screens
+  @media screen and (max-height: 400px){
+    height:auto;
+  }
+
+  &--left-right-variant {
+    grid-template-rows: auto minmax(0, 1fr);
+    row-gap: var(--gap-extra-large);
+    
+    #{$c}__content {
+      margin-top: 192px;
+      grid-row: 1 / 2;
+      border-left: solid 2px;
+      padding-left: 24px;
+    }
+    #{$c}__cover {
+      grid-row: 2 / 3;
+    }
+    & .c-image,
+    .c-image--live-editing,
+    picture {
+      grid-row: 2 / 3;
+    }
+
+    /* Desktop view */
+    @media screen and (min-width: 769px) {      
+      grid-template-rows: minmax(0, 1fr);
+      #{$c}__content {
+        margin-top:0;
+        grid-row: 1 / 2;
+        grid-column: 2 / 8;
+      }
+      #{$c}__cover {
+        grid-column: 9 / -1;
+        grid-row: 1 / 2;
+      }
+      & .c-image,
+      .c-image--live-editing,
+      picture {
+        grid-column: 9 / -1;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+
+  &--image-left {
+    /* Desktop view */
+    @media screen and (min-width: 769px) {
+      grid-template-rows: minmax(0, 1fr);
+      #{$c}__content {
+        grid-column: 9 / -2;
+        grid-row: 1 / 2;
+      }
+      #{$c}__cover {
+        grid-column: 1 / 8;
+        grid-row: 1 / 2;
+      }
+      & .c-image,
+      .c-image--live-editing,
+      picture {
+        grid-column: 1 / 8;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+}

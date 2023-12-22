@@ -1,0 +1,31 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Button"
+  description: Link to another location with the style of a button
+  icon: smart_button
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  url: "#"
+  open_in_new_tab: false
+  text: "Button text"
+  variant: "primary"
+  arrow: "right"
+  onclick: 
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  url: "#"
+  text: "Button text"
+  variant: "primary"
+  arrow: "right"
+  onclick: console.log(this)
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  onclick:
+    hidden: true
+  open_in_new_tab:
+    hidden: "!url"

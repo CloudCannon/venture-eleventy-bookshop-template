@@ -1,0 +1,69 @@
+.c-date-input {
+    display: grid;
+    gap: var(--gap-extra-small);
+    color: var(--main-text-color, #F9F9FB);
+
+    &__label {
+        font-size: var(--label);
+        line-height: var(--line-height);
+    }
+
+    &__input {
+        padding: 12px 48px;
+
+        @supports not selector(::-webkit-calendar-picker-indicator) {
+            padding: 12px 48px 12px 16px;
+        }
+
+        border-radius: 4px;
+        border: 2px solid;
+        position: relative;
+        background-color: transparent;
+        color: var(--main-text-color, #F9F9FB);
+        
+        &::placeholder {
+            opacity: 1;
+            color: #B6B6B8;
+        }
+
+        &:focus {
+            border: 2px solid var(--interaction-color, #2566F2);
+            outline: none;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+            background: transparent;
+            position: absolute;
+            inset: 0 0 0 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            width: auto;
+        }
+    }
+
+    &__icon, &__input, &__dropdown-arrow {
+        grid-row: 2;
+        grid-column: 1;
+        align-self: center;
+    }
+
+    &__icon {
+        pointer-events: none;
+        justify-self: start;
+        margin-left: 16px;
+    }
+
+    @supports not selector(::-webkit-calendar-picker-indicator) {
+        &__icon {
+            display: none;
+        }
+    }
+
+    &__dropdown-arrow {
+        pointer-events: none;
+        justify-self: end;
+        margin-right: 16px;
+    }
+
+}

@@ -1,0 +1,7 @@
+<div class="c-notification">
+    {% bookshop "generic/hero-library-icon" hero_library_icon_name:"information-circle" icon_type:"solid" icon_size:"small" rounded_border:false color:"var(--notification-text-color, #163D91)" %}
+    <div class="c-notification__text">
+        {% if heading %}<p class="c-notification__text__heading">{{ heading }}</p>{% endif %}
+        {% if text %}<p>{{ text }}</p>{% endif %}
+    </div>
+</div>

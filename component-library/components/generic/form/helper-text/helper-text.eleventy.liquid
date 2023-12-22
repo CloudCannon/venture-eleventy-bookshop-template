@@ -1,0 +1,6 @@
+{% assign_local c = "c-helper-text" %}
+
+<div class="{{ c }}">
+    {% bookshop "generic/hero-library-icon" hero_library_icon_name:"information-circle" icon_type:"outline" icon_size:'extra-small' rounded_border:false color:'var(--primary-foreground-color, #F9F9FB)' %}
+    <p class="{{ c }}__helper__text" id="{{ id }}--helper" role="tooltip">{{ helper_text }}<p>
+</div>

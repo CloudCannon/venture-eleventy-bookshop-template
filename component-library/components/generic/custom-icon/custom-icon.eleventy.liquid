@@ -1,0 +1,27 @@
+{% assign_local c = "c-hero-library-icon" %}
+{% assign_local this_c = "c-custom-icon" %}
+
+<span class="{{ this_c }} {{ c }} {{ c }}--{{ icon_size }} 
+    {% if default_color %}
+        {{this_c}}--icon-default-color 
+    {% else %}
+        {{ c }}--{{ icon_type }}
+    {% endif %} 
+
+    {% if rounded_border %}
+        {{c}}--round
+    {% endif %}
+    
+    {% if no_border %}
+        {{c}}--no-border
+    {% endif %}" 
+    
+    style="--c-hero-library-icon-color: {% if theme_color %}var(--main-text-color, #F9F9FB){% elsif color %}{{ color }}{% else %}var(--dynamic-fill-color, #F9F9FB);{% endif %}">
+    {% if icon_path contains '.svg' and env_bookshop_live %}
+        <span class="{{ c }}__image {{ this_c }}__image" style="--url: url('{{ icon_path }}')"></span>
+    {% elsif icon_path contains '.svg' %}
+         {{ '/src' | append: icon_path  | svgContents: "c-hero-library-icon__svg" }}
+    {% else %}
+        {% bookshop "generic/image" image_path:icon_path image_alt:'' %}
+    {% endif %}
+</span>

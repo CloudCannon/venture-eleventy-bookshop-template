@@ -1,0 +1,14 @@
+{% assign_local c = "c-hero--simple" %}
+<section class="{{ c }} {{ c }}--content-align-{{ styles.content_alignment }} component component--{{ styles.color_group }}">
+        {% capture heading %}
+            eyebrow_headline: {{content.heading.eyebrow_headline}}
+            eyebrow_headline_hierarchy: "h2"
+            primary_heading: {{content.heading.primary_heading}}
+            primary_heading_hierarchy: "h1"
+        {% endcapture %}
+        {% assign_local heading = heading | ymlify %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}{% bookshop "generic/heading" bind:heading %}{% endif %}
+            {% if content.description %}{% bookshop "generic/text-block" text:content.description %}{% endif %}
+        </div>
+</section>

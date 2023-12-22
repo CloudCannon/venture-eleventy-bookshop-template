@@ -1,0 +1,22 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Error message"
+  description: Display an error message
+  icon: x-circle
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  error_message: Error message
+  id:
+
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  error_message: Error message
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  id:
+    hidden: true

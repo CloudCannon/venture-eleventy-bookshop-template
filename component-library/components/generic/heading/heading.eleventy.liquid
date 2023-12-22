@@ -1,0 +1,19 @@
+{% assign_local c = "c-heading" %}
+
+<header class="{{ c }}">
+  {% if primary_heading %}
+    <{{primary_heading_hierarchy | default: "h2"}} class="{{ c }}__primary_heading">
+      {{ primary_heading }}
+    </{{primary_heading_hierarchy | default: "h2"}}>
+  {% endif %}
+
+  {% if eyebrow_headline and primary_heading %}
+    <{{eyebrow_headline_hierarchy | default: "h3"}} class="{{ c }}__eyebrow_heading">
+      {{ eyebrow_headline }}
+    </{{eyebrow_headline_hierarchy | default: "h3"}}>
+  {% elsif eyebrow_headline %}
+    <{{primary_heading_hierarchy | default: "h2"}} class="{{ c }}__eyebrow_heading">
+      {{ eyebrow_headline }}
+    </{{primary_heading_hierarchy | default: "h2"}}>
+  {% endif %}
+</header>

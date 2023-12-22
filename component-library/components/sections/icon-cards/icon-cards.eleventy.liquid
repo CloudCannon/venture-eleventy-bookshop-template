@@ -1,0 +1,56 @@
+{% assign grid_items = "" %} 
+{% assign card_primary_heading_hierarchy = "h2" %}
+{% assign card_eyebrow_headline_hierarchy = "h3" %}
+{% if content.heading.primary_heading and content.heading.eyebrow_headline %}
+    {% assign card_primary_heading_hierarchy = "h4" %}
+    {% assign card_eyebrow_headline_hierarchy = "h5" %}
+{% elsif content.heading.primary_heading or content.heading.eyebrow_headline %}
+    {% assign card_primary_heading_hierarchy = "h3" %}
+    {% assign card_eyebrow_headline_hierarchy = "h4" %}
+{% endif %}
+
+{% for item in content.grid_items %}
+    {% if item.icon.hero_library_icon_name %}
+        {% capture imagery %}
+            _bookshop_name: generic/hero-library-icon
+            hero_library_icon_name: {{ item.icon.hero_library_icon_name }}
+            icon_size: small
+            icon_type: {{ item.icon.icon_type }}
+            rounded_border: false
+            theme_color: true
+        {% endcapture %}
+    {% else %}
+        {% capture imagery %}
+            _bookshop_name: generic/custom-icon
+            icon_path: {{ item.icon.icon_path }}
+            icon_size: small
+            icon_type: {{ item.icon.icon_type }}
+            rounded_border: false
+            theme_color: true
+        {% endcapture %}
+    {% endif %}
+    {% assign imagery = imagery | ymlify %}
+    {% capture card %}
+        - content:
+            id: {{ content.id }}
+            imagery: {{ imagery | json }}
+            heading: 
+                eyebrow_headline: {{item.heading.eyebrow_headline}}
+                eyebrow_headline_hierarchy: {{ card_eyebrow_headline_hierarchy }}
+                primary_heading: {{item.heading.primary_heading}}
+                primary_heading_hierarchy: {{ card_primary_heading_hierarchy }}
+            description: "{{ item.description }}"
+            buttons: {{ item.buttons | json }}
+    {% endcapture %}
+    {% assign grid_items = grid_items | append: card %}
+{% endfor %}
+
+{% capture card_grid_content %}
+    heading: {{ content.heading | json }}
+    description: "{{ content.description }}"
+    grid_items: {{ grid_items }}
+    buttons: {{ content.buttons | json }}
+{% endcapture %}
+{% assign_local card_grid_content = card_grid_content | ymlify %}
+
+{% bookshop "generic/card-grid" content:card_grid_content styles:styles %}

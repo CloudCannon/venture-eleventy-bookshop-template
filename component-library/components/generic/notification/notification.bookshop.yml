@@ -1,0 +1,19 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+  label: "Notification"
+  description: Notify the user about some information (usually the editor while live editing)
+  icon: help
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  styles:
+    color_group: "primary"
+  heading: "Hello World!"
+  text: "Hello World!"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint

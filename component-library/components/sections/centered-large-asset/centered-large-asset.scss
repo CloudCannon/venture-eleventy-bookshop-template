@@ -1,0 +1,31 @@
+.c-centered-large-asset {
+    color: var(--main-text-color);
+    display: grid;
+    grid-template-columns: var(--twelve-column-grid);
+    row-gap: var(--gap-extra-large);
+    align-items: center;
+    text-align: center;
+
+    &__heading, &__asset {
+        grid-column: 2 / -2;
+    }
+
+    &__button {
+        grid-column: 2 / -2;
+    }
+
+    /* Desktop view */
+    @media screen and (min-width: 769px) {
+        &__heading {
+            grid-column: 4 / -4;
+
+            .c-text-block {
+                max-width: 36rem;
+            }
+        }
+
+        &__asset {
+            grid-column: 3 / -3;
+        }
+    }
+}

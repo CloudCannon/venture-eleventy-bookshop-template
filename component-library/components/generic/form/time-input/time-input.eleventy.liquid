@@ -1,0 +1,21 @@
+{% assign_local c = "c-time-input" %}
+<div class="{{ c }}">
+    <label class="{{ c }}__label" for="{{ id }}">{{ label }}</label>
+    <input class="{{ c }}__input"
+        type="time" id="{{ id }}" 
+        name="{{ label }}" 
+        value="{{ placeholder }}"
+        {% if min %}min="{{ min | militaryTime }}"{% endif %}
+        {% if max %}max="{{ max | militaryTime }}"{% endif %}
+        onblur="validateInput(this)"
+        oninput="validateInputTyping(this)"
+        {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+    <div class="{{ c }}__icon">{% bookshop "generic/hero-library-icon" hero_library_icon_name:"clock" icon_type:"outline" icon_size:'extra-small' rounded_border:false color:'white' %}</div>
+    <div class="{{ c }}__dropdown-arrow">{% bookshop "generic/hero-library-icon" hero_library_icon_name:"chevron-down" icon_type:"outline" icon_size:'extra-small' rounded_border:false color:'white' %}</div>
+
+    {% if helper_text %}
+        {% bookshop "generic/form/helper-text" id={{ id }} helper_text={{ helper_text }} %}
+    {% endif %}
+
+    {% bookshop "generic/form/error-message" id={{ id }} %}
+</div>

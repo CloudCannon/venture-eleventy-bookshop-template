@@ -1,0 +1,7 @@
+{% assign_local c = "c-text-block" %}
+
+{% if text %}
+    <div class="{{ c }}">    
+        {{ text | markdownify }}
+    </div>
+{% endif %}

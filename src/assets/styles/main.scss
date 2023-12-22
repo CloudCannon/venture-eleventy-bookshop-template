@@ -1,0 +1,54 @@
+@import "reset.scss";
+@import "variables.scss";
+@import "color_groups.scss";
+@import "nav.scss";
+@import "footer.scss";
+@import "component-browser.scss";
+@import "leaflet.scss";
+
+body {
+  display: grid;
+  grid-template-columns: var(--twelve-column-grid);
+  min-height: 100svh;
+  grid-template-rows: auto 1fr auto;
+  font-family: var(--content-font), Lato, sans-serif;
+  color: var(--main-text-color, #F9F9FB);
+  background-color: var(--main-background-color, #3B3B3D);
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--heading-font), Lato, serif;
+  }
+}
+
+header,
+footer,
+main {
+  grid-column: 1 / -1;
+}
+
+// Default styles applied to all components
+// Component-specific styles are defined within their component directory
+.component {
+  padding: 96px 0px;
+
+  &--full-height {
+    padding: 0;
+  }
+
+  .component__heading{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: inherit;
+
+    .c-text-block > p{
+      font-size: var(--paragraph-large);
+    }
+  }
+}

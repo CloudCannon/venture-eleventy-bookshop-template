@@ -1,0 +1,23 @@
+.c-simple-text-block {
+    display: grid;
+    grid-template-columns: var(--twelve-column-grid);
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        grid-column: 2 / -2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--gap-extra-large);
+        align-self: stretch;               
+    }
+
+    /* Desktop view */
+    @media screen and (min-width: 769px ) {
+        &__content {
+            grid-column: 4 / -4;
+        }
+    }
+}

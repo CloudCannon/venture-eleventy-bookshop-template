@@ -1,0 +1,26 @@
+{% assign google_fonts = '' | split: '' %}
+{% assign google_fonts = google_fonts | push: "Lato" %}
+{% assign google_fonts = google_fonts | push: theme.heading_font %}
+{% assign google_fonts = google_fonts | push: theme.content_font %}
+{% if nav.logo_image == '' %}{% assign google_fonts = google_fonts | push: theme.logo_font %}{% endif %}
+
+{% assign google_fonts = google_fonts | uniq %}
+{% assign count = 0 %}
+{% assign font_string = '' %}
+
+{% for font in google_fonts %}
+  {% assign stripped_font = font | replace: ' ', '+' %}
+  {% assign stripped_font = stripped_font | append: ':wght@400;700' %}
+  {% if forloop.last %}
+    {% assign font_string = font_string | append: stripped_font %}
+  {% else %}
+    {% assign font_string = font_string | append: stripped_font | append: '&family=' %}
+  {% endif %}
+  {% assign count = count | plus: 1 %}
+{% endfor %}
+
+{% if count > 1 %}
+  {% assign font_string = font_string | append: '&display=swap' %}
+{% endif %}
+
+<link href="https://fonts.bunny.net/css2?family={{ font_string }}" rel="stylesheet"> 

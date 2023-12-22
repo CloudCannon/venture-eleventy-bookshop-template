@@ -1,0 +1,29 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - form_blocks
+  label: "Email Input"
+  description: Email address input
+  icon: mail_outline
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  label: ""
+  id:
+  required: false
+  placeholder:
+  helper_text:
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  label: Email
+  placeholder: mybusiness@smallbusiness.com
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'Please use your personal email address'
+  id:
+    _instance_value: UUID
+    hidden: true

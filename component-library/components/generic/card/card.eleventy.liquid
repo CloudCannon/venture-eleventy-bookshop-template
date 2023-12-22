@@ -1,0 +1,30 @@
+{%  assign_local c = 'c-card' %}
+<div class="{{c}} component component--full-height
+    {% if content.imagery._bookshop_name == 'generic/image' %} 
+        {{ c }}--image 
+    {% elsif content.imagery._bookshop_name == 'generic/hero-library-icon' or content.imagery._bookshop_name == 'generic/custom-icon' %} 
+        {{ c }}--icon 
+    {% endif %}
+    component--{{ card_color_group }}">
+
+    {% if content.imagery %}
+        <div class="{{ c }}__imagery">
+            {% bookshop "{{content.imagery._bookshop_name}}" bind:content.imagery %}
+        </div>
+    {% endif %}
+
+    <div class="{{ c }}__content-wrapper">
+        {% if content.heading %}
+            {% bookshop "generic/heading" bind:content.heading %}
+        {% endif %}
+
+        {% if content.description %}<div class="{{c}}__content">{% bookshop "generic/text-block" text:content.description %}</div>{% endif %}
+        {% if content.buttons and content.buttons.size > 0 %}
+            {% for button in content.buttons %}
+                <div class="{{ c }}__button">
+                    {% bookshop "generic/button" bind:button %}
+                </div>
+            {% endfor %}            
+        {% endif %}
+    </div>
+</div>

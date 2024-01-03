@@ -77,6 +77,9 @@ css_string_component += `--main-text-color : ${primary_color.foreground_color};\
 css_string_component += `--interaction-color : ${primary_color.interaction_color};\n`
 css_string_component += `}\n`
 
+css_string_nav = addColorDefinitions(css_string_nav, 'primary')      
+css_string_footer = addColorDefinitions(css_string_footer, 'primary') 
+
 config['_inputs']['color_group']['options']['values'].push({id: 'primary', name: primary_color.name})
 
 /* 

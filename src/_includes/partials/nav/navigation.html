@@ -13,7 +13,7 @@
         <div class="{{c}}__contents">                        
             <div class="{{c}}__logo-block">
                 <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ nav.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
-                    {% if nav.logo_image != '' %}
+                    {% if nav.nav_logo_image and nav.nav_logo_image != '' %}
                         {% bookshop "generic/image" image_path:nav.nav_logo_image image_alt:"Site logo" _liveRender:false %}
                     {% else %}
                         <span class="{{c}}__logo-link__text">{{ nav.logo_text }}</span>

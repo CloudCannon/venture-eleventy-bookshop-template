@@ -2,7 +2,7 @@
 
 <footer class="{{ c }} {{ c }}--{{ footer.footer_color_group }}">
     <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ footer.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
-        {% if footer.logo_image != '' %}
+        {% if footer.footer_logo_image and footer.footer_logo_image != '' %}
             {% bookshop "generic/image" image_path:footer.footer_logo_image image_alt:"Site logo" _liveRender:false  %}
         {% else %}
             <p class="{{c}}__logo-link__text">{{ footer.logo_text }}</p>

@@ -2,7 +2,7 @@
 {% assign google_fonts = google_fonts | push: "Lato" %}
 {% assign google_fonts = google_fonts | push: theme.heading_font %}
 {% assign google_fonts = google_fonts | push: theme.content_font %}
-{% if nav.logo_image == '' %}{% assign google_fonts = google_fonts | push: theme.logo_font %}{% endif %}
+{% if nav.nav_logo_image == '' %}{% assign google_fonts = google_fonts | push: theme.logo_font %}{% endif %}
 
 {% assign google_fonts = google_fonts | uniq %}
 {% assign count = 0 %}

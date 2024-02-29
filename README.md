@@ -4,7 +4,7 @@ Venture is a polished, marketing website template for Eleventy. Browse through a
 
 ![Small business template screenshot](/src/assets/images/_screenshot.png)
 
-[![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register#sites/connect/github/CloudCannon/small-business-template-eleventy)
+[![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register/#sites/connect/github/cloudcannon/venture-eleventy-bookshop-template)
 
 ## Features
 

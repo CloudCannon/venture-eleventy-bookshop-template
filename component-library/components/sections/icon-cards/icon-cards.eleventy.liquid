@@ -46,6 +46,7 @@
 {% endfor %}
 
 {% capture card_grid_content %}
+    id: {{ content.id }}
     heading: {{ content.heading | json }}
     description: "{{ content.description }}"
     grid_items: {{ grid_items }}

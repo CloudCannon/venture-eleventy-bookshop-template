@@ -7,7 +7,7 @@ custom_color_groups:
   - name: Secondary
     background_color: '#1b1b1d'
     foreground_color: '#d9d9dc'
-    interation_color: '#2566f2'
+    interaction_color: '#2566f2'
 heading_font: Lato
 content_font: Lato
 logo_font: Major Mono Display

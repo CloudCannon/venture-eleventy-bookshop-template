@@ -92,9 +92,9 @@ See [this blog](https://cloudcannon.com/blog/automatically-optimize-your-images-
 
 ## Embedding content
 
-- The "Embed" component is built to be generic and support any embed, however we cannot guarantee it will work seemlessly with all embeddable content.
+- The "Embed" component is built to be generic and support any embed, however we cannot guarantee it will work seamlessly with all embeddable content.
 - We recommend using other components to check if they can meet your requirements first.
-- We have succesfully tested the following embeds:
+- We have successfully tested the following embeds:
     - Google forms
     - Hubspot forms
     - Instagram

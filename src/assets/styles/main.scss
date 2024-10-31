@@ -1,10 +1,10 @@
-@import "reset.scss";
-@import "variables.scss";
-@import "color_groups.scss";
-@import "nav.scss";
-@import "footer.scss";
-@import "component-browser.scss";
-@import "leaflet.scss";
+@use "reset.scss";
+@use "variables.scss";
+@use "color_groups.scss";
+@use "nav.scss";
+@use "footer.scss";
+@use "component-browser.scss";
+@use "leaflet.scss";
 
 body {
   display: grid;

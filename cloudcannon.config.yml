@@ -1,41 +1,35 @@
 source: src
 paths:
-  data: _data
-  collections: ''
-  layouts: _includes
-  static: ''
+  static: ""
   uploads: assets/uploads
-  includes: _includes
-  pages: ''
 collections_config:
   data:
     path: _data
-    output: false
-    icon: insert_chart_outlined
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
+    icon: data_usage
+    disable_url: true
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
   pages:
     path: pages
-    output: true
-    filter:
-      base: strict
-      exclude:
-        - 404.html
-        - components.html
-    icon: description
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
+    glob:
+      - "!components.html"
+    icon: wysiwyg
     schemas:
       default:
-        path: src/schemas/page.html
+        path: .cloudcannon/schemas/page.html
+data_config:
+  fonts:
+    path: _data/fonts.yml
+  color_groups:
+    path: _data/color_groups.yml
 _inputs:
   favicon:
     type: image
   arrow:
     type: select
     options:
+      value_key: id
       values:
         - name: Up
           id: up
@@ -47,12 +41,13 @@ _inputs:
           id: left
   color:
     comment: >-
-      Choose a custom icon color (if the icon is an svg) and rounded border
-      color (if one is included)
+      Choose a custom icon color (if the icon is an SVG) and rounded border
+      color (if one is included).
   icon_size:
     type: choice
     options:
       allow_empty: false
+      value_key: id
       values:
         - name: Small
           id: small
@@ -61,15 +56,16 @@ _inputs:
   default_color:
     comment: >-
       Use the original colors of the icon without overriding them (does not
-      apply to the border if one is included)
+      apply to the border if one is included).
     type: checkbox
   icon_type:
     comment: >-
       Choose outline if you want lines to be filled with color and solid if you
-      want the whole image filled with color
+      want the whole image filled with color.
     type: choice
     options:
       allow_empty: false
+      value_key: id
       values:
         - name: Solid
           id: solid
@@ -80,6 +76,7 @@ _inputs:
   variant:
     type: select
     options:
+      value_key: id
       values:
         - name: Primary
           id: primary
@@ -87,8 +84,9 @@ _inputs:
           id: secondary
   arrangement:
     type: select
-    comment: The layout of the icon and text together
+    comment: The layout of the icon and text together.
     options:
+      value_key: id
       values:
         - name: Inline
           id: inline
@@ -98,6 +96,7 @@ _inputs:
     type: choice
     options:
       allow_empty: false
+      value_key: id
       values:
         - name: Left
           id: left
@@ -111,15 +110,15 @@ _inputs:
     hidden: true
   draft:
     type: switch
-    comment: If this is switched on, this page will not appear on the live site
+    comment: If this is switched on, this page will not appear on the live site.
   page_description:
-    comment: If empty, defaults to the description set in the SEO data file
+    comment: If empty, defaults to the description set in the SEO data file.
   featured_image:
-    comment: If empty, defaults to the image set in the SEO data file
+    comment: If empty, defaults to the image set in the SEO data file.
   nav_logo_image:
     comment: >-
       If an image is uploaded it will be used over a name set in the logo text
-      field
+      field.
   logo_text:
     comment: >-
       If an image is set in the logo image field, this value will not be used.
@@ -127,8 +126,8 @@ _inputs:
   footer_logo_image:
     comment: >-
       If an image is uploaded it will be used over a name set in the logo text
-      field.       Please note, the footer image has a fixed width size but not
-      a fixed height
+      field. Please note, the footer image has a fixed width size but not a
+      fixed height.
   footer_content:
     type: markdown
     options:
@@ -142,7 +141,7 @@ _inputs:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here
+      access it here.
   description:
     type: markdown
     options:
@@ -188,87 +187,90 @@ _inputs:
           - key: name
         icon:
           - key: icon
-      values:
-        - &ref_0
-          id: primary
-          name: Primary
-        - &ref_1
-          name: Secondary
-          id: secondary0
+      values: data.color_groups
   card_color_group:
     comment: >-
       Choose the color group for the cards in this grid. It is recommended to
       choose a color group different than that of the whole component.
     type: select
     options:
-      values:
-        - *ref_0
-        - *ref_1
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values: data.color_groups
   group_name:
     hidden: true
     comment: >-
       This input should be hidden from editors and passed through from the
-      radio-group component so that these inputs function correctly
+      radio-group component so that these inputs function correctly.
   nav_color_group:
-    comment: Choose the color group for the navigation header
+    comment: Choose the color group for the navigation header.
     type: select
     options:
-      values:
-        - *ref_0
-        - *ref_1
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values: data.color_groups
   footer_color_group:
-    comment: Choose the color group for the footer
+    comment: Choose the color group for the footer.
     type: select
     options:
-      values:
-        - *ref_0
-        - *ref_1
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values: data.color_groups
   primary_color_group:
-    comment: The default color group for styling site components
+    comment: The default color group for styling site components.
   primary_color_group.name:
-    comment: Change the name of the default color group to easily identify it later
+    comment: Change the name of the default color group to easily identify it later.
     label: Group Name
   primary_color_group.background_color:
-    comment: The background color of site components
+    comment: The background color of site components.
   primary_color_group.foreground_color:
-    comment: The color of text, icons and borders
+    comment: The color of text, icons and borders.
     label: Text Color
   primary_color_group.interaction_color:
     comment: >-
       The color for user interactions, for example focusing on text inputs or
-      clicking buttons
+      clicking buttons.
   custom_color_groups:
-    comment: Define different color groups here to easily style site components
+    comment: Define different color groups here to easily style site components.
   custom_color_groups[*].name:
-    comment: Give your color group a name to easily identify it later
+    comment: Give your color group a name to easily identify it later.
     label: Group Name
   custom_color_groups[*].background_color:
-    comment: The background color of site components
+    comment: The background color of site components.
   custom_color_groups[*].foreground_color:
-    comment: The color of text, icons and borders
+    comment: The color of text, icons and borders.
     label: Text Color
   custom_color_groups[*].interaction_color:
     comment: >-
       The color for user interactions, for example focusing on text inputs or
-      clicking buttons
+      clicking buttons.
   id:
     comment: >-
       An optional unique identifier to link to this component (with page#id
-      where id is what you set in this field)
+      where id is what you set in this field).
   heading_font:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here
+      access it here.
   content_font:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here
+      access it here.
   hero_library_icon_name:
     comment: >-
       Visit [https://heroicons.com/](https://heroicons.com/) to see the full
-      library
+      library.
     type: select
     options:
       values:
@@ -567,20 +569,15 @@ _inputs:
   hero:
     comment: >-
       If a hero is not explicitly included, the default is to display the page
-      title
+      title.
     type: object
     options:
       structures: _structures.hero_blocks
   show_note:
     type: switch
     comment: >-
-      Hide/Show the note that contains helpful information about the live
-      editing of this component
-_select_data: {}
+      Hide/show the note that contains helpful information about the live
+      editing of this component.
 _structures:
   content_blocks:
     style: modal
-_editables: {}
-data_config:
-  fonts: true
-timezone: Etc/UTC

@@ -107,10 +107,11 @@ h6 {
   --nav-height: 1px;
 }
 
+/* Generated with fetch-theme-variables.js */
 :root {
   --secondary0__background: #1b1b1d;
   --secondary0__foreground: #d9d9dc;
-  --secondary0__interaction: undefined;
+  --secondary0__interaction: #2566f2;
 }
 
 .component {
@@ -135,6 +136,11 @@ h6 {
   --main-background-color: #1B1B1D;
   --main-text-color: #D9D9DC;
 }
+.c-navigation--primary {
+  --main-background-color: var(--primary__background);
+  --main-text-color: var(--primary__foreground);
+  --interaction-color: var(--primary__interaction);
+}
 .c-navigation--secondary0 {
   --main-background-color: var(--secondary0__background);
   --main-text-color: var(--secondary0__foreground);
@@ -144,6 +150,11 @@ h6 {
 .c-footer {
   --main-background-color: #1B1B1D;
   --main-text-color: #D9D9DC;
+}
+.c-footer--primary {
+  --main-background-color: var(--primary__background);
+  --main-text-color: var(--primary__foreground);
+  --interaction-color: var(--primary__interaction);
 }
 .c-footer--secondary0 {
   --main-background-color: var(--secondary0__background);

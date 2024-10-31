@@ -47,6 +47,8 @@ data_config:
     path: _data/fonts.yml
   color_groups:
     path: _data/color_groups.yml
+  site:
+    path: _data/site.yml
 _inputs:
   favicon:
     type: image

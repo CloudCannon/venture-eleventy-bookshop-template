@@ -3,13 +3,6 @@ paths:
   static: ""
   uploads: assets/uploads
 collections_config:
-  data:
-    path: _data
-    icon: data_usage
-    disable_url: true
-    disable_add: true
-    disable_add_folder: true
-    disable_file_actions: true
   pages:
     path: pages
     glob:
@@ -18,6 +11,13 @@ collections_config:
     schemas:
       default:
         path: .cloudcannon/schemas/page.html
+  data:
+    path: _data
+    icon: data_usage
+    disable_url: true
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
 data_config:
   fonts:
     path: _data/fonts.yml

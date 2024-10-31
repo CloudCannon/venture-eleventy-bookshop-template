@@ -8,17 +8,16 @@ spec:
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  show_note: true
   social_media_links:
     - link_url: https://www.youtube.com/
       icon_path: /assets/images/icons/social/youtube.svg
-      label: Youtube
+      label: YouTube
     - link_url: https://www.facebook.com/
       icon_path: /assets/images/icons/social/facebook.svg
       label: Facebook
     - link_url: https://www.linkedin.com/
       icon_path: /assets/images/icons/social/linkedin.svg
-      label: LinekdIn
+      label: LinkedIn
     - link_url: https://www.twitter.com/
       icon_path: /assets/images/icons/social/x.svg
       label: Twitter
@@ -32,17 +31,16 @@ blueprint:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
-  show_note: true
   social_media_links:
     - link_url: https://www.youtube.com/
       icon_path: /assets/images/icons/social/youtube.svg
-      label: Youtube
+      label: YouTube
     - link_url: https://www.facebook.com/
       icon_path: /assets/images/icons/social/facebook.svg
       label: Facebook
     - link_url: https://www.linkedin.com/
       icon_path: /assets/images/icons/social/linkedin.svg
-      label: LinekdIn
+      label: LinkedIn
     - link_url: https://www.twitter.com/
       icon_path: /assets/images/icons/social/x.svg
       label: Twitter
@@ -64,6 +62,7 @@ _inputs:
             value:
               link_url:
               icon_path:
+              label:
             _inputs:
               icon_path:
                 type: image

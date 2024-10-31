@@ -2,7 +2,7 @@ base_url: http://example.com
 social_media_links:
   - link_url: https://www.youtube.com/
     icon_path: /assets/images/icons/social/youtube.svg
-    label: Youtube
+    label: YouTube
   - link_url: https://www.facebook.com/
     icon_path: /assets/images/icons/social/facebook.svg
     label: Facebook

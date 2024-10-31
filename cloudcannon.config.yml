@@ -7,12 +7,15 @@ collections_config:
     path: pages
     glob:
       - "!components.html"
+      - "!404.html"
     icon: wysiwyg
     schemas:
       default:
         path: .cloudcannon/schemas/page.html
   data:
     path: _data
+    glob:
+      - "!color_groups.yml"
     icon: data_usage
     disable_url: true
     disable_add: true

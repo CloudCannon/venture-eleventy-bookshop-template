@@ -18,7 +18,7 @@ blueprint:
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
   label: Email
-  placeholder: mybusiness@smallbusiness.com
+  placeholder: mybusiness@example.com
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:

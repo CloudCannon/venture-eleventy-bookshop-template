@@ -8,9 +8,9 @@ spec:
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  id: 
+  id:
   form_submission_type: email/cloudcannon
-  inbox_key: 
+  inbox_key:
   subject:
   success_page: ""
   form_elements: [bookshop:structure:form_blocks]
@@ -34,7 +34,7 @@ preview:
       id: email
       label: Email
       required: false
-      placeholder: mybusiness@smallbusiness.com
+      placeholder: mybusiness@example.com
       helper_text: Your personal email
     - _bookshop_name: generic/form/phone-input
       label: Phone number
@@ -98,7 +98,7 @@ preview:
       helper_text: The date cannot be in the past
     - _bookshop_name: generic/form/time-input
       label: Choose a time slot
-      placeholder: '15:00'
+      placeholder: "15:00"
       id: time
       min: 9:00 am
       max: 3:00 pm
@@ -141,7 +141,7 @@ _inputs:
     type: disabled
   success_page:
     type: url
-    comment:  The page to redirect to after submission
+    comment: The page to redirect to after submission
   inbox_key:
     comment: The key that you configured for your cloudcannon inbox. If not set it will go to the default inbox you set up. Instructions for setting up an inbox key can be found [here](https://cloudcannon.com/documentation/articles/creating-an-inbox-to-receive-your-forms/).
   subject:

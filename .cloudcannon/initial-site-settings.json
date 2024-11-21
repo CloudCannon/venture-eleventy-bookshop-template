@@ -1,14 +1,18 @@
 {
-  "ssg": "eleventy",
-  "build_configuration": {
-    "preserved_paths": "node_modules/,_site/optimized/",
-    "environment_variables": [],
-    "config": "",
-    "formats": "",
-    "input": "",
-    "output": "_site",
-    "pathprefix": "",
-    "quiet": false,
-    "manage_plugin_manually": false
-  }
+	"ssg": "eleventy",
+	"mode": "hosted",
+	"build": {
+		"install_command": "npm i",
+		"build_command": "npm run build",
+		"output_path": "_site",
+		"environment_variables": [],
+		"preserved_paths": "node_modules/,_site/,css/",
+		"preserve_output": true,
+		"include_git": false,
+		"manually_configure_urls": false,
+		"hugo_version": "0.128.1",
+		"ruby_version": "2.7.3",
+		"node_version": "18",
+		"deno_version": "1.40.2"
+	}
 }

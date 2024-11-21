@@ -5,7 +5,7 @@ spec:
   label: "Testimonial"
   description: Short statement, feedback or recommendation
   icon: format_quote
-  tags: ['two column', 'image']
+  tags: ["two column", "image"]
 
 # Defines the structure of this component, as well as the default values
 blueprint:
@@ -37,8 +37,8 @@ preview:
         onclick:
     image:
       bookshop: generic/image
-      image_path: https://placekitten.com/300/500
-      image_alt: A cute kitten
+      image_path: https://placehold.co/300x500
+      image_alt: A placeholder image
   styles:
     color_group: "primary"
     image_alignment: left

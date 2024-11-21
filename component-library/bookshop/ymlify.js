@@ -1,7 +1,5 @@
 import yaml from "js-yaml";
 
-module.exports = function (Liquid) {
-    this.registerFilter("ymlify", (yml) => {
-        return yaml.load(yml)
-    });
+export default function () {
+	this.registerFilter("ymlify", (yml) => yaml.load(yml));
 }

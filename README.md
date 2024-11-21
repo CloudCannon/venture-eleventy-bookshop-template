@@ -46,12 +46,21 @@ Changes in the data files require the site to be rebuilt to see your changes.
 
 Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or locally).
 
-## Local quickstart
+## Development
 
 1. Run `npm i` to install the modules.
-2. Run `npm run start` to run the project. This will create a `_site` folder, where all the developed files will remain.
+2. Run `npm run start` to build and watch the site.
 
-By default the site will be at `http://localhost:8080`
+This will create a `_site` folder, containing the output files.
+Any changes made to source files updates these output files.
+By default the site's output files are hosted at `http://localhost:8080`
+
+## Building
+
+1. Run `npm i` to install the modules.
+2. Run `npm run build` to build the site.
+
+This will create a `_site` folder, containing the output files.
 
 ## Components
 
@@ -113,7 +122,7 @@ We have made efforts to prioritize accessibility in our design, but we acknowled
 
 ## Component links
 
-All blocks have an id field that can be set and then used as a link to that component. 
+All blocks have an id field that can be set and then used as a link to that component.
 
 This is helpful (for example) if you want to link to information about your services from the nav without having a fully seperate page for it. You can set the id field in the services block to be `services` and then in *Data* / *Nav* you can have a link to `#services`.
 
@@ -123,6 +132,5 @@ This is helpful (for example) if you want to link to information about your serv
 
 There is a prebuild step with this template to process the user-defined theme variables (such as `color_groups` or `fonts`, defined in `src/_data/theme.yml`) and create associated CSS variables. The file which does this processing is located at `utils/fetch-theme-variables.js`.
 
-When developing locally, you can run `$ npm run fetch-theme-variables` to execute the preprocessing. This command also runs automatically as part of `$ npm run start`.
-
-Deploying your site to CloudCannon, there is a file located at `.cloudcannon/prebuild` which contains necessary commands to run before the build step, including `$ npm run fetch-theme-variables`.
+When developing locally, you can run `$ npm run fetch-theme-variables` to execute the preprocessing.
+This command runs automatically as part of `$ npm run start` and `$ npm run build`.

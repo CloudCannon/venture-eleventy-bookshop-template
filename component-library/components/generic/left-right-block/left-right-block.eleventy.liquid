@@ -7,13 +7,13 @@
 {% endcapture %}
 {% assign_local social_icons_style = social_icon_styles | ymlify %}
 
-<div class="{{ c }} component {% if image_padding != true %}component--full-height{% endif %} {{ c }}--{{ image_alignment }} 
+<div class="{{ c }} component {% if image_padding != true %}component--full-height{% endif %} {{ c }}--{{ image_alignment }}
   component--{{ color_group }}">
 
   <div class="{{ c }}__content">
     <div class="{{ c }}__content-wrapper">
       {% if display_social_icons %}
-        {% bookshop "generic/social-icons" social_media_links:site.social_media_links style:social_icons_style show_note:show_social_icons_note %}
+        {% bookshop "generic/social-icons" social_media_links:site.social_media_links style:social_icons_style %}
       {% endif %}
       {% if heading %}
         {% bookshop "generic/heading" bind:heading %}

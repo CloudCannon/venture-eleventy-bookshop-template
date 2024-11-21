@@ -10,7 +10,6 @@ spec:
 blueprint:
   heading: bookshop:generic/heading
   display_social_icons: true
-  show_social_icons_note: true
   description:
   buttons: [bookshop:generic/button]
   icons: [bookshop:generic/labelled-icon]

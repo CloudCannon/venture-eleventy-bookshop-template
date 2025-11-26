@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: 8bitnael/venture-eleventy-bookshop-template
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pagine"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "src/pages/index.html"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Descrizione pagina", name: "page_description", widget: "text", required: false }
+          - { label: "Hero", name: "hero", widget: "object", fields:
+              [
+                { label: "Eyebrow", name: "content.eyebrow_headline", widget: "string", required: false },
+                { label: "Heading", name: "content.primary_heading", widget: "string" },
+                { label: "Button Text", name: "content.button.text", widget: "string" },
+                { label: "Button Link", name: "content.button.url", widget: "string" },
+                { label: "Immagine", name: "content.image.image_path", widget: "image", required: false }
+              ]
+            }
+
+          - label: "Blocchi contenuto"
+            name: "content_blocks"
+            widget: "list"
+            types:
+              - label: "Left/Right Section"
+                name: "left_right_simple"
+                widget: "object"
+                fields:
+                  - { label: "Titolo", name: "content.primary_heading", widget: "string" }
+                  - { label: "Sottotitolo", name: "content.eyebrow_headline", widget: "string", required: false }
+                  - { label: "Testo", name: "content.description", widget: "text", required: false }
+                  - { label: "Immagine", name: "content.image.image_path", widget: "image", required: false }
+
+              - label: "Galleria"
+                name: "gallery"
+                widget: "object"
+                fields:
+                  - label: "Immagini"
+                    name: "content.gallery.images"
+                    widget: "list"
+                    fields:
+                      - { label: "Immagine", name: "image_path", widget: "image" }
+                      - { label: "Alt", name: "image_alt", widget: "string", required: false }

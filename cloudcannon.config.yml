@@ -213,7 +213,7 @@ _inputs:
           - key: name
         icon:
           - key: icon
-      values: data.color_groups
+      values: data.theme..[?(@.primaryColor)]
   card_color_group:
     comment: >-
       Choose the color group for the cards in this grid. It is recommended to
@@ -225,7 +225,7 @@ _inputs:
           - key: name
         icon:
           - key: icon
-      values: data.color_groups
+      values: data.theme..[?(@.primaryColor)]
   group_name:
     hidden: true
     comment: >-
@@ -240,7 +240,7 @@ _inputs:
           - key: name
         icon:
           - key: icon
-      values: data.color_groups
+      values: data.theme..[?(@.primaryColor)]
   footer_color_group:
     comment: Choose the color group for the footer.
     type: select
@@ -250,7 +250,7 @@ _inputs:
           - key: name
         icon:
           - key: icon
-      values: data.color_groups
+      values: data.theme..[?(@.primaryColor)]
   primary_color_group:
     comment: The default color group for styling site components.
   primary_color_group.name:

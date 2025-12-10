@@ -45,8 +45,8 @@ file_config:
 data_config:
   fonts:
     path: _data/fonts.yml
-  color_groups:
-    path: _data/color_groups.yml
+  theme:
+    path: _data/theme.yml
   site:
     path: _data/site.yml
 _inputs:

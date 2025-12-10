@@ -1,5 +1,5 @@
 primary_color_group:
-  id: 73c15767-04a0-4e6c-ab55-9ba6dd3860cd
+  id: primary
   name: Primary
   background_color: '#3b3b3d'
   foreground_color: '#f9f9fb'

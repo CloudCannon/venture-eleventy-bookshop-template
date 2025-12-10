@@ -82,7 +82,7 @@ customColorGroups.forEach((group, i) => {
         - replace illegal characters
         - append index to end for auto-increment unique ids
     */
-	const id = `${group.name.toLowerCase().replace(/[\s|&;$%@'"<>()+,]/g, "_")}${i}`;
+	const id = `${group.id}`;
 	const name = group.name;
 	const background = group.background_color;
 	const foreground = group.foreground_color;

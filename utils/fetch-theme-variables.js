@@ -3,7 +3,6 @@ const yaml = require("js-yaml");
 
 const generatedWith = "Generated with fetch-theme-variables.js";
 const themeDataPath = "src/_data/theme.yml";
-const colorGroupsDataPath = "src/_data/color_groups.yml";
 const colorGroupsStylePath = "src/assets/styles/color_groups.scss";
 const variableStylePath = "src/assets/styles/variables.scss";
 
@@ -71,12 +70,6 @@ cssStringComponent += `}\n`;
 cssStringNav = addColorDefinitions(cssStringNav, "primary");
 cssStringFooter = addColorDefinitions(cssStringFooter, "primary");
 
-const colorGroupsData = [
-	{
-		id: "primary",
-		name: primaryColorGroup.name,
-	},
-];
 
 /*
     iterate through all the user defined color_groups and:
@@ -89,13 +82,12 @@ customColorGroups.forEach((group, i) => {
         - replace illegal characters
         - append index to end for auto-increment unique ids
     */
-	const id = `${group.name.toLowerCase().replace(/[\s|&;$%@'"<>()+,]/g, "_")}${i}`;
+	const id = `${group.id}`;
 	const name = group.name;
 	const background = group.background_color;
 	const foreground = group.foreground_color;
 	const interaction = group.interaction_color;
 
-	colorGroupsData.push({ id, name });
 
 	cssStringRoot += `\t--${id}__background : ${background};\n`;
 	cssStringRoot += `\t--${id}__foreground : ${foreground};\n`;
@@ -111,9 +103,6 @@ cssStringComponent += `}\n\n`;
 cssStringNav += `}\n\n`;
 cssStringFooter += `}\n\n`;
 
-// write the new values to the color groups data file
-console.log(`[fetch-theme-variables] Writing ${colorGroupsDataPath}`);
-fs.writeFileSync(colorGroupsDataPath, `# ${generatedWith}\n\n` + yaml.dump(colorGroupsData));
 
 // write the css strings into a single file
 console.log(`[fetch-theme-variables] Writing ${colorGroupsStylePath}`);

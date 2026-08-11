@@ -59,11 +59,10 @@ content_blocks:
       image_path: /assets/images/Hero--background-feature-2.png
       image_alt: Person wearing glasses and holding fairy lights
       image_sizes: '(min-width: 769px) 700px, 100vw'
-    text: Here is a way to display your product/service and some text in the best way possible.
   styles:
     image_padding: false
     color_group: secondary0
-    image_alignment: Left
+    image_alignment: left
 - _type: components/sections/price-list
   content:
     id: services
@@ -166,9 +165,12 @@ content_blocks:
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
       button:
         _type: components/generic/button
+        url:
+        open_in_new_tab: false
         text: Load more
         variant: primary
         arrow: down
+        onclick:
   styles:
     color_group: primary
     content_alignment: center

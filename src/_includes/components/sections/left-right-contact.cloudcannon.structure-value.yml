@@ -23,6 +23,10 @@ value:
       text: 'Email address: mybusiness@example.com'
       hero_library_icon_name: envelope
     map:
+      _type: components/simple/map
+      latitude:
+      longitude:
+      zoom_level: 9
     buttons: []
   styles:
     color_group: primary

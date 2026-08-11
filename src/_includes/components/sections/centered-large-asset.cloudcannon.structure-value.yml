@@ -24,6 +24,13 @@ value:
     description: Description text to compliment the block
     asset:
     button:
+      _type: components/generic/button
+      url: '#'
+      open_in_new_tab: false
+      text: Button text
+      variant: primary
+      arrow: right
+      onclick:
   styles:
     color_group: primary
 _inputs:

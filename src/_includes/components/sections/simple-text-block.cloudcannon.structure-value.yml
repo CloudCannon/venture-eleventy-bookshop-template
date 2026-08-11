@@ -22,6 +22,11 @@ value:
       eyebrow_headline_hierarchy: h3
       primary_heading_hierarchy: h2
     text:
+      _type: components/generic/text-block
+      text: '### Your rich text content
+
+        You can use **bold text** and *italic text* along with [links](http://google.com) and others
+        options.'
   styles:
     color_group: primary
 _inputs:

@@ -30,6 +30,10 @@ value:
       arrow: right
       onclick:
     image:
+      _type: components/assets/image
+      image_path:
+      image_alt:
+      image_sizes:
   styles:
     image_alignment: left
     color_group: primary

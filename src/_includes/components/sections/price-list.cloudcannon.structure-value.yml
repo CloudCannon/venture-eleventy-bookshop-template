@@ -1,0 +1,46 @@
+label: Price List
+icon: format_list_numbered_rtl
+picker_preview:
+  text:
+  - Price List
+  icon:
+  - format_list_numbered_rtl
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Price List
+  icon:
+  - format_list_numbered_rtl
+value:
+  _type: components/sections/price-list
+  content:
+    id:
+    heading:
+      _type: components/generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    lists:
+    - list_heading: List heading
+      list_items:
+      - label: List item
+        detail: $
+    button:
+  styles:
+    color_group: primary
+    content_alignment: center
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  button:
+    type: object
+    options:
+      structures: _structures.button_blocks
+  lists:
+    type: array
+    options:
+      structures: _structures.list_details

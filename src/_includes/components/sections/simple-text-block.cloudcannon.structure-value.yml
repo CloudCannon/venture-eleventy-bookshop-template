@@ -1,0 +1,35 @@
+label: Simple Text Block
+icon: article
+picker_preview:
+  text:
+  - Simple Text Block
+  icon:
+  - article
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Simple Text Block
+  icon:
+  - article
+value:
+  _type: components/sections/simple-text-block
+  content:
+    id:
+    heading:
+      _type: components/generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    text:
+  styles:
+    color_group: primary
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  text:
+    type: object
+    options:
+      structures: _structures.text_block_blocks

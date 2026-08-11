@@ -1,0 +1,37 @@
+{% comment %}
+  The heading used to be rebuilt via capture + ymlify purely to force h1/h2
+  hierarchy. Synthetic objects have no data path, so the nested heading regions
+  could never bind and the editor's re-render would have used the *stored*
+  hierarchy, diverging from the build. The hierarchy now lives in the content
+  and the hero structure defaults.
+{% endcomment %}
+{% assign_local c = "c-hero" %}
+<section class="{{ c }} component component--{{ styles.color_group }} {% if styles.image_alignment =='left' %}{{ c }}--left-right-variant {{ c }}--image-left{% elsif styles.image_alignment =='right' %}{{ c }}--left-right-variant {{ c }}--image-right{% endif %} ">
+    {% if content.image.image_path %}
+        {% comment %} No wrapper: .c-hero .c-image is placed as a grid item. {% endcomment %}
+        {% include "components/assets/image",
+             image_path: content.image.image_path,
+             image_alt: content.image.image_alt,
+             image_sizes: content.image.image_sizes,
+             prop_src: "content.image.image_path",
+             prop_alt: "content.image.image_alt" %}
+    {% endif %}
+    <div class="{{ c }}__cover"></div>
+    <div class="{{ c }}__content">
+        {% if content.heading or content.description or content.button %}
+            <div class="component__heading {{ c }}__heading">
+                {% if content.heading %}
+                    <div data-editable="component" data-component="components/generic/heading" data-prop="content.heading">
+                        {% includeWith "components/generic/heading", content.heading %}
+                    </div>
+                {% endif %}
+                {% if content.description %}{% include "components/generic/text-block", text: content.description, prop: "content.description" %}{% endif %}
+            </div>
+            {% if content.button %}
+                <div class="{{ c }}__content__button" data-editable="component" data-component="components/generic/button" data-prop="content.button">
+                    {% includeWith "components/generic/button", content.button %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</section>

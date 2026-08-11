@@ -1,0 +1,56 @@
+{% comment %}
+  Layout partial for the card-grid sections (icon-cards, image-cards).
+
+  Both callers pass the section's own `content` / `styles` objects unchanged, so
+  the data-props here are already correct relative to the section's array-item
+  region — no slots or path prefixes needed.
+
+  `variant` replaces a read of the ambient `_bookshop_name`, which under Bookshop
+  resolved to the *parent's* name. `includeWith` doesn't leak parent scope in the
+  editor, so it has to be an explicit parameter.
+{% endcomment %}
+{% assign_local c = "c-card-grid" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{c}}
+            {% if variant == 'image-cards' %}
+              {{c}}--image-cards
+            {% endif %}
+            {{ c }}--content-align-{{ styles.content_alignment }}
+            component
+            component--{{ styles.color_group }}">
+
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}
+                <div data-editable="component" data-component="components/generic/heading" data-prop="content.heading">
+                    {% includeWith "components/generic/heading", content.heading %}
+                </div>
+            {% endif %}
+            {% if content.description %}{% include "components/generic/text-block", text: content.description, prop: "content.description" %}{% endif %}
+        </div>
+    {% endif %}
+
+    {% if content.grid_items %}
+      <div class="{{c}}__grid" data-editable="array" data-prop="content.grid_items">
+        {% for item in content.grid_items %}
+          <div data-editable="array-item" data-id="{{ forloop.index0 }}">
+            {% include "components/generic/card",
+                 imagery: item.imagery,
+                 heading: item.heading,
+                 description: item.description,
+                 buttons: item.buttons,
+                 card_color_group: styles.card_color_group %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if content.buttons %}
+      <div class="{{c}}__buttons" data-editable="array" data-prop="content.buttons">
+        {% for button in content.buttons %}
+          <div data-editable="array-item" data-component="components/generic/button" data-id="{{ forloop.index0 }}">
+            {% includeWith "components/generic/button", button %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+</section>

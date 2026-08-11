@@ -1,0 +1,43 @@
+label: Image Cards
+icon: table_chart
+picker_preview:
+  text:
+  - Image Cards
+  icon:
+  - table_chart
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Image Cards
+  icon:
+  - table_chart
+value:
+  _type: components/sections/image-cards
+  content:
+    id:
+    heading:
+      _type: components/generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    grid_items: []
+    buttons: []
+  styles:
+    color_group: primary
+    card_color_group: primary
+    content_alignment: center
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  buttons:
+    type: array
+    options:
+      structures: _structures.button_blocks
+  grid_items:
+    type: array
+    options:
+      structures: _structures.grid_items

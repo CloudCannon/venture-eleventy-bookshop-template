@@ -1,0 +1,17 @@
+{% comment %}
+  Presentational, not data-shaped: it renders a single markdown *string* that
+  lives at a different path in every caller.
+
+  A scalar can't be wrapped in a `component` editable region — re-render spreads
+  the object at `data-prop` as props, so the path must point at an object. The
+  caller therefore passes `prop` (the path of the string, relative to the
+  nearest enclosing region) and this partial emits the text region itself.
+  Callers that render their own region around this omit `prop`.
+{% endcomment %}
+{% assign_local c = "c-text-block" %}
+
+{% if text %}
+    <div class="{{ c }}"{% if prop %} data-editable="text" data-type="block" data-prop="{{ prop }}"{% endif %}>
+        {{ text | markdownify }}
+    </div>
+{% endif %}

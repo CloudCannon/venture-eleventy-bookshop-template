@@ -1,0 +1,41 @@
+label: Centered Large Asset
+icon: web_asset
+picker_preview:
+  text:
+  - Centered Large Asset
+  icon:
+  - web_asset
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Centered Large Asset
+  icon:
+  - web_asset
+value:
+  _type: components/sections/centered-large-asset
+  content:
+    id:
+    heading:
+      _type: components/generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    asset:
+    button:
+  styles:
+    color_group: primary
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  asset:
+    type: object
+    options:
+      structures: _structures.asset_blocks
+  button:
+    type: object
+    options:
+      structures: _structures.button_blocks

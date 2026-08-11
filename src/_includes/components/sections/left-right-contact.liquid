@@ -1,0 +1,63 @@
+{% comment %}
+  Contact details used to be reshaped into a labelled-icon list via
+  capture + ymlify, and the heading into a synthetic heading object. Both are
+  now rendered at their real data paths. `content.heading` is a plain string
+  here (unlike the other left-right sections, where it's a heading object).
+{% endcomment %}
+{% assign_local c = "c-left-right-block--featured-map" %}
+
+{% capture content_html %}
+  {% if content.heading %}
+    <header class="c-heading">
+      <h2 class="c-heading__primary_heading" data-editable="text" data-type="span" data-prop="content.heading">
+        {{ content.heading }}
+      </h2>
+    </header>
+  {% endif %}
+  {% if content.description %}
+    <div class="c-left-right-block__content-text">
+      {% include "components/generic/text-block", text: content.description, prop: "content.description" %}
+    </div>
+  {% endif %}
+  {% if content.contact_details and content.contact_details.size > 0 %}
+    <div class="c-left-right-block__icons" data-editable="array" data-prop="content.contact_details">
+      {% for detail in content.contact_details %}
+        <div class="c-labelled-icon c-labelled-icon--inline" data-editable="array-item" data-id="{{ forloop.index0 }}">
+          {% include "components/icons/hero-library-icon",
+               hero_library_icon_name: detail.hero_library_icon_name,
+               icon_size: 'small', icon_type: 'outline',
+               rounded_border: true, theme_color: true %}
+          {% include "components/generic/text-block", text: detail.text, prop: "text" %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture buttons_html %}
+  {% if content.buttons and content.buttons.size > 0 %}
+    <div class="c-left-right-block__buttons" data-editable="array" data-prop="content.buttons">
+      {% for button in content.buttons %}
+        <div data-editable="array-item" data-component="components/generic/button" data-id="{{ forloop.index0 }}">
+          {% includeWith "components/generic/button", button %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture media_html %}
+  {% if content.map %}
+    {% includeWith "components/simple/map", content.map %}
+  {% endif %}
+{% endcapture %}
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }}">
+  {% include "components/layout/left-right-block",
+       display_social_icons: content.display_social_icons,
+       content_html: content_html,
+       buttons_html: buttons_html,
+       media_html: media_html,
+       image_alignment: styles.image_alignment,
+       color_group: styles.color_group %}
+</section>

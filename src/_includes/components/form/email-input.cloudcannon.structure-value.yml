@@ -1,0 +1,27 @@
+label: Email Input
+icon: mail
+picker_preview:
+  text:
+  - Email Input
+  icon:
+  - mail
+preview:
+  text:
+  - key: label
+  - Email Input
+  icon:
+  - mail
+value:
+  _type: components/form/email-input
+  label: ''
+  id:
+  required: false
+  placeholder:
+  helper_text:
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'Please use your personal email address'
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

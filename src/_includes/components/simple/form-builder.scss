@@ -1,0 +1,19 @@
+.c-form-builder {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-large);
+
+    /* Carries the layout the form elements had as direct children, so adding
+       the array editable region doesn't change the rendering. */
+    &__elements {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-large);
+    }
+
+    &__submit-button {
+        text-align: center;
+    }
+
+}

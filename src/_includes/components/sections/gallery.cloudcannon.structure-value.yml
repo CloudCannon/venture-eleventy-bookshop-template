@@ -1,0 +1,46 @@
+label: Image Gallery
+icon: photo_library
+picker_preview:
+  text:
+  - Image Gallery
+  icon:
+  - photo_library
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Image Gallery
+  icon:
+  - photo_library
+value:
+  _type: components/sections/gallery
+  content:
+    show_note: true
+    id:
+    heading:
+      _type: components/generic/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    gallery:
+      _type: components/simple/image-gallery
+      show_note: true
+      images: []
+      button:
+        _type: components/generic/button
+        text: Load more
+        variant: primary
+        arrow: down
+  styles:
+    color_group: primary
+    content_alignment: center
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  gallery:
+    type: object
+    options:
+      structures: _structures.image_gallery_blocks

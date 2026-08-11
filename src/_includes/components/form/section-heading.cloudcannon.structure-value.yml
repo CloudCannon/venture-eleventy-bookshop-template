@@ -1,0 +1,16 @@
+label: Section Heading
+icon: title
+picker_preview:
+  text:
+  - Section Heading
+  icon:
+  - title
+preview:
+  text:
+  - key: text
+  - Section Heading
+  icon:
+  - title
+value:
+  _type: components/form/section-heading
+  text: Form section

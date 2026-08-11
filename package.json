@@ -4,18 +4,14 @@
 	"description": "Venture is a polished, marketing website template for Eleventy.",
 	"scripts": {
 		"fetch-theme-variables": "node ./utils/fetch-theme-variables.js",
-		"bookshop-sass:build": "bookshop-sass -b component-library -o css/bookshop.css",
-		"bookshop-sass:watch": "bookshop-sass -b component-library -o css/bookshop.css -w",
-		"bookshop:browser": "bookshop-browser",
-		"bookshop:new": "npx @bookshop/init --component",
-		"bookshop:update": "npx @bookshop/up@latest",
+		"component-styles": "node ./utils/build-component-styles.js",
 		"eleventy:build": "eleventy",
 		"eleventy:watch": "ELEVENTY_ENV=development eleventy --serve",
 		"sass:watch": "sass --no-source-map --watch src/assets/styles:css",
 		"sass:build": "sass --no-source-map src/assets/styles:css",
 		"prebuild": "del-cli \"_site/*\" \"!_site/optimized\"",
-		"build": "npm-run-all fetch-theme-variables sass:build bookshop-sass:build eleventy:build",
-		"start": "npm-run-all fetch-theme-variables sass:build bookshop-sass:build --parallel bookshop-sass:watch sass:watch bookshop:browser eleventy:watch"
+		"build": "npm-run-all fetch-theme-variables component-styles sass:build eleventy:build",
+		"start": "npm-run-all fetch-theme-variables component-styles sass:build --parallel sass:watch eleventy:watch"
 	},
 	"repository": {
 		"type": "git",
@@ -30,11 +26,7 @@
 	"dependencies": {
 		"@11ty/eleventy": "^3.0.0",
 		"@11ty/eleventy-img": "^5.0.0",
-		"@bookshop/browser": "3.12.0",
-		"@bookshop/eleventy-bookshop": "3.12.0",
-		"@bookshop/eleventy-engine": "3.12.0",
-		"@bookshop/generate": "3.12.0",
-		"@bookshop/sass": "3.12.0",
+		"@cloudcannon/editable-regions": "^0.0.18",
 		"body-scroll-lock": "4.0.0-beta.0",
 		"del-cli": "^6.0.0",
 		"eleventy-plugin-svg-contents": "^0.7.0",

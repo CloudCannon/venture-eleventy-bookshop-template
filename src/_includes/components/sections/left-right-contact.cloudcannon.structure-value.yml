@@ -1,0 +1,75 @@
+label: Contact
+icon: contact_phone
+picker_preview:
+  text:
+  - Contact
+  icon:
+  - contact_phone
+preview:
+  text:
+  - Contact
+  icon:
+  - contact_phone
+value:
+  _type: components/sections/left-right-contact
+  content:
+    id:
+    display_social_icons: true
+    heading: A contact block
+    description: This is a simple yet powerful block to display not only your location by using OpenStreetMap,
+      but also any other contact details you wish to share with your customers.
+    contact_details:
+    - _type: Email
+      text: 'Email address: mybusiness@example.com'
+      hero_library_icon_name: envelope
+    map:
+    buttons: []
+  styles:
+    color_group: primary
+    image_alignment: left
+_inputs:
+  map:
+    type: object
+    options:
+      structures: _structures.map_blocks
+  buttons:
+    type: array
+    options:
+      structures: _structures.button_blocks
+  contact_details:
+    type: array
+    options:
+      structures:
+        values:
+        - label: Email
+          icon: mail
+          value:
+            _type: Email
+            text: 'Email address: mybusiness@example.com'
+            hero_library_icon_name: envelope
+        - label: Phone
+          icon: call
+          value:
+            _type: Phone
+            text: 'Phone number: 312 325 326'
+            hero_library_icon_name: phone
+        - label: Address
+          icon: location_on
+          value:
+            _type: Address
+            text: 'Address: 1 Fake St, Faketown'
+            hero_library_icon_name: map-pin
+        - label: Opening hours
+          icon: schedule
+          value:
+            _type: Hours
+            text: 'Opening hours: 9-5pm, Monday to Friday'
+            hero_library_icon_name: clock
+        - label: Custom
+          icon: person
+          value:
+            _type: Custom
+            text: ''
+            hero_library_icon_name: ''
+  image_alignment:
+    label: Map Alignment

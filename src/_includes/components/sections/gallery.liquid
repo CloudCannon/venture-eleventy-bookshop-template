@@ -1,0 +1,19 @@
+{% assign_local c = "c-grid--gallery-images" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }} {{ c }}--content-align-{{ styles.content_alignment }} component component--{{ styles.color_group }}">
+
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}
+                <div data-editable="component" data-component="components/generic/heading" data-prop="content.heading">
+                    {% includeWith "components/generic/heading", content.heading %}
+                </div>
+            {% endif %}
+            {% if content.description %}{% include "components/generic/text-block", text: content.description, prop: "content.description" %}{% endif %}
+        </div>
+    {% endif %}
+
+    {% comment %} show_note and image_sizes now live on the stored gallery object. {% endcomment %}
+    <div class="{{ c }}__gallery" data-editable="component" data-component="components/simple/image-gallery" data-prop="content.gallery">
+        {% includeWith "components/simple/image-gallery", content.gallery %}
+    </div>
+</section>

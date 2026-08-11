@@ -1,0 +1,20 @@
+{% comment %}
+  Data-shaped partial bound to one stored gallery object
+  ({ images, button, show_note }). `image_sizes` lives on each stored image.
+{% endcomment %}
+<div class="c-gallery">
+    {% if ENV_CLIENT and show_note %}
+        {% include "components/generic/notification", heading: "Gallery Tile Display", text: "All tiles and the 'Load more' button will be visible when live editing. However, the live site will display 6 (desktop) or 3 (mobile) images initially, with a 'Load more' button to load more tiles. <br> This note only will only show in live editing." %}
+    {% endif %}
+    <div class="c-gallery__tiles" data-editable="array" data-prop="images">
+        {% for image in images %}
+            <div class="c-gallery__tiles__tile{% unless ENV_CLIENT %} c-gallery__tiles__tile--hidden{% endunless %}"
+                 data-editable="array-item" data-component="components/assets/image" data-id="{{ forloop.index0 }}">
+              {% includeWith "components/assets/image", image %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="c-gallery__button" data-editable="component" data-component="components/generic/button" data-prop="button">
+      {% includeWith "components/generic/button", button %}
+    </div>
+</div>

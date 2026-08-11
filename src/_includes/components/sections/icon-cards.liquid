@@ -1,0 +1,12 @@
+{% comment %}
+  Previously built an entire card-grid content object (per-card imagery objects,
+  computed heading hierarchies) as a YAML string via capture + ymlify. Re-render
+  only passes stored data, so none of that synthesised structure had a data path
+  and nothing inside the cards could bind.
+
+  Now the stored shape *is* the rendered shape: `content.grid_items[i]` holds a
+  card ({ imagery, heading, description, buttons }) and card-grid reads it
+  directly. Heading hierarchies live in the content defaults instead of being
+  derived here.
+{% endcomment %}
+{% include "components/layout/card-grid", content: content, styles: styles, variant: "icon-cards" %}

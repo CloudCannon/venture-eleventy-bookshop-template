@@ -1,0 +1,29 @@
+{% assign_local c = "c-embed" %}
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }} {{ c }}--content-align-{{ styles.content_alignment }} component component--{{ styles.color_group }}">
+
+    {% if content.heading or content.description %}
+        <div class="component__heading {{ c }}__heading">
+            {% if content.heading %}
+                <div data-editable="component" data-component="components/generic/heading" data-prop="content.heading">
+                    {% includeWith "components/generic/heading", content.heading %}
+                </div>
+            {% endif %}
+            {% if content.description %}{% include "components/generic/text-block", text: content.description, prop: "content.description" %}{% endif %}
+        </div>
+    {% endif %}
+
+    {% if ENV_CLIENT and content.show_note %}
+        <div class="{{ c }}__note">
+            {% include "components/generic/notification", heading: "Embed Display", text: "If your embed contains a script tag, it will not show in live editing <br> This note only will only show in live editing" %}
+        </div>
+    {% endif %}
+    <div class="{{ c }}__embed" data-editable="component" data-component="components/generic/custom-embed" data-prop="content.embed">
+        {% includeWith "components/generic/custom-embed", content.embed %}
+    </div>
+
+    {% if content.button %}
+        <div class="{{ c }}__button" data-editable="component" data-component="components/generic/button" data-prop="content.button">
+          {% includeWith "components/generic/button", content.button %}
+        </div>
+    {% endif %}
+</section>

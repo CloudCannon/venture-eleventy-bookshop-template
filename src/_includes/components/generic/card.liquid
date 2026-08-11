@@ -1,0 +1,45 @@
+{% comment %}
+  Data-shaped partial bound to one stored grid item
+  ({ imagery, heading, description, buttons }).
+
+  Rendered inside an `array-item` region that has no `data-component`:
+  `card_color_group` is a section-level setting, and a component region's
+  re-render only ever passes the item's own data, which would drop it. The
+  enclosing section is a component region, so it re-renders the whole grid when
+  anything in it changes; the primitives below still give inline editing.
+{% endcomment %}
+{%  assign_local c = 'c-card' %}
+<div class="{{c}} component component--full-height
+    {% if imagery._type == 'components/assets/image' %}
+        {{ c }}--image
+    {% elsif imagery._type == 'components/icons/hero-library-icon' or imagery._type == 'components/icons/custom-icon' %}
+        {{ c }}--icon
+    {% endif %}
+    component--{{ card_color_group }}">
+
+    {% if imagery %}
+        <div class="{{ c }}__imagery" data-editable="component" data-component="{{ imagery._type }}" data-prop="imagery">
+            {% assign _t = imagery._type %}{% includeWith _t, imagery %}
+        </div>
+    {% endif %}
+
+    <div class="{{ c }}__content-wrapper">
+        {% if heading %}
+            <div data-editable="component" data-component="components/generic/heading" data-prop="heading">
+                {% includeWith "components/generic/heading", heading %}
+            </div>
+        {% endif %}
+
+        {% if description %}<div class="{{c}}__content">{% include "components/generic/text-block", text: description, prop: "description" %}</div>{% endif %}
+        {% if buttons and buttons.size > 0 %}
+            {% comment %} __buttons re-creates the flex gap the buttons had as direct children. {% endcomment %}
+            <div class="{{ c }}__buttons" data-editable="array" data-prop="buttons">
+                {% for button in buttons %}
+                    <div class="{{ c }}__button" data-editable="array-item" data-component="components/generic/button" data-id="{{ forloop.index0 }}">
+                        {% includeWith "components/generic/button", button %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{% assign_local c = "c-checkbox-group" %}
+<div class="{{ c }}">
+    <fieldset class="{{ c }}__group" onClick="validateInputGroup(this)" {% if helper_text %}aria-describedby="{{ id }}--helper"{% endif %}>
+        {% if label and label != '' %}
+            <legend class="{{ c }}__group__label" data-editable="text" data-type="span" data-prop="label">{{ label }}</legend>
+        {% endif %}
+        <div class="{{ c }}__group__inputs {{ c }}__group__inputs--arrangement-{{ arrangement }}" data-editable="array" data-prop="checkboxes">
+            {% assign_local group_name = label | append: "-" | append: id %}
+            {% for item in checkboxes %}
+                {% comment %} Each input needs a unique id for its <label for>. {% endcomment %}
+                <div data-editable="array-item" data-id="{{ forloop.index0 }}">
+                    {% include "components/form/parts/checkbox-input",
+                         label: item.label,
+                         checked: item.checked,
+                         required: item.required,
+                         group_name: group_name,
+                         id: id | append: "-" | append: forloop.index0 %}
+                </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    {% if helper_text %}
+        {% include "components/form/parts/helper-text", id: id, helper_text: helper_text %}
+    {% endif %}
+
+    {% include "components/form/parts/error-message", id: id %}
+</div>

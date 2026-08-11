@@ -64,11 +64,42 @@ This will create a `_site` folder, containing the output files.
 
 ## Components
 
-Venture is built using Bookshop components. Bookshop is a framework that allows you to use component architecture in your static site, and enables live editing in CloudCannon. You can read more about Bookshop and how it integrates with Eleventy [here](https://cloudcannon.com/documentation/guides/bookshop-eleventy-guide/).
+Venture is built from plain Eleventy Liquid partials in `src/_includes/components/`, wired for
+CloudCannon's Visual Editor with [`@cloudcannon/editable-regions`](https://cloudcannon.com/documentation/articles/using-editable-regions/).
 
-### /components page
+Components are grouped by the structure they belong to, because CloudCannon collects structure
+values by directory glob:
 
-Within Venture, there is a `components.html` page that allows you to use a feature of Bookshop called Bookshop Browser. When developing locally, you can use `localhost:8080/components` to preview your Bookshop components in the context of your site. This `/components` page is for local development only, and will not show up in CloudCannon or on your live site.
+| Directory | Structure | Contents |
+| --- | --- | --- |
+| `components/sections/` | `content_blocks` | Page-builder sections |
+| `components/heroes/` | `hero_blocks` | Page heroes |
+| `components/form/` | `form_blocks` | Form inputs (sub-parts in `form/parts/`) |
+| `components/icons/` | `icon_blocks` | Icon components |
+| `components/assets/` | `asset_blocks` | Image and video |
+| `components/layout/` | — | Shared layout partials, no structure |
+| `components/generic/`, `components/simple/` | — | Shared building blocks |
+
+### Adding a component
+
+1. Add `my-component.liquid` (and an optional `my-component.scss`) to the right directory. The SCSS
+   index is regenerated automatically by `npm run component-styles`.
+2. Add `my-component.cloudcannon.structure-value.yml` beside it. Its `value._type` must be the
+   component's include path (e.g. `components/sections/my-component`) — that same string is used as
+   `data-component` and by `includeWith`, and all three must match.
+3. Nothing to register: the directory glob picks the structure up, and the editable-regions browser
+   bundle resolves any component by include path.
+
+### Editable regions
+
+Sections are re-rendered in the editor from their stored data, which means a component's props must
+be exactly the object at one data path. Partials that meet that bar (`heading`, `image`, `card`, …)
+carry bare, self-relative `data-prop` values and are wrapped in a `data-editable="component"` region
+by their caller. Shared layout partials that take a reshaped mix of fields (`layout/left-right-block`)
+instead receive already-rendered editable markup from the section as captured HTML.
+
+`ENV_CLIENT` is true only inside the editor bundle; use it to guard anything that can't run in the
+browser (image optimisation, SVG inlining).
 
 ## Forms
 

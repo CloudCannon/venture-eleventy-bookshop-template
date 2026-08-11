@@ -1,0 +1,46 @@
+{% comment %}
+  Image partial. The region binds two *scalars* (src and alt), so there are two
+  ways to give it paths:
+
+  - Wrapped by a caller in a `component` region at the image object -> the
+    defaults (`image_path` / `image_alt`) are already correct.
+  - Included directly, where wrapping would change the layout -> the caller
+    passes `prop_src` (and `prop_alt` if alt is a stored field) as paths
+    relative to the nearest region, or absolute `@data[...]` paths.
+
+  The two defaults are paired on purpose: a caller that supplies `prop_src`
+  knows where its image lives, and inventing a relative `image_alt` next to an
+  absolute `@data[...]` src would bind alt to the *current page's* front matter
+  instead of the data file.
+
+  Pass `editable: false` where the source isn't a stored image field at all
+  (custom-icon renders an arbitrary icon path through here).
+
+  The attributes land on the <img> itself, never a wrapper: hero.scss and
+  left-right-block.scss place `.c-image` / `picture` as a CSS grid item or size
+  it against `__media`, so an extra element would change the layout.
+{% endcomment %}
+{% assign is_editable = editable | default: true %}
+{% if is_editable %}
+  {% if prop_src %}
+    {% assign src_prop = prop_src %}
+    {% assign alt_prop = prop_alt %}
+  {% else %}
+    {% assign src_prop = "image_path" %}
+    {% assign alt_prop = prop_alt | default: "image_alt" %}
+  {% endif %}
+{% endif %}
+
+{% if ENV_CLIENT %}
+
+    <img class="c-image c-image--live-editing" src="{{ image_path }}" alt="{{ image_alt }}"{% if is_editable %} data-editable="image" data-prop-src="{{ src_prop }}"{% if alt_prop %} data-prop-alt="{{ alt_prop }}"{% endif %}{% endif %}>
+
+{% elsif image_path contains 'http://' or image_path contains 'https://' %}
+
+    <img class="c-image" src="{{ image_path }}" alt="{{ image_alt }}"{% if is_editable %} data-editable="image" data-prop-src="{{ src_prop }}"{% if alt_prop %} data-prop-alt="{{ alt_prop }}"{% endif %}{% endif %}>
+
+{% else %}
+
+    {% image image_path, image_alt, 'c-image', image_sizes, true, src_prop, alt_prop %}
+
+{% endif %}

@@ -1,0 +1,28 @@
+{% comment %}
+  Data-shaped partial bound to one stored form object. `form_elements` is a
+  polymorphic array, so the array wrapper declares `data-component-key`.
+{% endcomment %}
+{% assign_local c = "c-form-builder" %}
+<form class="{{ c }}"
+    id="{{ id }}"
+    action="{{ success_page }}"
+    method="post"
+    novalidate
+    onsubmit="return validateFormSubmit(event, this)">
+
+    <div class="{{ c }}__elements" data-editable="array" data-prop="form_elements" data-component-key="_type">
+        {% for element in form_elements %}
+            <div data-editable="array-item" data-component="{{ element._type }}" data-id="{{ forloop.index0 }}">
+                {% assign _t = element._type %}{% includeWith _t, element %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <input type="text" name="_gotcha" style="display: none;">
+    {% if inbox_key %}<input type="hidden" name="inbox_key" value="{{ inbox_key }}">{% endif %}
+    {% if subject %}<input type="hidden" name="_subject" value="{{ subject }}">{% endif %}
+
+    <div class="{{ c }}__submit-button" data-editable="component" data-component="components/generic/button" data-prop="submit_button">
+      {% includeWith "components/generic/button", submit_button %}
+    </div>
+</form>

@@ -46,6 +46,52 @@ Changes in the data files require the site to be rebuilt to see your changes.
 
 Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or locally).
 
+## CloudCannon agent skills
+
+If you're working on this template with an AI coding agent, install CloudCannon's
+[agent skills](https://github.com/CloudCannon/agent-skills) first — they cover configuration,
+structures, snippets and Visual Editor support.
+
+They are **deliberately not committed** to this repo. Skills are updated upstream, and a stale copy
+checked into a template is worse than none at all, so install them fresh:
+
+```bash
+npx skills add CloudCannon/agent-skills
+```
+
+That installs into `.agents/`. To pick individual skills:
+
+```bash
+npx skills add CloudCannon/agent-skills --list
+npx skills add CloudCannon/agent-skills --skill cloudcannon-configuration
+```
+
+If you use Claude Code, you can install them as a plugin instead:
+
+```
+/plugin marketplace add CloudCannon/agent-skills
+/plugin install agent-skills@cloudcannon
+```
+
+Plugin skills are namespaced, e.g. `agent-skills:cloudcannon-configuration`.
+
+| Skill | Purpose |
+| --- | --- |
+| `migrating-to-cloudcannon` | Full migration orchestrator |
+| `cloudcannon-configuration` | CloudCannon config setup |
+| `cloudcannon-visual-editing` | Visual Editor and editable regions |
+| `cloudcannon-snippets` | Snippet configuration |
+| `brainstorming` | Structured design exploration |
+
+One skill *is* committed: `.agents/skills/eleventy-bookshop-migration/`. It's specific to this
+template rather than a CloudCannon-wide skill, and documents how the components are wired for
+editable regions, plus the verification scripts in its `scripts/` directory.
+
+## Editor documentation
+
+`.cloudcannon/README.md` is written for non-technical editors using this site in CloudCannon. Worth
+updating alongside any change to the components or data files.
+
 ## Development
 
 1. Run `npm i` to install the modules.

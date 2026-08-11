@@ -21,12 +21,10 @@ value:
       primary_heading: Primary Heading
       eyebrow_headline_hierarchy: h3
       primary_heading_hierarchy: h2
-    text:
-      _type: components/generic/text-block
-      text: '### Your rich text content
+    text: |-
+      ### Your rich text content
 
-        You can use **bold text** and *italic text* along with [links](http://google.com) and others
-        options.'
+      You can use **bold text** and *italic text* along with [links](http://google.com) and others options.
   styles:
     color_group: primary
 _inputs:
@@ -34,7 +32,14 @@ _inputs:
     type: object
     options:
       structures: _structures.heading_blocks
+  # `content.text` is a markdown string -- simple-text-block.liquid passes it to
+  # the text-block partial as a scalar, not an object.
   text:
-    type: object
+    type: markdown
     options:
-      structures: _structures.text_block_blocks
+      link: true
+      bold: true
+      italic: true
+      undo: true
+      redo: true
+      initial_height: 135

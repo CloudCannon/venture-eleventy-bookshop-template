@@ -19,6 +19,10 @@ value:
   - name:
   helper_text:
 _inputs:
+  options:
+    type: array
+    options:
+      structures: _structures.select_options
   helper_text:
     comment: Helpful text for the user such as 'Option 1 is only available on weekends'
   id:

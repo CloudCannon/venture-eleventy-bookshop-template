@@ -5,6 +5,8 @@ paths:
 collections_config:
   pages:
     path: pages
+    url: "/{permalink|if=permalink}[slug|unless=permalink]/"
+    new_preview_url: '/'
     glob:
     - '!components.html'
     - '!404.html'
@@ -12,6 +14,8 @@ collections_config:
     schemas:
       default:
         path: .cloudcannon/schemas/page.html
+        remove_extra_inputs: false
+        hide_extra_inputs: false
   data:
     path: _data
     glob:
@@ -69,6 +73,10 @@ _inputs:
     type: array
     options:
       structures: _structures.form_blocks
+  images:
+    type: array
+    options:
+      structures: _structures.image_blocks
   favicon:
     type: image
   arrow:
@@ -611,6 +619,64 @@ _structures:
     style: modal
     values_from_glob:
     - /src/_includes/components/form/*.cloudcannon.structure-value.yml
+  # Item shapes for the arrays inside the form group components. Without these an
+  # emptied array has nothing to add from.
+  checkbox_items:
+    values:
+    - label: Checkbox
+      icon: check_box
+      picker_preview:
+        text:
+        - Checkbox
+        icon:
+        - check_box
+      preview:
+        text:
+        - key: label
+        - Checkbox
+        icon:
+        - check_box
+      value:
+        label:
+        id:
+        checked: false
+        required: false
+  radio_button_items:
+    values:
+    - label: Radio Button
+      icon: radio_button_unchecked
+      picker_preview:
+        text:
+        - Radio Button
+        icon:
+        - radio_button_unchecked
+      preview:
+        text:
+        - key: label
+        - Radio Button
+        icon:
+        - radio_button_unchecked
+      value:
+        label:
+        checked: false
+        radio_id:
+  select_options:
+    values:
+    - label: Option
+      icon: list
+      picker_preview:
+        text:
+        - Option
+        icon:
+        - list
+      preview:
+        text:
+        - key: name
+        - Option
+        icon:
+        - list
+      value:
+        name:
   icon_blocks:
     style: modal
     values_from_glob:

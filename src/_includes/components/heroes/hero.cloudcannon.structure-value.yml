@@ -53,6 +53,7 @@ _inputs:
   image_alignment:
     comment: 'If an image is provided, determines how the image will display: on the left, the right,
       or covering the full background of the hero'
+    cascade: false
     type: choice
     options:
       allow_empty: false

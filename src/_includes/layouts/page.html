@@ -14,12 +14,6 @@
     <body>
         {% include 'partials/nav/navigation.html' %}
         <main id="main">
-            {% comment %}
-              Hero. Pages that store one get a component editable region; the
-              title-only fallback below is derived from `title`, so it has no
-              data path of its own and can't be edited on canvas. New pages get
-              a real hero seeded from .cloudcannon/schemas/page.html.
-            {% endcomment %}
             {% if hero %}
                 <div data-editable="component" data-component="{{ hero._type }}" data-prop="hero">
                     {% assign _hero_type = hero._type %}{% includeWith _hero_type, hero %}

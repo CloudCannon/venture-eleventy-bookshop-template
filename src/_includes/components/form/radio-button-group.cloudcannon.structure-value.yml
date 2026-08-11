@@ -27,6 +27,9 @@ _inputs:
     comment: It is recommended to provide a label for this input group
   radio_buttons:
     comment: It is recommended to have one option checked as a default for radio button groups
+    type: array
+    options:
+      structures: _structures.radio_button_items
   radio_id:
     instance_value: UUID
     type: text

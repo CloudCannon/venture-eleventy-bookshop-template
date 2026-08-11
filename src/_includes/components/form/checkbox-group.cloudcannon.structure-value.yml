@@ -27,6 +27,10 @@ _inputs:
     hidden: true
     type: text
     instance_value: UUID
+  checkboxes:
+    type: array
+    options:
+      structures: _structures.checkbox_items
   label:
     comment: It is recommended to provide a label for this input group
   helper_text:

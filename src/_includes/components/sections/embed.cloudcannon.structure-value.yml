@@ -49,6 +49,9 @@ _inputs:
       structures: _structures.custom_embed_blocks
     comment: Copy the embed code from the chosen provider here. This approach is not recommended for youtube/vimeo
       (use the centered large asset component instead)
+  content.embed.embed:
+    type: textarea
+    comment: The raw embed code supplied by the provider.
   button:
     type: object
     options:

@@ -712,9 +712,7 @@ _structures:
         text:
         - Button
         subtext:
-        - key: primary_heading
         - key: text
-        - key: image_alt
         - Link styled as a button
         icon:
         - ads_click
@@ -971,13 +969,22 @@ _structures:
         show_note: true
         images: []
         button:
-          _type: components/generic/button/button
           text: Load more
           variant: primary
           arrow: down
       _inputs:
         images:
           comment: Your images will be cropped into squares for the best presentation
+        button:
+          type: object
+          preview:
+            text:
+            - Button
+            subtext:
+            - key: text
+            - Link styled as a button
+            icon:
+            - ads_click
   map_blocks:
     values:
     - label: Map Embed

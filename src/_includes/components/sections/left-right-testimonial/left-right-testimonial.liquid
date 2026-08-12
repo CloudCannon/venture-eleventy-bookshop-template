@@ -8,8 +8,8 @@
 
 {% capture content_html %}
   <header class="c-heading">
-    <h2 class="c-heading__primary_heading" data-editable="text" data-type="span" data-prop="content.quote">
-      &ldquo;{{ content.quote }}&rdquo;
+    <h2 class="c-heading__primary_heading">
+      &ldquo;<span data-editable="text" data-type="span" data-prop="content.quote">{{ content.quote }}</span>&rdquo;
     </h2>
     {% if content.eyebrow_headline %}
       <h3 class="c-heading__eyebrow_heading" data-editable="text" data-type="span" data-prop="content.eyebrow_headline">

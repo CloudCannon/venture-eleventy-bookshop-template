@@ -977,14 +977,15 @@ _structures:
           comment: Your images will be cropped into squares for the best presentation
         button:
           type: object
-          preview:
-            text:
-            - Button
-            subtext:
-            - key: text
-            - Link styled as a button
-            icon:
-            - ads_click
+          options:
+            preview:
+              text:
+              - Button
+              subtext:
+              - key: text
+              - Link styled as a button
+              icon:
+              - ads_click
   map_blocks:
     values:
     - label: Map Embed

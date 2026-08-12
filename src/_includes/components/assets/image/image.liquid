@@ -20,7 +20,10 @@
   left-right-block.scss place `.c-image` / `picture` as a CSS grid item or size
   it against `__media`, so an extra element would change the layout.
 {% endcomment %}
-{% assign is_editable = editable | default: true %}
+{% assign is_editable = true %}
+{% if editable == false %}
+  {% assign is_editable = false %}
+{% endif %}
 {% if is_editable %}
   {% if prop_src %}
     {% assign src_prop = prop_src %}

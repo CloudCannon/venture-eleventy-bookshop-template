@@ -18,8 +18,6 @@ preview:
   - Heading and labelled icons beside an image
   icon:
   - mood
-  image:
-  - key: content.image.image_path
 value:
   _type: components/sections/left-right-labelled-icons/left-right-labelled-icons
   content:

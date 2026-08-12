@@ -1068,8 +1068,6 @@ _structures:
         - Card with imagery, heading, text and buttons
         icon:
         - sticky_note_2
-        image:
-        - key: imagery.image_path
       value:
         imagery:
         heading:

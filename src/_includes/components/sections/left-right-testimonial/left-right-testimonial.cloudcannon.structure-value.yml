@@ -14,8 +14,6 @@ preview:
   - Testimonial
   icon:
   - format_quote
-  image:
-  - key: content.image.image_path
 value:
   _type: components/sections/left-right-testimonial/left-right-testimonial
   content:

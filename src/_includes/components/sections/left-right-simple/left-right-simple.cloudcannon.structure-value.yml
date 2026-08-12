@@ -17,8 +17,6 @@ preview:
   - Heading, text and buttons beside an image
   icon:
   - art_track
-  image:
-  - key: content.image.image_path
 value:
   _type: components/sections/left-right-simple/left-right-simple
   content:

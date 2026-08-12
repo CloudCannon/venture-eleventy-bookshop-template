@@ -1,5 +1,6 @@
 label: Image Gallery
 icon: photo_library
+tabbed: true
 picker_preview:
   text:
   - Image Gallery

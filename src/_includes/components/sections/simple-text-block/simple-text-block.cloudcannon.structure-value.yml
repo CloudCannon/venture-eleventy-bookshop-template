@@ -1,5 +1,6 @@
 label: Simple Text Block
 icon: article
+tabbed: true
 picker_preview:
   text:
   - Simple Text Block

@@ -1,5 +1,6 @@
 label: Price List
 icon: format_list_numbered_rtl
+tabbed: true
 picker_preview:
   text:
   - Price List

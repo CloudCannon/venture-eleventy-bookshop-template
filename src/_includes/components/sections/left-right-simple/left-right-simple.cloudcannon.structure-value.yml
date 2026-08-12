@@ -1,5 +1,6 @@
 label: Text block with image
 icon: art_track
+tabbed: true
 picker_preview:
   text:
   - Text block with image

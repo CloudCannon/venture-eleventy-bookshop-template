@@ -1,5 +1,6 @@
 label: Testimonial
 icon: format_quote
+tabbed: true
 picker_preview:
   text:
   - Testimonial

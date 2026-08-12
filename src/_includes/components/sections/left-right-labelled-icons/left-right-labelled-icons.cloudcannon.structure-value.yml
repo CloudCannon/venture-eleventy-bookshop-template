@@ -1,5 +1,6 @@
 label: Labelled Icons
 icon: mood
+tabbed: true
 picker_preview:
   text:
   - Labelled Icons

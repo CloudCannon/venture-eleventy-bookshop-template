@@ -1,5 +1,6 @@
 label: Hero
 icon: cottage
+tabbed: true
 picker_preview:
   text:
   - Hero

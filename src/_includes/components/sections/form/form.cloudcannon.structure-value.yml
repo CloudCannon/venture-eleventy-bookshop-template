@@ -1,5 +1,6 @@
 label: Form
 icon: dynamic_form
+tabbed: true
 picker_preview:
   text:
   - Form

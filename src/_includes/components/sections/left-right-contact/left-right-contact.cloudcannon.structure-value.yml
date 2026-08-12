@@ -1,5 +1,6 @@
 label: Contact
 icon: contact_phone
+tabbed: true
 picker_preview:
   text:
   - Contact

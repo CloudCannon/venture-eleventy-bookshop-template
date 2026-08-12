@@ -1,5 +1,6 @@
 label: Image Cards
 icon: table_chart
+tabbed: true
 picker_preview:
   text:
   - Image Cards

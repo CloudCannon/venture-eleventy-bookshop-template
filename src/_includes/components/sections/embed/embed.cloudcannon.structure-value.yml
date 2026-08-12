@@ -1,5 +1,6 @@
 label: Embed
 icon: web_asset
+tabbed: true
 picker_preview:
   text:
   - Embed

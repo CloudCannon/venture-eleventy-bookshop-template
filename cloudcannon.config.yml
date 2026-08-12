@@ -610,15 +610,15 @@ _structures:
   content_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/sections/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/sections/*/*.cloudcannon.structure-value.yml
   hero_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/heroes/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/heroes/*/*.cloudcannon.structure-value.yml
   form_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/form/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/form/*/*.cloudcannon.structure-value.yml
   # Item shapes for the arrays inside the form group components. Without these an
   # emptied array has nothing to add from.
   checkbox_items:
@@ -680,16 +680,16 @@ _structures:
   icon_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/icons/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
   asset_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/assets/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/assets/*/*.cloudcannon.structure-value.yml
   card_imagery_blocks:
     style: modal
     values_from_glob:
-    - /src/_includes/components/icons/*.cloudcannon.structure-value.yml
-    - /src/_includes/components/assets/image.cloudcannon.structure-value.yml
+    - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/assets/image/image.cloudcannon.structure-value.yml
   button_blocks:
     values:
     - label: Button
@@ -708,7 +708,7 @@ _structures:
         icon:
         - ads_click
       value:
-        _type: components/generic/button
+        _type: components/generic/button/button
         url: '#'
         open_in_new_tab: false
         text: Button text
@@ -733,7 +733,7 @@ _structures:
         icon:
         - code
       value:
-        _type: components/generic/custom-embed
+        _type: components/generic/custom-embed/custom-embed
         embed:
         ratio: default
   heading_blocks:
@@ -754,7 +754,7 @@ _structures:
         icon:
         - title
       value:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Primary Heading
         eyebrow_headline_hierarchy: h3
@@ -777,7 +777,7 @@ _structures:
         icon:
         - image
       value:
-        _type: components/assets/image
+        _type: components/assets/image/image
         image_path:
         image_alt:
         image_sizes:
@@ -799,7 +799,7 @@ _structures:
         icon:
         - notes
       value:
-        _type: components/generic/text-block
+        _type: components/generic/text-block/text-block
         text: '### Your rich text content
 
           You can use **bold text** and *italic text* along with [links](http://google.com) and others
@@ -822,7 +822,7 @@ _structures:
         icon:
         - list_alt
       value:
-        _type: components/simple/form-builder
+        _type: components/simple/form-builder/form-builder
         id:
         form_submission_type: email/cloudcannon
         inbox_key:
@@ -851,11 +851,11 @@ _structures:
         icon:
         - photo_library
       value:
-        _type: components/simple/image-gallery
+        _type: components/simple/image-gallery/image-gallery
         show_note: true
         images: []
         button:
-          _type: components/generic/button
+          _type: components/generic/button/button
           text: Load more
           variant: primary
           arrow: down
@@ -877,7 +877,7 @@ _structures:
         icon:
         - map
       value:
-        _type: components/simple/map
+        _type: components/simple/map/map
         latitude:
         longitude:
         zoom_level: 9
@@ -902,7 +902,7 @@ _structures:
       value:
         imagery:
         heading:
-          _type: components/generic/heading
+          _type: components/generic/heading/heading
           eyebrow_headline: Eyebrow Heading
           primary_heading: Primary Heading
           eyebrow_headline_hierarchy: h3

@@ -10,10 +10,10 @@ layout: layouts/page.html
 permalink: /booking/
 eleventyExcludeFromCollections: false
 hero:
-  _type: components/heroes/hero
+  _type: components/heroes/hero/hero
   content:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Tag or label headline
       primary_heading: A hero for a booking form page
       eyebrow_headline_hierarchy: h2
@@ -21,7 +21,7 @@ hero:
     description: Here are a few options to use above the fold. Customize these elements to display your
       products or services in the best way possible.
     button:
-      _type: components/generic/button
+      _type: components/generic/button/button
       url: '#'
       open_in_new_tab: false
       text: Add an optional button
@@ -29,7 +29,7 @@ hero:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/images/Hero--background-feature-3.png
       image_alt: Person wearing a black hat and smiling
       image_sizes:
@@ -37,43 +37,43 @@ hero:
     image_alignment: right
     color_group: secondary0
 content_blocks:
-  - _type: components/sections/form
+  - _type: components/sections/form/form
     content:
       id: booking-form
       heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Booking form
         eyebrow_headline_hierarchy: h3
         primary_heading_hierarchy: h2
       description:
       form:
-        _type: components/simple/form-builder
+        _type: components/simple/form-builder/form-builder
         id:
         form_submission_type: email/cloudcannon
         inbox_key:
         subject:
         success_page: ''
         form_elements:
-          - _type: components/form/text-input
+          - _type: components/form/text-input/text-input
             label: Full name
             placeholder: John Smith
             id:
             required: true
             helper_text:
-          - _type: components/form/email-input
+          - _type: components/form/email-input/email-input
             label: Email address
             id:
             required: true
             placeholder: mybusiness@example.com
             helper_text:
-          - _type: components/form/phone-input
+          - _type: components/form/phone-input/phone-input
             label: Phone number
             placeholder: 123 456 78910
             id:
             required: false
             helper_text:
-          - _type: components/form/date-input
+          - _type: components/form/date-input/date-input
             label: Choose a date
             id:
             required: true
@@ -82,7 +82,7 @@ content_blocks:
             max_today: false
             max:
             helper_text:
-          - _type: components/form/text-area-input
+          - _type: components/form/text-area-input/text-area-input
             label: Message
             placeholder: Any helpful information we should know about.
             id:
@@ -96,11 +96,11 @@ content_blocks:
     styles:
       color_group: primary
       content_alignment: center
-  - _type: components/sections/simple-text-block
+  - _type: components/sections/simple-text-block/simple-text-block
     content:
       id:
       heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: A simple text block for your FAQs
         eyebrow_headline_hierarchy: h3
@@ -119,11 +119,11 @@ content_blocks:
         Let your customers know if they can pay by EFTPOS or credit card.
     styles:
       color_group: secondary0
-  - _type: components/sections/icon-cards
+  - _type: components/sections/icon-cards/icon-cards
     content:
       id:
       heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Bite-sized information
         primary_heading: An icon card grid
         eyebrow_headline_hierarchy: h3
@@ -133,7 +133,7 @@ content_blocks:
         card grid is a great option to showcase your content.
       grid_items:
         - imagery:
-            _type: components/icons/hero-library-icon
+            _type: components/icons/hero-library-icon/hero-library-icon
             hero_library_icon_name: puzzle-piece
             icon_size: small
             icon_type: outline
@@ -141,7 +141,7 @@ content_blocks:
             theme_color: true
             color: '#7d7f7c'
           heading:
-            _type: components/generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
             eyebrow_headline_hierarchy: h5
@@ -151,7 +151,7 @@ content_blocks:
             products, or anything else you are keen to share with your audience.
           buttons: []
         - imagery:
-            _type: components/icons/hero-library-icon
+            _type: components/icons/hero-library-icon/hero-library-icon
             hero_library_icon_name: archive-box
             icon_size: small
             icon_type: outline
@@ -159,7 +159,7 @@ content_blocks:
             theme_color: true
             color: '#7d7f7c'
           heading:
-            _type: components/generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
             eyebrow_headline_hierarchy: h5
@@ -169,7 +169,7 @@ content_blocks:
             products, or anything else you are keen to share with your audience.
           buttons: []
         - imagery:
-            _type: components/icons/hero-library-icon
+            _type: components/icons/hero-library-icon/hero-library-icon
             hero_library_icon_name: puzzle-piece
             icon_size: small
             icon_type: outline
@@ -177,7 +177,7 @@ content_blocks:
             theme_color: true
             color: '#7d7f7c'
           heading:
-            _type: components/generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
             eyebrow_headline_hierarchy: h5
@@ -187,7 +187,7 @@ content_blocks:
             products, or anything else you are keen to share with your audience.
           buttons: []
       buttons:
-        - _type: components/generic/button
+        - _type: components/generic/button/button
           url: '#'
           open_in_new_tab: false
           text: Another optional button!
@@ -198,11 +198,11 @@ content_blocks:
       color_group: primary
       card_color_group: secondary0
       content_alignment: center
-  - _type: components/sections/centered-large-asset
+  - _type: components/sections/centered-large-asset/centered-large-asset
     content:
       id:
       heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Large image or video block
         eyebrow_headline_hierarchy: h3
@@ -211,16 +211,16 @@ content_blocks:
         Have a strong visual element you want to share? This component gives you
         the flexibility to either add a YouTube video or an image.
       asset:
-        _type: components/assets/video
+        _type: components/assets/video/video
         video_source: YouTube
         video_url: https://youtu.be/gVUloujNd_I?si=M9Pb81oigA6TKXyf
         fallback_image:
           image_path:
           image_alt:
-          _type: components/assets/image
+          _type: components/assets/image/image
           image_sizes:
       button:
-        _type: components/generic/button
+        _type: components/generic/button/button
         url: '#booking-form'
         open_in_new_tab: false
         text: Book Now

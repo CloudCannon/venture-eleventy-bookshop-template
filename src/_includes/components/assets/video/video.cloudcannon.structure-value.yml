@@ -1,0 +1,32 @@
+label: Video
+icon: movie
+picker_preview:
+  text:
+  - Video
+  icon:
+  - movie
+preview:
+  text:
+  - Video
+  icon:
+  - movie
+value:
+  _type: components/assets/video/video
+  video_source:
+  video_url:
+  fallback_image:
+    image_path:
+    image_alt:
+_inputs:
+  video_source:
+    type: select
+    options:
+      values:
+      - YouTube
+      - Vimeo
+  video_url:
+    type: url
+  image_path:
+    type: image
+  fallback_image:
+    comment: This is used while the video is loading

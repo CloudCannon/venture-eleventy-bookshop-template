@@ -1,0 +1,5 @@
+{% comment %}
+  See icon-cards.liquid — same normalisation. `variant` replaces card-grid's
+  former read of the ambient `_bookshop_name`.
+{% endcomment %}
+{% include "components/layout/card-grid/card-grid", content: content, styles: styles, variant: "image-cards" %}

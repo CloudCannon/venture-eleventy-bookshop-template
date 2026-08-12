@@ -1,0 +1,41 @@
+label: Radio Button Group
+icon: radio_button_unchecked
+picker_preview:
+  text:
+  - Radio Button Group
+  icon:
+  - radio_button_unchecked
+preview:
+  text:
+  - key: label
+  - Radio Button Group
+  icon:
+  - radio_button_unchecked
+value:
+  _type: components/form/radio-button-group/radio-button-group
+  label: ''
+  id:
+  required: false
+  radio_buttons:
+  - label:
+    checked: false
+    radio_id:
+  arrangement: inline
+  helper_text:
+_inputs:
+  label:
+    comment: It is recommended to provide a label for this input group
+  radio_buttons:
+    comment: It is recommended to have one option checked as a default for radio button groups
+    type: array
+    options:
+      structures: _structures.radio_button_items
+  radio_id:
+    instance_value: UUID
+    type: text
+  helper_text:
+    comment: Helpful text for the user such as 'Option 1 is only available on weekends'
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

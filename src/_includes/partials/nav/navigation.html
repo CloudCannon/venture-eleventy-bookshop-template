@@ -2,14 +2,14 @@
 <header class="c-header">
     <nav class="{{c}} {{c}}--close {{c}}--{{nav.nav_color_group}}" aria-label="Main menu" id="main-menu">
         <div class="{{c}}__skip-to-content-link" >
-            {% include "components/generic/button", url: '#main', text: "Skip to contents", variant: "primary", arrow: "down" %}
+            {% include "components/generic/button/button", url: '#main', text: "Skip to contents", variant: "primary", arrow: "down" %}
         </div>
 
         <div class="{{c}}__contents">                        
             <div class="{{c}}__logo-block">
                 <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ nav.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
                     {% if nav.nav_logo_image and nav.nav_logo_image != '' %}
-                        {% include "components/assets/image", image_path: nav.nav_logo_image, image_alt: "Site logo", prop_src: "@data[nav].nav_logo_image" %}
+                        {% include "components/assets/image/image", image_path: nav.nav_logo_image, image_alt: "Site logo", prop_src: "@data[nav].nav_logo_image" %}
                     {% else %}
                         <span class="{{c}}__logo-link__text" data-editable="text" data-type="span" data-prop="@data[nav].logo_text">{{ nav.logo_text }}</span>
                     {% endif %}
@@ -65,7 +65,7 @@
                             icon_hover_color: "var(--main-background-color)"
                         {% endcapture %}
                         {% assign_local social_icons_style = social_icon_styles | ymlify %}
-                        {% include "components/generic/social-icons", social_media_links: site.social_media_links, style: social_icons_style, links_prop: "@data[site].social_media_links" %}
+                        {% include "components/generic/social-icons/social-icons", social_media_links: site.social_media_links, style: social_icons_style, links_prop: "@data[site].social_media_links" %}
                     </div>                
                 </div>
             </div>

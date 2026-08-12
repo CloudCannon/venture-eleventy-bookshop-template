@@ -1,0 +1,39 @@
+label: Testimonial
+icon: format_quote
+picker_preview:
+  text:
+  - Testimonial
+  icon:
+  - format_quote
+preview:
+  text:
+  - Testimonial
+  icon:
+  - format_quote
+  image:
+  - key: content.image.image_path
+value:
+  _type: components/sections/left-right-testimonial/left-right-testimonial
+  content:
+    id:
+    eyebrow_headline: What your customers say
+    quote: Their customer service is second to none.
+    author_name: John Smith
+    buttons: []
+    image:
+      _type: components/assets/image/image
+      image_path:
+      image_alt:
+      image_sizes: '(min-width: 769px) 700px, 100vw'
+  styles:
+    color_group: primary
+    image_alignment: left
+_inputs:
+  buttons:
+    type: array
+    options:
+      structures: _structures.button_blocks
+  image:
+    type: object
+    options:
+      structures: _structures.image_blocks

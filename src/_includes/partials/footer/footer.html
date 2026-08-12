@@ -9,7 +9,7 @@
 <footer class="{{ c }} {{ c }}--{{ footer.footer_color_group }}">
     <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ footer.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
         {% if footer.footer_logo_image and footer.footer_logo_image != '' %}
-            {% include "components/assets/image",
+            {% include "components/assets/image/image",
                  image_path: footer.footer_logo_image,
                  image_alt: "Site logo",
                  prop_src: "@data[footer].footer_logo_image" %}
@@ -24,7 +24,7 @@
                 icon_hover_color: "var(--main-background-color)"
             {% endcapture %}
             {% assign_local social_icons_style = social_icon_styles | ymlify %}
-            {% include "components/generic/social-icons", social_media_links: site.social_media_links, style: social_icons_style, links_prop: "@data[site].social_media_links" %}
+            {% include "components/generic/social-icons/social-icons", social_media_links: site.social_media_links, style: social_icons_style, links_prop: "@data[site].social_media_links" %}
         </div>
         <div class="{{ c }}__navlist--wrapper">
             <ul class="{{ c }}__navlist" data-editable="array" data-prop="@data[footer].navigation_items">

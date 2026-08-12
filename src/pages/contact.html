@@ -10,17 +10,17 @@ layout: layouts/page.html
 permalink: /contact/
 eleventyExcludeFromCollections: false
 hero:
-  _type: components/heroes/hero
+  _type: components/heroes/hero/hero
   content:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Eyebrow Heading
       primary_heading: Contact us
       eyebrow_headline_hierarchy: h2
       primary_heading_hierarchy: h1
     description: Add some description text to complement the block.
     button:
-      _type: components/generic/button
+      _type: components/generic/button/button
       url: '#contact-form'
       open_in_new_tab: false
       text: Contact us
@@ -28,7 +28,7 @@ hero:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/images/Left-Right--featured-image.png
       image_alt: Barber shop bench with tools sitting on it
       image_sizes:
@@ -36,37 +36,37 @@ hero:
     image_alignment: right
     color_group: secondary0
 content_blocks:
-- _type: components/sections/form
+- _type: components/sections/form/form
   content:
     id: contact-form
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Eyebrow Heading
       primary_heading: Contact us
       eyebrow_headline_hierarchy: h3
       primary_heading_hierarchy: h2
     description: Invite your customers to get in touch with you.
     form:
-      _type: components/simple/form-builder
+      _type: components/simple/form-builder/form-builder
       id:
       form_submission_type: email/cloudcannon
       inbox_key:
       subject:
       success_page: ''
       form_elements:
-      - _type: components/form/text-input
+      - _type: components/form/text-input/text-input
         label: Full name
         placeholder: John Smith
         id:
         required: true
         helper_text:
-      - _type: components/form/email-input
+      - _type: components/form/email-input/email-input
         label: Email address
         id:
         required: true
         placeholder: mybusiness@example.com
         helper_text:
-      - _type: components/form/text-area-input
+      - _type: components/form/text-area-input/text-area-input
         label: Message
         placeholder: Leave your message here
         id:
@@ -80,11 +80,11 @@ content_blocks:
   styles:
     color_group: primary
     content_alignment: center
-- _type: components/sections/image-cards
+- _type: components/sections/image-cards/image-cards
   content:
     id:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Bite-sized information
       primary_heading: An image card grid
       eyebrow_headline_hierarchy: h3
@@ -92,7 +92,7 @@ content_blocks:
     description: These image cards combine a short written message and a strong visual image.
     grid_items:
     - heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Primary Heading
         eyebrow_headline_hierarchy: h5
@@ -101,12 +101,12 @@ content_blocks:
         else you are keen to share with your audience.
       buttons: []
       imagery:
-        _type: components/assets/image
+        _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg
         image_alt: Three people at a table laughing and using their laptops
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 63vw, 94vw'
     - heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Primary Heading
         eyebrow_headline_hierarchy: h5
@@ -115,12 +115,12 @@ content_blocks:
         else you are keen to share with your audience.
       buttons: []
       imagery:
-        _type: components/assets/image
+        _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-X4RJG4aNi8o-unsplash.jpg
         image_alt: Pouring milk into a coffee in a café
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 63vw, 94vw'
     - heading:
-        _type: components/generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Primary Heading
         eyebrow_headline_hierarchy: h5
@@ -129,7 +129,7 @@ content_blocks:
         else you are keen to share with your audience.
       buttons: []
       imagery:
-        _type: components/assets/image
+        _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-WHWYBmtn3_0-unsplash.jpg
         image_alt: Person smiling at laptop
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 63vw, 94vw'
@@ -138,7 +138,7 @@ content_blocks:
     color_group: secondary0
     card_color_group: primary
     content_alignment: center
-- _type: components/sections/left-right-contact
+- _type: components/sections/left-right-contact/left-right-contact
   content:
     id:
     display_social_icons: true
@@ -159,12 +159,12 @@ content_blocks:
       text: 'Opening hours: 9-5pm, Monday to Friday'
       hero_library_icon_name: clock
     map:
-      _type: components/simple/map
+      _type: components/simple/map/map
       latitude: -45.8715491
       longitude: 170.5130604
       zoom_level: 9
     buttons:
-    - _type: components/generic/button
+    - _type: components/generic/button/button
       url: '#contact-form'
       open_in_new_tab: false
       text: Contact us

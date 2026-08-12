@@ -1,0 +1,23 @@
+label: Image
+icon: image
+picker_preview:
+  text:
+  - Image
+  icon:
+  - image
+preview:
+  text:
+  - Image
+  icon:
+  - image
+  image:
+  - key: image_path
+value:
+  _type: components/assets/image/image
+  image_path:
+  image_alt:
+  image_sizes:
+_inputs:
+  image_sizes:
+    hidden: true
+    type: text

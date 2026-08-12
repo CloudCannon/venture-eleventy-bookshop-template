@@ -1,0 +1,19 @@
+label: Form Section Break
+icon: density_large
+picker_preview:
+  text:
+  - Form Section Break
+  icon:
+  - density_large
+preview:
+  text:
+  - Form Section Break
+  icon:
+  - density_large
+value:
+  _type: components/form/section-break/section-break
+  line: false
+_inputs:
+  line:
+    type: switch
+    comment: Add a dividing line to this form section break (otherwise will leave a blank space)

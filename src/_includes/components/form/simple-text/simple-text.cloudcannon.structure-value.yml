@@ -1,0 +1,19 @@
+label: Form Simple Text
+icon: edit_note
+picker_preview:
+  text:
+  - Form Simple Text
+  icon:
+  - edit_note
+preview:
+  text:
+  - key: text
+  - Form Simple Text
+  icon:
+  - edit_note
+value:
+  _type: components/form/simple-text/simple-text
+  text: Description text to compliment the form
+_inputs:
+  text:
+    type: textarea

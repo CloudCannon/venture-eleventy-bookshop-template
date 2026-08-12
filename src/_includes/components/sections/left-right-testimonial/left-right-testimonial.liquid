@@ -1,0 +1,57 @@
+{% comment %}
+  The quote used to be reshaped into a synthetic `heading` object via
+  capture + ymlify. Re-render only passes stored data, so that synthetic object
+  had no data path and its nested regions could never bind. The quote and
+  attribution are now rendered directly at their real paths.
+{% endcomment %}
+{% assign_local c = "c-left-right-block--testimonial" %}
+
+{% capture content_html %}
+  <header class="c-heading">
+    <h2 class="c-heading__primary_heading" data-editable="text" data-type="span" data-prop="content.quote">
+      &ldquo;{{ content.quote }}&rdquo;
+    </h2>
+    {% if content.eyebrow_headline %}
+      <h3 class="c-heading__eyebrow_heading" data-editable="text" data-type="span" data-prop="content.eyebrow_headline">
+        {{ content.eyebrow_headline }}
+      </h3>
+    {% endif %}
+  </header>
+  {% if content.author_name %}
+    <div class="c-left-right-block__content-text">
+      {% include "components/generic/text-block/text-block", text: content.author_name, prop: "content.author_name" %}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture buttons_html %}
+  {% if content.buttons and content.buttons.size > 0 %}
+    <div class="c-left-right-block__buttons" data-editable="array" data-prop="content.buttons">
+      {% for button in content.buttons %}
+        <div data-editable="array-item" data-component="components/generic/button/button" data-id="{{ forloop.index0 }}">
+          {% includeWith "components/generic/button/button", button %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture media_html %}
+  {% if content.image.image_path %}
+    {% include "components/assets/image/image",
+         image_path: content.image.image_path,
+         image_alt: content.image.image_alt,
+         image_sizes: content.image.image_sizes,
+         prop_src: "content.image.image_path",
+         prop_alt: "content.image.image_alt" %}
+  {% endif %}
+{% endcapture %}
+
+<section {% if content.id %}id="{{ content.id }}"{% endif %} class="{{ c }}">
+  {% include "components/layout/left-right-block/left-right-block",
+       content_html: content_html,
+       buttons_html: buttons_html,
+       media_html: media_html,
+       image_alignment: styles.image_alignment,
+       color_group: styles.color_group %}
+</section>

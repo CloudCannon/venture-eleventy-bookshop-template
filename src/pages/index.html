@@ -10,17 +10,17 @@ layout: layouts/page.html
 permalink: /
 eleventyExcludeFromCollections: false
 hero:
-  _type: components/heroes/hero
+  _type: components/heroes/hero/hero
   content:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: A small business template
       primary_heading: Empower your business with this brilliant template
       eyebrow_headline_hierarchy: h2
       primary_heading_hierarchy: h1
     description: ''
     button:
-      _type: components/generic/button
+      _type: components/generic/button/button
       url: '#services'
       open_in_new_tab: false
       text: Our services
@@ -28,7 +28,7 @@ hero:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/uploads/hero-background-feature.png
       image_alt: Person wearing glasses and a beanie using a coffee machine
       image_sizes:
@@ -36,18 +36,18 @@ hero:
     image_alignment: full-background
     color_group: primary
 content_blocks:
-- _type: components/sections/left-right-simple
+- _type: components/sections/left-right-simple/left-right-simple
   content:
     id:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: tag or label headline
       primary_heading: A component to showcase your brand
       eyebrow_headline_hierarchy: h3
       primary_heading_hierarchy: h2
     description: Description text to complement the block.
     buttons:
-    - _type: components/generic/button
+    - _type: components/generic/button/button
       url: /booking/
       open_in_new_tab: false
       text: Book now
@@ -55,7 +55,7 @@ content_blocks:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/images/Hero--background-feature-2.png
       image_alt: Person wearing glasses and holding fairy lights
       image_sizes: '(min-width: 769px) 700px, 100vw'
@@ -63,11 +63,11 @@ content_blocks:
     image_padding: false
     color_group: secondary0
     image_alignment: left
-- _type: components/sections/price-list
+- _type: components/sections/price-list/price-list
   content:
     id: services
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Eyebrow Heading
       primary_heading: List your services or products
       eyebrow_headline_hierarchy: h3
@@ -92,7 +92,7 @@ content_blocks:
       - label: Service 3
         detail: $79 annually
     button:
-      _type: components/generic/button
+      _type: components/generic/button/button
       url: /booking/
       open_in_new_tab: false
       text: Book now
@@ -102,14 +102,14 @@ content_blocks:
   styles:
     color_group: primary
     content_alignment: center
-- _type: components/sections/left-right-testimonial
+- _type: components/sections/left-right-testimonial/left-right-testimonial
   content:
     id:
     eyebrow_headline: What your customers say
     quote: Their customer service is second to none.
     author_name: John Smith
     buttons:
-    - _type: components/generic/button
+    - _type: components/generic/button/button
       url: /booking/
       open_in_new_tab: false
       text: Book now
@@ -117,54 +117,54 @@ content_blocks:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/images/Testimonial--background-feature.png
       image_alt: Person holding notebook and pencil smiling
       image_sizes: '(min-width: 769px) 700px, 100vw'
   styles:
     color_group: secondary0
     image_alignment: right
-- _type: components/sections/gallery
+- _type: components/sections/gallery/gallery
   content:
     show_note: true
     id:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: a simple gallery
       primary_heading: Image Gallery
       eyebrow_headline_hierarchy: h3
       primary_heading_hierarchy: h2
     description: ''
     gallery:
-      _type: components/simple/image-gallery
+      _type: components/simple/image-gallery/image-gallery
       show_note: true
       images:
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg
         image_alt: three people laughing while working on laptops
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-WHWYBmtn3_0-unsplash.jpg
         image_alt: People in a busy café
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/ash-edmonds-LVygXSuJ40Y-unsplash.jpg
         image_alt: Person making a drink at a bar
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-9fHMo1-5Io8-unsplash.jpg
         image_alt: Person smiling and wearing glasses making a coffee
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/delfina-pan-wJoB8D3hnzc-unsplash.jpg
         image_alt: Person sitting getting a haircut
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
-      - _type: components/assets/image
+      - _type: components/assets/image/image
         image_path: /assets/images/gallery/brooke-cagle-X4RJG4aNi8o-unsplash.jpg
         image_alt: Milk being poured into a coffee in a café
         image_sizes: '(min-width: 769px) 368px, (min-width: 480px) 46vw, 78vw'
       button:
-        _type: components/generic/button
+        _type: components/generic/button/button
         url:
         open_in_new_tab: false
         text: Load more
@@ -174,11 +174,11 @@ content_blocks:
   styles:
     color_group: primary
     content_alignment: center
-- _type: components/sections/left-right-labelled-icons
+- _type: components/sections/left-right-labelled-icons/left-right-labelled-icons
   content:
     id:
     heading:
-      _type: components/generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: let your features shine
       primary_heading: A featured icons block
       eyebrow_headline_hierarchy: h3
@@ -194,7 +194,7 @@ content_blocks:
       icon_type: outline
       icon_text: Outstanding product reviews
     buttons:
-    - _type: components/generic/button
+    - _type: components/generic/button/button
       url: /booking/
       open_in_new_tab: false
       text: Book Now
@@ -202,14 +202,14 @@ content_blocks:
       arrow: right
       onclick:
     image:
-      _type: components/assets/image
+      _type: components/assets/image/image
       image_path: /assets/images/Left-Right--featured-image.png
       image_alt: Barber shop bench with many hairdresser tools sitting on it
       image_sizes: '(min-width: 769px) 700px, 100vw'
   styles:
     color_group: secondary0
     image_alignment: right
-- _type: components/sections/left-right-contact
+- _type: components/sections/left-right-contact/left-right-contact
   content:
     id:
     display_social_icons: true
@@ -230,7 +230,7 @@ content_blocks:
       text: 'Opening hours: 9-5pm, Monday to Friday'
       hero_library_icon_name: clock
     map:
-      _type: components/simple/map
+      _type: components/simple/map/map
       latitude: -45.8715491
       longitude: 170.5130604
       zoom_level: 9

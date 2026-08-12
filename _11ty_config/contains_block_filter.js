@@ -1,6 +1,6 @@
 /**
  * True when any page-builder block is of the given type.
- * `blockName` is a component include path, e.g. "components/sections/gallery".
+ * `blockName` is a component include path, e.g. "components/sections/gallery/gallery".
  */
 module.exports = (content_blocks, blockName) => {
 	if (!Array.isArray(content_blocks)) {

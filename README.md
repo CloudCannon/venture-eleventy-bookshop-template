@@ -113,8 +113,19 @@ This will create a `_site` folder, containing the output files.
 Venture is built from plain Eleventy Liquid partials in `src/_includes/components/`, wired for
 CloudCannon's Visual Editor with [`@cloudcannon/editable-regions`](https://cloudcannon.com/documentation/articles/using-editable-regions/).
 
-Components are grouped by the structure they belong to, because CloudCannon collects structure
-values by directory glob:
+Each component lives in its own folder, named after the component, holding all of its files:
+
+```
+components/sections/price-list/
+├── price-list.liquid
+├── price-list.scss
+└── price-list.cloudcannon.structure-value.yml
+```
+
+The include path therefore repeats the name — `components/sections/price-list/price-list`.
+
+Those folders are grouped by the structure the component belongs to, because CloudCannon collects
+structure values by directory glob:
 
 | Directory | Structure | Contents |
 | --- | --- | --- |
@@ -128,13 +139,15 @@ values by directory glob:
 
 ### Adding a component
 
-1. Add `my-component.liquid` (and an optional `my-component.scss`) to the right directory. The SCSS
-   index is regenerated automatically by `npm run component-styles`.
-2. Add `my-component.cloudcannon.structure-value.yml` beside it. Its `value._type` must be the
-   component's include path (e.g. `components/sections/my-component`) — that same string is used as
-   `data-component` and by `includeWith`, and all three must match.
-3. Nothing to register: the directory glob picks the structure up, and the editable-regions browser
-   bundle resolves any component by include path.
+1. Add `my-component/my-component.liquid` (and an optional `my-component/my-component.scss`) to the
+   right directory. The SCSS index is regenerated automatically by `npm run component-styles`.
+2. Add `my-component.cloudcannon.structure-value.yml` beside it, in the same folder. Its
+   `value._type` must be the component's include path (e.g.
+   `components/sections/my-component/my-component`) — that same string is used as `data-component`
+   and by `includeWith`, and all three must match.
+3. Nothing to register: the directory glob (`components/sections/*/*.cloudcannon.structure-value.yml`)
+   picks the structure up, and the editable-regions browser bundle resolves any component by include
+   path.
 
 ### Editable regions
 

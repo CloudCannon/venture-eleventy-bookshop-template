@@ -1,0 +1,36 @@
+label: Text Area Input
+icon: edit
+picker_preview:
+  text:
+  - Text Area Input
+  icon:
+  - edit
+preview:
+  text:
+  - key: label
+  - Text Area Input
+  icon:
+  - edit
+value:
+  _type: components/form/text-area-input/text-area-input
+  label: ''
+  placeholder: ''
+  id:
+  rows: 2
+  required: false
+  helper_text:
+_inputs:
+  rows:
+    type: range
+    options:
+      step: 1
+      min: 2
+      max: 10
+  helper_text:
+    comment: Helpful text for the user such as 'You do not need to enter your middle name(s)'
+  placeholder:
+    type: textarea
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

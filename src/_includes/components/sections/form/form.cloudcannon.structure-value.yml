@@ -1,0 +1,48 @@
+label: Form
+icon: dynamic_form
+picker_preview:
+  text:
+  - Form
+  icon:
+  - dynamic_form
+preview:
+  text:
+  - key: content.heading.primary_heading
+  - Form
+  icon:
+  - dynamic_form
+value:
+  _type: components/sections/form/form
+  content:
+    id:
+    heading:
+      _type: components/generic/heading/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    form:
+      _type: components/simple/form-builder/form-builder
+      id:
+      form_submission_type: email/cloudcannon
+      inbox_key:
+      subject:
+      success_page: ''
+      form_elements: []
+      submit_button:
+        text: Button text
+        variant: primary
+        arrow: right
+  styles:
+    color_group: primary
+    content_alignment: center
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  form:
+    type: object
+    options:
+      structures: _structures.form_builder_blocks

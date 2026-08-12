@@ -1,0 +1,24 @@
+label: Hero Library Icon
+icon: bolt
+picker_preview:
+  text:
+  - Hero Library Icon
+  icon:
+  - bolt
+preview:
+  text:
+  - Hero Library Icon
+  icon:
+  - bolt
+value:
+  _type: components/icons/hero-library-icon/hero-library-icon
+  hero_library_icon_name: academic-cap
+  icon_size: small
+  icon_type: solid
+  rounded_border: false
+  theme_color: false
+  color: '#7d7f7c'
+_inputs:
+  theme_color:
+    comment: Use your theme color for the icon color and the rounded border color (if one is included)
+    type: checkbox

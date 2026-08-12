@@ -29,7 +29,7 @@
                         color_group: "primary"
                 {% endcapture %}
                 {% assign default_hero = default_hero | ymlify %}
-                {% includeWith "components/heroes/hero--simple", default_hero %}
+                {% includeWith "components/heroes/hero--simple/hero--simple", default_hero %}
             {% endif %}
 
             {% comment %}

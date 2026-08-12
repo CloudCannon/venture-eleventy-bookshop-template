@@ -1085,6 +1085,9 @@ _structures:
         icon_path:
         icon_type: outline
         icon_text: Icon label
+      _inputs:
+        icon_path:
+          hidden: true
     - label: Custom icon
       icon: emoji_symbols
       picker_preview:
@@ -1105,6 +1108,9 @@ _structures:
         icon_path:
         icon_type: outline
         icon_text: Icon label
+      _inputs:
+        hero_library_icon_name:
+          hidden: true
   list_items:
     values:
     - label: List item

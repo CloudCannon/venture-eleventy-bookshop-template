@@ -28,6 +28,10 @@
         gap: var(--gap-list);
         width: 100%;
 
+        &__list-group {
+            width: 100%;
+        }
+
         &__list {
             display: flex;
             flex-direction: column;

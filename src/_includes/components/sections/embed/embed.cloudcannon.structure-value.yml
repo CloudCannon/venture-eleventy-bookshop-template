@@ -50,7 +50,7 @@ _inputs:
     comment: Copy the embed code from the chosen provider here. This approach is not recommended for youtube/vimeo
       (use the centered large asset component instead)
   content.embed.embed:
-    type: textarea
+    type: code
     comment: The raw embed code supplied by the provider.
   button:
     type: object

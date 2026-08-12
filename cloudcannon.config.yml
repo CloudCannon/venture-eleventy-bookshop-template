@@ -46,6 +46,9 @@ file_config:
                 options:
                   accepts_mime_types:
                   - image/svg+xml
+              label:
+                comment: This is a hidden accessibility label used by screen readers to describe what
+                  the link is
 data_config:
   fonts:
     path: _data/fonts.yml
@@ -715,6 +718,11 @@ _structures:
         variant: primary
         arrow: right
         onclick:
+      _inputs:
+        onclick:
+          hidden: true
+        open_in_new_tab:
+          hidden: '!url'
   custom_embed_blocks:
     values:
     - label: Custom Embed
@@ -736,6 +744,35 @@ _structures:
         _type: components/generic/custom-embed/custom-embed
         embed:
         ratio: default
+      _inputs:
+        embed:
+          type: code
+        ratio:
+          comment: The ratio of the width to height for the embed container (The second number indicates
+            how many x the width the height will be)
+          type: select
+          options:
+            value_key: ratio_value
+            preview:
+              text:
+              - key: name
+            values:
+            - name: Default
+              ratio_value: auto
+            - name: A4 Document
+              ratio_value: 1 / 1.41
+            - name: Video
+              ratio_value: 16 / 9
+            - name: 1 / 0.5
+              ratio_value: 1 / 0.5
+            - name: 1 / 0.75
+              ratio_value: 1 / 0.75
+            - name: 1 / 1
+              ratio_value: 1 / 1
+            - name: 1 / 1.25
+              ratio_value: 1 / 1.25
+            - name: 1 / 1.5
+              ratio_value: 1 / 1.5
   heading_blocks:
     values:
     - label: Heading
@@ -759,6 +796,24 @@ _structures:
         primary_heading: Primary Heading
         eyebrow_headline_hierarchy: h3
         primary_heading_hierarchy: h2
+      _inputs:
+        eyebrow_headline_hierarchy:
+          hidden: true
+          type: select
+          options:
+            values:
+            - h2
+            - h3
+            - h4
+        primary_heading_hierarchy:
+          hidden: true
+          type: select
+          options:
+            values:
+            - h1
+            - h2
+            - h3
+            - h4
   image_blocks:
     values:
     - label: Image
@@ -781,6 +836,10 @@ _structures:
         image_path:
         image_alt:
         image_sizes:
+      _inputs:
+        image_sizes:
+          hidden: true
+          type: text
   text_block_blocks:
     values:
     - label: Text block
@@ -804,6 +863,32 @@ _structures:
 
           You can use **bold text** and *italic text* along with [links](http://google.com) and others
           options.'
+      _inputs:
+        text:
+          type: markdown
+          options:
+            link: true
+            blockquote: false
+            bold: true
+            format: p h3 h4 h5 h6
+            italic: true
+            strike: true
+            subscript: true
+            superscript: true
+            underline: true
+            bulletedlist: true
+            numberedlist: true
+            indent: false
+            outdent: false
+            code: false
+            embed: false
+            horizontalrule: false
+            image: false
+            table: false
+            undo: true
+            redo: true
+            removeformat: true
+            copyformatting: true
   form_builder_blocks:
     values:
     - label: Form Builder
@@ -833,6 +918,17 @@ _structures:
           text: Button text
           variant: primary
           arrow: right
+      _inputs:
+        form_submission_type:
+          type: disabled
+        success_page:
+          type: url
+          comment: The page to redirect to after submission
+        inbox_key:
+          comment: The key that you configured for your cloudcannon inbox. If not set it will go to the
+            default inbox you set up. Instructions for setting up an inbox key can be found [here](https://cloudcannon.com/documentation/articles/creating-an-inbox-to-receive-your-forms/).
+        subject:
+          comment: The subject line for the form submission emails
   image_gallery_blocks:
     values:
     - label: Image Gallery
@@ -859,6 +955,9 @@ _structures:
           text: Load more
           variant: primary
           arrow: down
+      _inputs:
+        images:
+          comment: Your images will be cropped into squares for the best presentation
   map_blocks:
     values:
     - label: Map Embed
@@ -881,6 +980,13 @@ _structures:
         latitude:
         longitude:
         zoom_level: 9
+      _inputs:
+        zoom_level:
+          type: range
+          options:
+            step: 1
+            max: 13
+            min: 0
   grid_items:
     style: modal
     values:

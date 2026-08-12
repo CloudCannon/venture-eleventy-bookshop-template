@@ -1,9 +1,5 @@
 label: Hero - Simple
 icon: cottage
-tags:
-- hero
-- banner
-- text
 tabbed: true
 picker_preview:
   text:

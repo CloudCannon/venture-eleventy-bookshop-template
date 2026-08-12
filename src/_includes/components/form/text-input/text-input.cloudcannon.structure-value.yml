@@ -1,9 +1,5 @@
 label: Text Input
 icon: edit
-tags:
-- form
-- input
-- text
 picker_preview:
   text:
   - Text Input

@@ -13,6 +13,9 @@ picker_preview:
 preview:
   text:
   - Contact
+  subtext:
+  - key: content.heading
+  - A contact block with a map and contact details
   icon:
   - contact_phone
 value:

@@ -1,9 +1,5 @@
 label: Select Input
 icon: checklist
-tags:
-- form
-- input
-- select
 picker_preview:
   text:
   - Select Input

@@ -615,11 +615,11 @@ _structures:
     values_from_glob:
     - /src/_includes/components/sections/*/*.cloudcannon.structure-value.yml
   hero_blocks:
-    style: modal
+    style: select
     values_from_glob:
     - /src/_includes/components/heroes/*/*.cloudcannon.structure-value.yml
   form_blocks:
-    style: modal
+    style: select
     values_from_glob:
     - /src/_includes/components/form/*/*.cloudcannon.structure-value.yml
   # Item shapes for the arrays inside the form group components. Without these an
@@ -628,10 +628,6 @@ _structures:
     values:
     - label: Checkbox
       icon: check_box
-      tags:
-      - form
-      - checkbox
-      - option
       picker_preview:
         text:
         - Checkbox
@@ -654,10 +650,6 @@ _structures:
     values:
     - label: Radio Button
       icon: radio_button_unchecked
-      tags:
-      - form
-      - radio
-      - option
       picker_preview:
         text:
         - Radio Button
@@ -679,10 +671,6 @@ _structures:
     values:
     - label: Option
       icon: list
-      tags:
-      - form
-      - select
-      - option
       picker_preview:
         text:
         - Option
@@ -699,15 +687,15 @@ _structures:
       value:
         name:
   icon_blocks:
-    style: modal
+    style: select
     values_from_glob:
     - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
   asset_blocks:
-    style: modal
+    style: select
     values_from_glob:
     - /src/_includes/components/assets/*/*.cloudcannon.structure-value.yml
   card_imagery_blocks:
-    style: modal
+    style: select
     values_from_glob:
     - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
     - /src/_includes/components/assets/image/image.cloudcannon.structure-value.yml
@@ -715,9 +703,6 @@ _structures:
     values:
     - label: Button
       icon: ads_click
-      tags:
-      - button
-      - link
       picker_preview:
         text:
         - Button
@@ -750,10 +735,6 @@ _structures:
     values:
     - label: Custom Embed
       icon: code
-      tags:
-      - embed
-      - code
-      - media
       picker_preview:
         text:
         - Custom Embed
@@ -806,9 +787,6 @@ _structures:
     values:
     - label: Heading
       icon: title
-      tags:
-      - heading
-      - text
       picker_preview:
         text:
         - Heading
@@ -852,9 +830,6 @@ _structures:
     values:
     - label: Image
       icon: image
-      tags:
-      - image
-      - asset
       picker_preview:
         text:
         - Image
@@ -883,9 +858,6 @@ _structures:
     values:
     - label: Text block
       icon: notes
-      tags:
-      - text
-      - rich text
       picker_preview:
         text:
         - Text block
@@ -937,8 +909,6 @@ _structures:
     values:
     - label: Form Builder
       icon: list_alt
-      tags:
-      - form
       picker_preview:
         text:
         - Form Builder
@@ -981,10 +951,6 @@ _structures:
     values:
     - label: Image Gallery
       icon: photo_library
-      tags:
-      - gallery
-      - grid
-      - image
       picker_preview:
         text:
         - Image Gallery
@@ -1016,10 +982,6 @@ _structures:
     values:
     - label: Map Embed
       icon: map
-      tags:
-      - map
-      - embed
-      - location
       picker_preview:
         text:
         - Map Embed
@@ -1052,9 +1014,6 @@ _structures:
     values:
     - label: Card
       icon: sticky_note_2
-      tags:
-      - card
-      - grid
       picker_preview:
         text:
         - Card
@@ -1100,9 +1059,6 @@ _structures:
     values:
     - label: Icon from library
       icon: star
-      tags:
-      - icon
-      - library
       picker_preview:
         text:
         - Icon from library
@@ -1123,10 +1079,6 @@ _structures:
         icon_text: Icon label
     - label: Custom icon
       icon: emoji_symbols
-      tags:
-      - icon
-      - custom
-      - svg
       picker_preview:
         text:
         - Custom icon
@@ -1149,10 +1101,6 @@ _structures:
     values:
     - label: List item
       icon: sell
-      tags:
-      - list
-      - item
-      - price
       picker_preview:
         text:
         - List item
@@ -1174,9 +1122,6 @@ _structures:
     values:
     - label: Price list
       icon: list
-      tags:
-      - list
-      - price list
       picker_preview:
         text:
         - Price list

@@ -1,8 +1,5 @@
 label: Form Simple Text
 icon: edit_note
-tags:
-- form
-- text
 picker_preview:
   text:
   - Form Simple Text

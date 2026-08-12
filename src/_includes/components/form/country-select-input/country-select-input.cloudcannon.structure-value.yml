@@ -1,10 +1,5 @@
 label: Country Input
 icon: public
-tags:
-- form
-- input
-- select
-- country
 picker_preview:
   text:
   - Country Input

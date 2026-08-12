@@ -1,9 +1,5 @@
 label: Email Input
 icon: mail
-tags:
-- form
-- input
-- email
 picker_preview:
   text:
   - Email Input

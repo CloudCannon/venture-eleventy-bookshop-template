@@ -1,9 +1,5 @@
 label: Checkbox Group
 icon: check_box
-tags:
-- form
-- input
-- checkbox
 picker_preview:
   text:
   - Checkbox Group

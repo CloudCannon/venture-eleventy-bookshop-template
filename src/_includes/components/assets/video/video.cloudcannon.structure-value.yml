@@ -1,8 +1,5 @@
 label: Video
 icon: movie
-tags:
-- video
-- asset
 picker_preview:
   text:
   - Video

@@ -1,9 +1,5 @@
 label: Time Input
 icon: alarm
-tags:
-- form
-- input
-- time
 picker_preview:
   text:
   - Time Input

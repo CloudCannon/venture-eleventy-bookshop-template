@@ -1,8 +1,5 @@
 label: Image
 icon: image
-tags:
-- image
-- asset
 picker_preview:
   text:
   - Image

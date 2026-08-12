@@ -1,9 +1,5 @@
 label: Date Input
 icon: date_range
-tags:
-- form
-- input
-- date
 picker_preview:
   text:
   - Date Input

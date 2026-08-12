@@ -1,9 +1,5 @@
 label: Section Heading
 icon: title
-tags:
-- form
-- heading
-- text
 picker_preview:
   text:
   - Section Heading

@@ -1,9 +1,5 @@
 label: Phone Input
 icon: call
-tags:
-- form
-- input
-- phone
 picker_preview:
   text:
   - Phone Input

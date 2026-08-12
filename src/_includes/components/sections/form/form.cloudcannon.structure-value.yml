@@ -1,5 +1,7 @@
 label: Form
 icon: dynamic_form
+tags:
+- form
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +10,10 @@ picker_preview:
   - dynamic_form
 preview:
   text:
-  - key: content.heading.primary_heading
   - Form
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with a configurable form
   icon:
   - dynamic_form
 value:

@@ -1,5 +1,9 @@
 label: Labelled Icons
 icon: mood
+tags:
+- two column
+- icon
+- image
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +12,10 @@ picker_preview:
   - mood
 preview:
   text:
-  - key: content.heading.primary_heading
   - Labelled Icons
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and labelled icons beside an image
   icon:
   - mood
   image:

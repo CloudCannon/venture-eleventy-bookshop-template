@@ -1,5 +1,9 @@
 label: Section Heading
 icon: title
+tags:
+- form
+- heading
+- text
 picker_preview:
   text:
   - Section Heading
@@ -7,8 +11,10 @@ picker_preview:
   - title
 preview:
   text:
-  - key: text
   - Section Heading
+  subtext:
+  - key: text
+  - Heading to divide up form sections
   icon:
   - title
 value:

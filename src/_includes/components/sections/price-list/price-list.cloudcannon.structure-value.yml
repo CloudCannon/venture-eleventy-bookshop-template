@@ -1,5 +1,9 @@
 label: Price List
 icon: format_list_numbered_rtl
+tags:
+- price list
+- services
+- list
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +12,10 @@ picker_preview:
   - format_list_numbered_rtl
 preview:
   text:
-  - key: content.heading.primary_heading
   - Price List
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with lists of items and prices
   icon:
   - format_list_numbered_rtl
 value:

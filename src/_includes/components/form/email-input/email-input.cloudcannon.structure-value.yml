@@ -1,5 +1,9 @@
 label: Email Input
 icon: mail
+tags:
+- form
+- input
+- email
 picker_preview:
   text:
   - Email Input
@@ -7,8 +11,10 @@ picker_preview:
   - mail
 preview:
   text:
-  - key: label
   - Email Input
+  subtext:
+  - key: label
+  - Email address field
   icon:
   - mail
 value:

@@ -1,5 +1,8 @@
 label: Image Gallery
 icon: photo_library
+tags:
+- grid
+- image
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +11,10 @@ picker_preview:
   - photo_library
 preview:
   text:
-  - key: content.heading.primary_heading
   - Image Gallery
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text above a gallery of images
   icon:
   - photo_library
 value:

@@ -1,5 +1,9 @@
 label: Radio Button Group
 icon: radio_button_unchecked
+tags:
+- form
+- input
+- radio
 picker_preview:
   text:
   - Radio Button Group
@@ -7,8 +11,10 @@ picker_preview:
   - radio_button_unchecked
 preview:
   text:
-  - key: label
   - Radio Button Group
+  subtext:
+  - key: label
+  - Group of radio buttons
   icon:
   - radio_button_unchecked
 value:

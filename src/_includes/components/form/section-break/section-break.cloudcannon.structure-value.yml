@@ -1,5 +1,9 @@
 label: Form Section Break
 icon: density_large
+tags:
+- form
+- divider
+- spacing
 picker_preview:
   text:
   - Form Section Break

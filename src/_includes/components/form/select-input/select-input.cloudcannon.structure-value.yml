@@ -1,5 +1,9 @@
 label: Select Input
 icon: checklist
+tags:
+- form
+- input
+- select
 picker_preview:
   text:
   - Select Input
@@ -7,8 +11,10 @@ picker_preview:
   - checklist
 preview:
   text:
-  - key: label
   - Select Input
+  subtext:
+  - key: label
+  - Dropdown with custom options
   icon:
   - checklist
 value:

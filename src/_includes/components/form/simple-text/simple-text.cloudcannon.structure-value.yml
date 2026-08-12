@@ -1,5 +1,8 @@
 label: Form Simple Text
 icon: edit_note
+tags:
+- form
+- text
 picker_preview:
   text:
   - Form Simple Text
@@ -7,8 +10,10 @@ picker_preview:
   - edit_note
 preview:
   text:
-  - key: text
   - Form Simple Text
+  subtext:
+  - key: text
+  - Paragraph of text within the form
   icon:
   - edit_note
 value:

@@ -1,5 +1,8 @@
 label: Centered Large Asset
 icon: web_asset
+tags:
+- video
+- image
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +11,10 @@ picker_preview:
   - web_asset
 preview:
   text:
-  - key: content.heading.primary_heading
   - Centered Large Asset
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text above a large centered asset
   icon:
   - web_asset
 value:

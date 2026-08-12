@@ -628,6 +628,10 @@ _structures:
     values:
     - label: Checkbox
       icon: check_box
+      tags:
+      - form
+      - checkbox
+      - option
       picker_preview:
         text:
         - Checkbox
@@ -635,8 +639,10 @@ _structures:
         - check_box
       preview:
         text:
-        - key: label
         - Checkbox
+        subtext:
+        - key: label
+        - Checkbox option
         icon:
         - check_box
       value:
@@ -648,6 +654,10 @@ _structures:
     values:
     - label: Radio Button
       icon: radio_button_unchecked
+      tags:
+      - form
+      - radio
+      - option
       picker_preview:
         text:
         - Radio Button
@@ -655,8 +665,10 @@ _structures:
         - radio_button_unchecked
       preview:
         text:
-        - key: label
         - Radio Button
+        subtext:
+        - key: label
+        - Radio button option
         icon:
         - radio_button_unchecked
       value:
@@ -667,6 +679,10 @@ _structures:
     values:
     - label: Option
       icon: list
+      tags:
+      - form
+      - select
+      - option
       picker_preview:
         text:
         - Option
@@ -674,8 +690,10 @@ _structures:
         - list
       preview:
         text:
-        - key: name
         - Option
+        subtext:
+        - key: name
+        - Dropdown option
         icon:
         - list
       value:
@@ -697,6 +715,9 @@ _structures:
     values:
     - label: Button
       icon: ads_click
+      tags:
+      - button
+      - link
       picker_preview:
         text:
         - Button
@@ -704,10 +725,12 @@ _structures:
         - ads_click
       preview:
         text:
+        - Button
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Button
+        - Link styled as a button
         icon:
         - ads_click
       value:
@@ -727,6 +750,10 @@ _structures:
     values:
     - label: Custom Embed
       icon: code
+      tags:
+      - embed
+      - code
+      - media
       picker_preview:
         text:
         - Custom Embed
@@ -734,10 +761,12 @@ _structures:
         - code
       preview:
         text:
+        - Custom Embed
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Custom Embed
+        - Custom HTML or embed code
         icon:
         - code
       value:
@@ -777,6 +806,9 @@ _structures:
     values:
     - label: Heading
       icon: title
+      tags:
+      - heading
+      - text
       picker_preview:
         text:
         - Heading
@@ -784,10 +816,12 @@ _structures:
         - title
       preview:
         text:
+        - Heading
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Heading
+        - Eyebrow and primary heading
         icon:
         - title
       value:
@@ -818,6 +852,9 @@ _structures:
     values:
     - label: Image
       icon: image
+      tags:
+      - image
+      - asset
       picker_preview:
         text:
         - Image
@@ -825,10 +862,12 @@ _structures:
         - image
       preview:
         text:
+        - Image
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Image
+        - Image with alt text
         icon:
         - image
       value:
@@ -844,6 +883,9 @@ _structures:
     values:
     - label: Text block
       icon: notes
+      tags:
+      - text
+      - rich text
       picker_preview:
         text:
         - Text block
@@ -851,10 +893,12 @@ _structures:
         - notes
       preview:
         text:
+        - Text block
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Text block
+        - Block of rich text
         icon:
         - notes
       value:
@@ -893,6 +937,8 @@ _structures:
     values:
     - label: Form Builder
       icon: list_alt
+      tags:
+      - form
       picker_preview:
         text:
         - Form Builder
@@ -900,10 +946,12 @@ _structures:
         - list_alt
       preview:
         text:
+        - Form Builder
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Form Builder
+        - Form with custom fields and submissions
         icon:
         - list_alt
       value:
@@ -933,6 +981,10 @@ _structures:
     values:
     - label: Image Gallery
       icon: photo_library
+      tags:
+      - gallery
+      - grid
+      - image
       picker_preview:
         text:
         - Image Gallery
@@ -940,10 +992,12 @@ _structures:
         - photo_library
       preview:
         text:
+        - Image Gallery
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Image Gallery
+        - Grid of images
         icon:
         - photo_library
       value:
@@ -962,6 +1016,10 @@ _structures:
     values:
     - label: Map Embed
       icon: map
+      tags:
+      - map
+      - embed
+      - location
       picker_preview:
         text:
         - Map Embed
@@ -969,10 +1027,12 @@ _structures:
         - map
       preview:
         text:
+        - Map Embed
+        subtext:
         - key: primary_heading
         - key: text
         - key: image_alt
-        - Map Embed
+        - Map centered on set coordinates
         icon:
         - map
       value:
@@ -992,6 +1052,9 @@ _structures:
     values:
     - label: Card
       icon: sticky_note_2
+      tags:
+      - card
+      - grid
       picker_preview:
         text:
         - Card
@@ -999,8 +1062,10 @@ _structures:
         - sticky_note_2
       preview:
         text:
-        - key: heading.primary_heading
         - Card
+        subtext:
+        - key: heading.primary_heading
+        - Card with imagery, heading, text and buttons
         icon:
         - sticky_note_2
         image:
@@ -1037,6 +1102,9 @@ _structures:
     values:
     - label: Icon from library
       icon: star
+      tags:
+      - icon
+      - library
       picker_preview:
         text:
         - Icon from library
@@ -1044,8 +1112,10 @@ _structures:
         - star
       preview:
         text:
+        - Icon from library
+        subtext:
         - key: icon_text
-        - Icon
+        - Icon from the library with a label
         icon:
         - star
       value:
@@ -1055,6 +1125,10 @@ _structures:
         icon_text: Icon label
     - label: Custom icon
       icon: emoji_symbols
+      tags:
+      - icon
+      - custom
+      - svg
       picker_preview:
         text:
         - Custom icon
@@ -1062,8 +1136,10 @@ _structures:
         - emoji_symbols
       preview:
         text:
-        - key: icon_text
         - Custom icon
+        subtext:
+        - key: icon_text
+        - Uploaded icon with a label
         icon:
         - emoji_symbols
       value:
@@ -1075,6 +1151,10 @@ _structures:
     values:
     - label: List item
       icon: sell
+      tags:
+      - list
+      - item
+      - price
       picker_preview:
         text:
         - List item
@@ -1082,8 +1162,10 @@ _structures:
         - sell
       preview:
         text:
-        - key: label
         - List item
+        subtext:
+        - key: label
+        - Item name with a price or detail
         icon:
         - sell
       value:
@@ -1094,6 +1176,9 @@ _structures:
     values:
     - label: Price list
       icon: list
+      tags:
+      - list
+      - price list
       picker_preview:
         text:
         - Price list
@@ -1101,8 +1186,10 @@ _structures:
         - list
       preview:
         text:
-        - key: list_heading
         - Price list
+        subtext:
+        - key: list_heading
+        - List heading with items
         icon:
         - list
       value:

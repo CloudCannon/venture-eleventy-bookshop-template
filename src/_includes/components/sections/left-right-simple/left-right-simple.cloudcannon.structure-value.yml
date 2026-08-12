@@ -1,5 +1,8 @@
 label: Text block with image
 icon: art_track
+tags:
+- two column
+- image
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +11,10 @@ picker_preview:
   - art_track
 preview:
   text:
-  - key: content.heading.primary_heading
   - Text block with image
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading, text and buttons beside an image
   icon:
   - art_track
   image:

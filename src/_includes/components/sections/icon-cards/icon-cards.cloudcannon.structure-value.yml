@@ -1,5 +1,8 @@
 label: Icon Cards
 icon: table_chart
+tags:
+- grid
+- icon
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +11,10 @@ picker_preview:
   - table_chart
 preview:
   text:
-  - key: content.heading.primary_heading
   - Icon Cards
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text above a grid of icon cards
   icon:
   - table_chart
 value:

@@ -1,5 +1,9 @@
 label: Hero
 icon: cottage
+tags:
+- hero
+- banner
+- image
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +12,10 @@ picker_preview:
   - cottage
 preview:
   text:
-  - key: content.heading.primary_heading
   - Hero
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading, text and button beside or behind an image
   icon:
   - cottage
 value:

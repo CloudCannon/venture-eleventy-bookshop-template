@@ -1,5 +1,8 @@
 label: Hero Library Icon
 icon: bolt
+tags:
+- icon
+- library
 picker_preview:
   text:
   - Hero Library Icon

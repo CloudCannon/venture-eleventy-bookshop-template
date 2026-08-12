@@ -1,5 +1,9 @@
 label: Date Input
 icon: date_range
+tags:
+- form
+- input
+- date
 picker_preview:
   text:
   - Date Input
@@ -7,8 +11,10 @@ picker_preview:
   - date_range
 preview:
   text:
-  - key: label
   - Date Input
+  subtext:
+  - key: label
+  - Date picker field
   icon:
   - date_range
 value:

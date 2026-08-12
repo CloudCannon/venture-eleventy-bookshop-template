@@ -1,5 +1,9 @@
 label: Embed
 icon: web_asset
+tags:
+- embed
+- media
+- document
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +12,10 @@ picker_preview:
   - web_asset
 preview:
   text:
-  - key: content.heading.primary_heading
   - Embed
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with an embedded code block
   icon:
   - web_asset
 value:

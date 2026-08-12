@@ -1,5 +1,7 @@
 label: Simple Text Block
 icon: article
+tags:
+- text
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +10,10 @@ picker_preview:
   - article
 preview:
   text:
-  - key: content.heading.primary_heading
   - Simple Text Block
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading with a block of rich text
   icon:
   - article
 value:

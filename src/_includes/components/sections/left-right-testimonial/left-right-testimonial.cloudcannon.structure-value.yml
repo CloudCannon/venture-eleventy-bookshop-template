@@ -1,5 +1,8 @@
 label: Testimonial
 icon: format_quote
+tags:
+- two column
+- image
 tabbed: true
 picker_preview:
   text:

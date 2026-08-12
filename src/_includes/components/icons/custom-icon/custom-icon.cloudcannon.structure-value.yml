@@ -1,5 +1,9 @@
 label: Custom Icon
 icon: bolt
+tags:
+- icon
+- custom
+- svg
 picker_preview:
   text:
   - Custom Icon

@@ -1,5 +1,9 @@
 label: Checkbox Group
 icon: check_box
+tags:
+- form
+- input
+- checkbox
 picker_preview:
   text:
   - Checkbox Group
@@ -7,8 +11,10 @@ picker_preview:
   - check_box
 preview:
   text:
-  - key: label
   - Checkbox Group
+  subtext:
+  - key: label
+  - Group of checkboxes
   icon:
   - check_box
 value:

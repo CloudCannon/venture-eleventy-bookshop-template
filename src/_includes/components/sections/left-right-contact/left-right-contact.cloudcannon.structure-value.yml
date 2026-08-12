@@ -1,5 +1,9 @@
 label: Contact
 icon: contact_phone
+tags:
+- two column
+- contact
+- map
 tabbed: true
 picker_preview:
   text:

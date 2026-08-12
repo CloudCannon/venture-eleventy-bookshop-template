@@ -1,5 +1,10 @@
 label: Country Input
 icon: public
+tags:
+- form
+- input
+- select
+- country
 picker_preview:
   text:
   - Country Input
@@ -7,8 +12,10 @@ picker_preview:
   - public
 preview:
   text:
-  - key: label
   - Country Input
+  subtext:
+  - key: label
+  - Dropdown of countries
   icon:
   - public
 value:

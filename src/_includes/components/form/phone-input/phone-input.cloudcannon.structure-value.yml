@@ -1,5 +1,9 @@
 label: Phone Input
 icon: call
+tags:
+- form
+- input
+- phone
 picker_preview:
   text:
   - Phone Input
@@ -7,8 +11,10 @@ picker_preview:
   - call
 preview:
   text:
-  - key: label
   - Phone Input
+  subtext:
+  - key: label
+  - Phone number field
   icon:
   - call
 value:

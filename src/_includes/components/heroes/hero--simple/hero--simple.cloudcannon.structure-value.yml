@@ -1,5 +1,9 @@
 label: Hero - Simple
 icon: cottage
+tags:
+- hero
+- banner
+- text
 tabbed: true
 picker_preview:
   text:
@@ -8,8 +12,10 @@ picker_preview:
   - cottage
 preview:
   text:
-  - key: content.heading.primary_heading
   - Hero - Simple
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with no imagery
   icon:
   - cottage
 value:

@@ -26,7 +26,7 @@
                  icon_size: 'large', icon_type: icon_data.icon_type,
                  rounded_border: true, theme_color: true %}
           {% endif %}
-          {% include "components/generic/text-block/text-block", text: icon_data.icon_text, prop: "icon_text" %}
+          <p class="c-labelled-icon__text" data-editable="text" data-type="span" data-prop="icon_text">{{ icon_data.icon_text }}</p>
         </div>
       {% endfor %}
     </div>

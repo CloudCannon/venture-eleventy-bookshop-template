@@ -16,11 +16,15 @@
             max-width: 5rem;
             font-size: var(--paragraph-small);
         }
+        #{$c}__text {
+            max-width: 5rem;
+        }
     }
 
     &__text {
         text-align: center;
         margin: 0;
+        line-height: var(--line-height);
         word-break: auto-phrase;
         hyphens: auto;
     }

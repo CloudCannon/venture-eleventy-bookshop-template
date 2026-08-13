@@ -1,0 +1,66 @@
+label: Simple Text Block
+icon: article
+tags:
+- text
+tabbed: true
+picker_preview:
+  text:
+  - Simple Text Block
+  icon:
+  - article
+preview:
+  text:
+  - Simple Text Block
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading with a block of rich text
+  icon:
+  - article
+value:
+  _type: components/sections/simple-text-block/simple-text-block
+  content:
+    id:
+    heading:
+      _type: components/generic/heading/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    text: |-
+      ### Your rich text content
+
+      You can use **bold text** and *italic text* along with [links](http://google.com) and others options.
+  styles:
+    color_group: primary
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  # `content.text` is a markdown string -- simple-text-block.liquid passes it to
+  # the text-block partial as a scalar, not an object.
+  text:
+    type: markdown
+    options:
+      link: true
+      blockquote: false
+      bold: true
+      format: p h3 h4 h5 h6
+      italic: true
+      strike: true
+      subscript: true
+      superscript: true
+      underline: true
+      bulletedlist: true
+      numberedlist: true
+      indent: false
+      outdent: false
+      code: false
+      embed: false
+      horizontalrule: false
+      image: false
+      table: false
+      undo: true
+      redo: true
+      removeformat: true
+      copyformatting: true

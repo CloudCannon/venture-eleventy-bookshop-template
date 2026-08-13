@@ -1,0 +1,34 @@
+label: Time Input
+icon: alarm
+picker_preview:
+  text:
+  - Time Input
+  icon:
+  - alarm
+preview:
+  text:
+  - Time Input
+  subtext:
+  - key: label
+  - Time picker field
+  icon:
+  - alarm
+value:
+  _type: components/form/time-input/time-input
+  label: ''
+  placeholder: ''
+  id:
+  helper_text:
+  min:
+  max:
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'Pick a time between 9:00 and 17:00'
+  min:
+    type: time
+  max:
+    type: time
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

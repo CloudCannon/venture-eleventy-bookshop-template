@@ -1,0 +1,65 @@
+label: Embed
+icon: web_asset
+tags:
+- embed
+- media
+- document
+tabbed: true
+picker_preview:
+  text:
+  - Embed
+  icon:
+  - web_asset
+preview:
+  text:
+  - Embed
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with an embedded code block
+  icon:
+  - web_asset
+value:
+  _type: components/sections/embed/embed
+  content:
+    show_note: true
+    id:
+    heading:
+      _type: components/generic/heading/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    description: Description text to compliment the block
+    embed:
+      _type: components/generic/custom-embed/custom-embed
+      embed:
+      ratio: default
+    button:
+      _type: components/generic/button/button
+      url: '#'
+      open_in_new_tab: false
+      text: Button text
+      variant: primary
+      arrow: right
+      onclick:
+  styles:
+    color_group: primary
+    content_alignment: center
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  embed:
+    type: object
+    options:
+      structures: _structures.custom_embed_blocks
+    comment: Copy the embed code from the chosen provider here. This approach is not recommended for youtube/vimeo
+      (use the centered large asset component instead)
+  content.embed.embed:
+    type: code
+    comment: The raw embed code supplied by the provider.
+  button:
+    type: object
+    options:
+      structures: _structures.button_blocks

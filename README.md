@@ -46,6 +46,52 @@ Changes in the data files require the site to be rebuilt to see your changes.
 
 Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or locally).
 
+## CloudCannon agent skills
+
+If you're working on this template with an AI coding agent, install CloudCannon's
+[agent skills](https://github.com/CloudCannon/agent-skills) first — they cover configuration,
+structures, snippets and Visual Editor support.
+
+They are **deliberately not committed** to this repo. Skills are updated upstream, and a stale copy
+checked into a template is worse than none at all, so install them fresh:
+
+```bash
+npx skills add CloudCannon/agent-skills
+```
+
+That installs into `.agents/`. To pick individual skills:
+
+```bash
+npx skills add CloudCannon/agent-skills --list
+npx skills add CloudCannon/agent-skills --skill cloudcannon-configuration
+```
+
+If you use Claude Code, you can install them as a plugin instead:
+
+```
+/plugin marketplace add CloudCannon/agent-skills
+/plugin install agent-skills@cloudcannon
+```
+
+Plugin skills are namespaced, e.g. `agent-skills:cloudcannon-configuration`.
+
+| Skill | Purpose |
+| --- | --- |
+| `migrating-to-cloudcannon` | Full migration orchestrator |
+| `cloudcannon-configuration` | CloudCannon config setup |
+| `cloudcannon-visual-editing` | Visual Editor and editable regions |
+| `cloudcannon-snippets` | Snippet configuration |
+| `brainstorming` | Structured design exploration |
+
+One skill *is* committed: `.agents/skills/eleventy-bookshop-migration/`. It's specific to this
+template rather than a CloudCannon-wide skill, and documents how the components are wired for
+editable regions, plus the verification scripts in its `scripts/` directory.
+
+## Editor documentation
+
+`.cloudcannon/README.md` is written for non-technical editors using this site in CloudCannon. Worth
+updating alongside any change to the components or data files.
+
 ## Development
 
 1. Run `npm i` to install the modules.
@@ -64,11 +110,55 @@ This will create a `_site` folder, containing the output files.
 
 ## Components
 
-Venture is built using Bookshop components. Bookshop is a framework that allows you to use component architecture in your static site, and enables live editing in CloudCannon. You can read more about Bookshop and how it integrates with Eleventy [here](https://cloudcannon.com/documentation/guides/bookshop-eleventy-guide/).
+Venture is built from plain Eleventy Liquid partials in `src/_includes/components/`, wired for
+CloudCannon's Visual Editor with [`@cloudcannon/editable-regions`](https://cloudcannon.com/documentation/articles/using-editable-regions/).
 
-### /components page
+Each component lives in its own folder, named after the component, holding all of its files:
 
-Within Venture, there is a `components.html` page that allows you to use a feature of Bookshop called Bookshop Browser. When developing locally, you can use `localhost:8080/components` to preview your Bookshop components in the context of your site. This `/components` page is for local development only, and will not show up in CloudCannon or on your live site.
+```
+components/sections/price-list/
+├── price-list.liquid
+├── price-list.scss
+└── price-list.cloudcannon.structure-value.yml
+```
+
+The include path therefore repeats the name — `components/sections/price-list/price-list`.
+
+Those folders are grouped by the structure the component belongs to, because CloudCannon collects
+structure values by directory glob:
+
+| Directory | Structure | Contents |
+| --- | --- | --- |
+| `components/sections/` | `content_blocks` | Page-builder sections |
+| `components/heroes/` | `hero_blocks` | Page heroes |
+| `components/form/` | `form_blocks` | Form inputs (sub-parts in `form/parts/`) |
+| `components/icons/` | `icon_blocks` | Icon components |
+| `components/assets/` | `asset_blocks` | Image and video |
+| `components/layout/` | — | Shared layout partials, no structure |
+| `components/generic/`, `components/simple/` | — | Shared building blocks |
+
+### Adding a component
+
+1. Add `my-component/my-component.liquid` (and an optional `my-component/my-component.scss`) to the
+   right directory. The SCSS index is regenerated automatically by `npm run component-styles`.
+2. Add `my-component.cloudcannon.structure-value.yml` beside it, in the same folder. Its
+   `value._type` must be the component's include path (e.g.
+   `components/sections/my-component/my-component`) — that same string is used as `data-component`
+   and by `includeWith`, and all three must match.
+3. Nothing to register: the directory glob (`components/sections/*/*.cloudcannon.structure-value.yml`)
+   picks the structure up, and the editable-regions browser bundle resolves any component by include
+   path.
+
+### Editable regions
+
+Sections are re-rendered in the editor from their stored data, which means a component's props must
+be exactly the object at one data path. Partials that meet that bar (`heading`, `image`, `card`, …)
+carry bare, self-relative `data-prop` values and are wrapped in a `data-editable="component"` region
+by their caller. Shared layout partials that take a reshaped mix of fields (`layout/left-right-block`)
+instead receive already-rendered editable markup from the section as captured HTML.
+
+`ENV_CLIENT` is true only inside the editor bundle; use it to guard anything that can't run in the
+browser (image optimisation, SVG inlining).
 
 ## Forms
 

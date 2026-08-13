@@ -1,0 +1,34 @@
+label: Hero - Simple
+icon: cottage
+tabbed: true
+picker_preview:
+  text:
+  - Hero - Simple
+  icon:
+  - cottage
+preview:
+  text:
+  - Hero - Simple
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and text with no imagery
+  icon:
+  - cottage
+value:
+  _type: components/heroes/hero--simple/hero--simple
+  content:
+    heading:
+      _type: components/generic/heading/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h2
+      primary_heading_hierarchy: h1
+    description: Description text to compliment the block
+  styles:
+    content_alignment: center
+    color_group: primary
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks

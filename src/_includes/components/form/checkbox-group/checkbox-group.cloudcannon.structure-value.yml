@@ -1,0 +1,39 @@
+label: Checkbox Group
+icon: check_box
+picker_preview:
+  text:
+  - Checkbox Group
+  icon:
+  - check_box
+preview:
+  text:
+  - Checkbox Group
+  subtext:
+  - key: label
+  - Group of checkboxes
+  icon:
+  - check_box
+value:
+  _type: components/form/checkbox-group/checkbox-group
+  label: ''
+  id:
+  checkboxes:
+  - label:
+    id:
+    checked: false
+    required: false
+  arrangement: inline
+  helper_text:
+_inputs:
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID
+  checkboxes:
+    type: array
+    options:
+      structures: _structures.checkbox_items
+  label:
+    comment: It is recommended to provide a label for this input group
+  helper_text:
+    comment: Helpful text for the user such as 'Do not select more than 2'

@@ -1,0 +1,69 @@
+label: Labelled Icons
+icon: mood
+tags:
+- two column
+- icon
+- image
+tabbed: true
+picker_preview:
+  text:
+  - Labelled Icons
+  icon:
+  - mood
+preview:
+  text:
+  - Labelled Icons
+  subtext:
+  - key: content.heading.primary_heading
+  - Heading and labelled icons beside an image
+  icon:
+  - mood
+value:
+  _type: components/sections/left-right-labelled-icons/left-right-labelled-icons
+  content:
+    id:
+    heading:
+      _type: components/generic/heading/heading
+      eyebrow_headline: Eyebrow Heading
+      primary_heading: Primary Heading
+      eyebrow_headline_hierarchy: h3
+      primary_heading_hierarchy: h2
+    icons:
+    - hero_library_icon_name: face-smile
+      icon_text: 100% Happy customer reviews
+      icon_type: outline
+    - hero_library_icon_name: heart
+      icon_text: Great customer service
+      icon_type: outline
+    - hero_library_icon_name: sparkles
+      icon_text: Outstanding product reviews
+      icon_type: outline
+    buttons: []
+    image:
+      _type: components/assets/image/image
+      image_path:
+      image_alt:
+      image_sizes: '(min-width: 769px) 700px, 100vw'
+  styles:
+    color_group: primary
+    image_alignment: left
+_inputs:
+  heading:
+    type: object
+    options:
+      structures: _structures.heading_blocks
+  buttons:
+    type: array
+    options:
+      structures: _structures.button_blocks
+  image:
+    type: object
+    options:
+      structures: _structures.image_blocks
+  icon_path:
+    type: image
+  icons:
+    type: array
+    comment: Recommended to have no more than three icons here
+    options:
+      structures: _structures.icon_types

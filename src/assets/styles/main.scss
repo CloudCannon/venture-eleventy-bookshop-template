@@ -3,7 +3,6 @@
 @use "color_groups.scss";
 @use "nav.scss";
 @use "footer.scss";
-@use "component-browser.scss";
 @use "leaflet.scss";
 
 body {
@@ -51,4 +50,30 @@ main {
       font-size: var(--paragraph-large);
     }
   }
+}
+
+// Visual Editor: keeps the edit controls on nested component regions clickable.
+//
+// EditableComponentControls anchors itself to its region by writing an inline
+// `anchor-name` onto that element. When a parent component region re-renders,
+// EditableComponent.updateEditable() copies the freshly rendered attributes over
+// the live ones and drops anything the render doesn't have -- everything bar
+// `class` and `contenteditable` -- so that inline `anchor-name` goes with it. The
+// controls then resolve `top: anchor(top)` against nothing, fall back to auto
+// insets and land away from the region, which reads as "this component has no
+// controls". Sections hit by this are the ones nesting a component region inside
+// another (the button in price-list/centered-large-asset/embed, the headings, the
+// gallery and form bodies); array-item regions are unaffected because
+// EditableArray only ever touches their data- attributes.
+//
+// Declaring the name in CSS means connectedCallback finds an existing
+// `anchor-name` and reuses it instead of writing an inline one, so there is
+// nothing left to strip. `anchor-scope` keeps the shared name resolving to the
+// nearest region rather than the last one on the page. Browsers without anchor
+// positioning already take the package's `position: absolute` fallback.
+//
+// Remove once the attribute-stripping is fixed in @cloudcannon/editable-regions.
+[data-editable="component"] {
+  anchor-name: --cc-component-region;
+  anchor-scope: --cc-component-region;
 }

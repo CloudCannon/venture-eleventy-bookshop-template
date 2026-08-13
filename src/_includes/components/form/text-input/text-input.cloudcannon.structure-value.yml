@@ -1,0 +1,29 @@
+label: Text Input
+icon: edit
+picker_preview:
+  text:
+  - Text Input
+  icon:
+  - edit
+preview:
+  text:
+  - Text Input
+  subtext:
+  - key: label
+  - Single line text field
+  icon:
+  - edit
+value:
+  _type: components/form/text-input/text-input
+  label: ''
+  placeholder: ''
+  id:
+  required: false
+  helper_text:
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'You do not need to enter your middle name(s)'
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

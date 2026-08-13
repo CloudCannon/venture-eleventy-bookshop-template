@@ -1,4 +1,4 @@
-const pluginBookshop = require("@bookshop/eleventy-bookshop");
+const editableRegions = require("@cloudcannon/editable-regions/eleventy");
 const yaml = require("js-yaml");
 const svgContents = require("eleventy-plugin-svg-contents");
 const esbuild = require('esbuild');
@@ -25,15 +25,6 @@ module.exports = function (eleventyConfig) {
 
   // Custom shortcodes
   eleventyConfig.addShortcode("image", image_shortcode);
-  
-  eleventyConfig.addWatchTarget("component-library/");
-  
-  // Plugins
-  eleventyConfig.addPlugin(svgContents);
-  eleventyConfig.addPlugin(pluginBookshop({
-    bookshopLocations: ["component-library"],
-    pathPrefix: '',
-  }));
 
   // Filters
   eleventyConfig.addFilter("markdownify", (markdown) => md.render(markdown));
@@ -43,6 +34,27 @@ module.exports = function (eleventyConfig) {
 
   // Tags
   eleventyConfig.addLiquidTag('assign_local', assign_local_liquid_tag);
+
+  // Plugins.
+  //
+  // IMPORTANT: every addFilter/addShortcode/addLiquidTag above must stay ABOVE
+  // this point. The editable-regions browser bundle mirrors this config by
+  // replaying it, and stubbed modules throw when called. The replay is wrapped
+  // in a single try/catch, so the first throw silently skips every remaining
+  // registration -- helpers declared after a plugin would be missing in the
+  // Visual Editor while `npm run build` stayed green.
+  eleventyConfig.addPlugin(svgContents);
+  eleventyConfig.addPlugin(editableRegions, {
+    liquid: {
+      // Stubbed in the browser bundle: these reach Node/native APIs. Node
+      // built-ins and @11ty/eleventy(/*) are stubbed automatically, but
+      // @11ty/eleventy-img matches neither pattern and must be listed.
+      browserStub: [
+        "@11ty/eleventy-img", // pulls in sharp
+        "esbuild",            // build-only, invoked from eleventy.before
+      ],
+    },
+  });
 
   // esbuild
   eleventyConfig.addWatchTarget('./src/assets/js/**');

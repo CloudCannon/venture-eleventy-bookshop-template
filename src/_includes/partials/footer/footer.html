@@ -1,11 +1,20 @@
 {% assign_local c = "c-footer" %}
 
+{% comment %}
+  Shared partial backed by data files, so its regions use absolute
+  `@data[...]` paths (nav/footer/site are registered in data_config). Absolute
+  paths bypass the parent-region walk, which is what lets a partial rendered
+  inside a page still write to a data file.
+{% endcomment %}
 <footer class="{{ c }} {{ c }}--{{ footer.footer_color_group }}">
     <a class="{{c}}__logo-link" href="/" aria-label="Home: {{ footer.logo_text }}" {% if page.url=="/" %}aria-current="page" {% endif %}>
         {% if footer.footer_logo_image and footer.footer_logo_image != '' %}
-            {% bookshop "generic/image" image_path:footer.footer_logo_image image_alt:"Site logo" _liveRender:false  %}
+            {% include "components/assets/image/image",
+                 image_path: footer.footer_logo_image,
+                 image_alt: "Site logo",
+                 prop_src: "@data[footer].footer_logo_image" %}
         {% else %}
-            <p class="{{c}}__logo-link__text">{{ footer.logo_text }}</p>
+            <p class="{{c}}__logo-link__text" data-editable="text" data-type="span" data-prop="@data[footer].logo_text">{{ footer.logo_text }}</p>
         {% endif %}
     </a>
     <div class="{{ c }}__social-icons">
@@ -15,24 +24,22 @@
                 icon_hover_color: "var(--main-background-color)"
             {% endcapture %}
             {% assign_local social_icons_style = social_icon_styles | ymlify %}
-            {% bookshop "generic/social-icons" social_media_links:site.social_media_links style:social_icons_style _liveRender:false %}
+            {% include "components/generic/social-icons/social-icons", social_media_links: site.social_media_links, style: social_icons_style, links_prop: "@data[site].social_media_links" %}
         </div>
         <div class="{{ c }}__navlist--wrapper">
-            <ul class="{{ c }}__navlist">
+            <ul class="{{ c }}__navlist" data-editable="array" data-prop="@data[footer].navigation_items">
                 {% for navitem in footer.navigation_items %}
                     {% assign nav_item_with_slash = navitem.link_url | append: "/" %}
-                    {% if page.url == navitem.link_url or page.url == nav_item_with_slash %}
-                        <li class="{{ c }}__navlist__item {{ c }}__navlist__item--active" aria-current="page">
-                            <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
-                        </li>
-                    {% else %}
-                        <li class="{{ c }}__navlist__item">
-                            <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}">{{ navitem.label }}</a>
-                        </li>
-                    {% endif %}
+                    {% assign is_current = false %}
+                    {% if page.url == navitem.link_url or page.url == nav_item_with_slash %}{% assign is_current = true %}{% endif %}
+                    <li class="{{ c }}__navlist__item{% if is_current %} {{ c }}__navlist__item--active{% endif %}"
+                        {% if is_current %}aria-current="page"{% endif %}
+                        data-editable="array-item" data-id="{{ forloop.index0 }}">
+                        <a class="{{ c }}__navlist__item__link" href="{{ navitem.link_url }}" data-editable="text" data-type="span" data-prop="label">{{ navitem.label }}</a>
+                    </li>
                 {% endfor %}
-            </ul>            
-            <div class="{{ c }}__content">{{ footer.footer_content | markdownify }}</div>
+            </ul>
+            <div class="{{ c }}__content" data-editable="text" data-type="block" data-prop="@data[footer].footer_content">{{ footer.footer_content | markdownify }}</div>
     </div>
 
 </footer>

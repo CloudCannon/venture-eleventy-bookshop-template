@@ -1,0 +1,18 @@
+label: Section Heading
+icon: title
+picker_preview:
+  text:
+  - Section Heading
+  icon:
+  - title
+preview:
+  text:
+  - Section Heading
+  subtext:
+  - key: text
+  - Heading to divide up form sections
+  icon:
+  - title
+value:
+  _type: components/form/section-heading/section-heading
+  text: Form section

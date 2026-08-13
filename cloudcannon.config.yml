@@ -1,55 +1,85 @@
 source: src
 paths:
-  static: ""
+  static: ''
   uploads: assets/uploads
 collections_config:
   pages:
     path: pages
+    url: "/{permalink|if=permalink}[slug|unless=permalink]/"
+    new_preview_url: '/'
     glob:
-      - "!components.html"
-      - "!404.html"
+    - '!components.html'
+    - '!404.html'
     icon: wysiwyg
     schemas:
       default:
         path: .cloudcannon/schemas/page.html
+        remove_extra_inputs: false
+        hide_extra_inputs: false
   data:
     path: _data
     glob:
-      - "!color_groups.yml"
+    - '!color_groups.yml'
     icon: data_usage
     disable_url: true
     disable_add: true
     disable_add_folder: true
     disable_file_actions: true
 file_config:
-  - glob: _data/site.yml
-    _inputs:
-      social_media_links:
-        type: array
-        options:
-          structures:
-            values:
-              - label: Social Media Link
-                icon: link
-                value:
-                  link_url:
-                  icon_path:
-                  label:
-                _inputs:
-                  icon_path:
-                    type: image
-                    comment: This input is restricted to only allow images with type SVG
-                    options:
-                      accepts_mime_types:
-                        - image/svg+xml
+- glob: _data/site.yml
+  _inputs:
+    social_media_links:
+      type: array
+      options:
+        structures:
+          values:
+          - label: Social Media Link
+            icon: link
+            value:
+              link_url:
+              icon_path:
+              label:
+            _inputs:
+              icon_path:
+                type: image
+                comment: This input is restricted to only allow images with type SVG
+                options:
+                  accepts_mime_types:
+                  - image/svg+xml
+              label:
+                comment: This is a hidden accessibility label used by screen readers to describe what
+                  the link is
 data_config:
   fonts:
     path: _data/fonts.yml
+  nav:
+    path: _data/nav.yml
+  footer:
+    path: _data/footer.yml
   theme:
     path: _data/theme.yml
   site:
     path: _data/site.yml
 _inputs:
+  _type:
+    hidden: true
+    type: text
+  content_blocks:
+    type: array
+    options:
+      structures: _structures.content_blocks
+  grid_items:
+    type: array
+    options:
+      structures: _structures.grid_items
+  form_elements:
+    type: array
+    options:
+      structures: _structures.form_blocks
+  images:
+    type: array
+    options:
+      structures: _structures.image_blocks
   favicon:
     type: image
   arrow:
@@ -57,46 +87,42 @@ _inputs:
     options:
       value_key: id
       values:
-        - name: Up
-          id: up
-        - name: Right
-          id: right
-        - name: Down
-          id: down
-        - name: Left
-          id: left
+      - name: Up
+        id: up
+      - name: Right
+        id: right
+      - name: Down
+        id: down
+      - name: Left
+        id: left
   color:
-    comment: >-
-      Choose a custom icon color (if the icon is an SVG) and rounded border
-      color (if one is included).
+    comment: Choose a custom icon color (if the icon is an SVG) and rounded border color (if one is included).
   icon_size:
     type: choice
     options:
       allow_empty: false
       value_key: id
       values:
-        - name: Small
-          id: small
-        - name: Large
-          id: large
+      - name: Small
+        id: small
+      - name: Large
+        id: large
   default_color:
-    comment: >-
-      Use the original colors of the icon without overriding them (does not
-      apply to the border if one is included).
+    comment: Use the original colors of the icon without overriding them (does not apply to the border
+      if one is included).
     type: checkbox
   icon_type:
-    comment: >-
-      Choose outline if you want lines to be filled with color and solid if you
-      want the whole image filled with color.
+    comment: Choose outline if you want lines to be filled with color and solid if you want the whole
+      image filled with color.
     type: choice
     options:
       allow_empty: false
       value_key: id
       values:
-        - name: Solid
-          id: solid
-        - name: Outline
-          id: outline
+      - name: Solid
+        id: solid
+      - name: Outline
+        id: outline
   icon_path:
     type: image
   variant:
@@ -104,36 +130,38 @@ _inputs:
     options:
       value_key: id
       values:
-        - name: Primary
-          id: primary
-        - name: Secondary
-          id: secondary
+      - name: Primary
+        id: primary
+      - name: Secondary
+        id: secondary
   arrangement:
     type: select
     comment: The layout of the icon and text together.
     options:
       value_key: id
       values:
-        - name: Inline
-          id: inline
-        - name: Stacked
-          id: stacked
+      - name: Inline
+        id: inline
+      - name: Stacked
+        id: stacked
   image_alignment:
     type: choice
     options:
       allow_empty: false
       value_key: id
       values:
-        - name: Left
-          id: left
-          icon: align_horizontal_left
-        - name: Right
-          id: right
-          icon: align_horizontal_right
+      - name: Left
+        id: left
+        icon: align_horizontal_left
+      - name: Right
+        id: right
+        icon: align_horizontal_right
   layout:
     hidden: true
+    type: text
   eleventyExcludeFromCollections:
     hidden: true
+    type: text
   draft:
     type: switch
     comment: If this is switched on, this page will not appear on the live site.
@@ -142,18 +170,13 @@ _inputs:
   featured_image:
     comment: If empty, defaults to the image set in the SEO data file.
   nav_logo_image:
-    comment: >-
-      If an image is uploaded it will be used over a name set in the logo text
-      field.
+    comment: If an image is uploaded it will be used over a name set in the logo text field.
   logo_text:
-    comment: >-
-      If an image is set in the logo image field, this value will not be used.
-      You can change the font of a text based logo in data/theme.
+    comment: If an image is set in the logo image field, this value will not be used. You can change the
+      font of a text based logo in data/theme.
   footer_logo_image:
-    comment: >-
-      If an image is uploaded it will be used over a name set in the logo text
-      field. Please note, the footer image has a fixed width size but not a
-      fixed height.
+    comment: If an image is uploaded it will be used over a name set in the logo text field. Please note,
+      the footer image has a fixed width size but not a fixed height.
   footer_content:
     type: markdown
     options:
@@ -164,10 +187,8 @@ _inputs:
       redo: true
       initial_height: 135
   font:
-    comment: >-
-      Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here.
+    comment: Write the name of any font from [https://fonts.google.com/](https://fonts.google.com/) in
+      data/fonts to access it here.
   description:
     type: markdown
     options:
@@ -193,16 +214,16 @@ _inputs:
       value_key: id
       preview:
         text:
-          - key: name
+        - key: name
         icon:
-          - key: icon
+        - key: icon
       values:
-        - name: Left
-          id: left
-          icon: format_align_left
-        - name: Center
-          id: center
-          icon: format_align_center
+      - name: Left
+        id: left
+        icon: format_align_left
+      - name: Center
+        id: center
+        icon: format_align_center
   color_group:
     type: select
     options:
@@ -210,36 +231,35 @@ _inputs:
       value_key: id
       preview:
         text:
-          - key: name
+        - key: name
         icon:
-          - key: icon
+        - key: icon
       values: data.theme..[?(@.background_color)]
   card_color_group:
-    comment: >-
-      Choose the color group for the cards in this grid. It is recommended to
-      choose a color group different than that of the whole component.
+    comment: Choose the color group for the cards in this grid. It is recommended to choose a color group
+      different than that of the whole component.
     type: select
     options:
       preview:
         text:
-          - key: name
+        - key: name
         icon:
-          - key: icon
+        - key: icon
       values: data.theme..[?(@.background_color)]
   group_name:
     hidden: true
-    comment: >-
-      This input should be hidden from editors and passed through from the
-      radio-group component so that these inputs function correctly.
+    comment: This input should be hidden from editors and passed through from the radio-group component
+      so that these inputs function correctly.
+    type: text
   nav_color_group:
     comment: Choose the color group for the navigation header.
     type: select
     options:
       preview:
         text:
-          - key: name
+        - key: name
         icon:
-          - key: icon
+        - key: icon
       values: data.theme..[?(@.background_color)]
   footer_color_group:
     comment: Choose the color group for the footer.
@@ -247,9 +267,9 @@ _inputs:
     options:
       preview:
         text:
-          - key: name
+        - key: name
         icon:
-          - key: icon
+        - key: icon
       values: data.theme..[?(@.background_color)]
   primary_color_group:
     comment: The default color group for styling site components.
@@ -262,9 +282,7 @@ _inputs:
     comment: The color of text, icons and borders.
     label: Text Color
   primary_color_group.interaction_color:
-    comment: >-
-      The color for user interactions, for example focusing on text inputs or
-      clicking buttons.
+    comment: The color for user interactions, for example focusing on text inputs or clicking buttons.
   custom_color_groups:
     comment: Define different color groups here to easily style site components.
   custom_color_groups[*].name:
@@ -276,334 +294,858 @@ _inputs:
     comment: The color of text, icons and borders.
     label: Text Color
   custom_color_groups[*].interaction_color:
-    comment: >-
-      The color for user interactions, for example focusing on text inputs or
-      clicking buttons.
+    comment: The color for user interactions, for example focusing on text inputs or clicking buttons.
   id:
-    comment: >-
-      An optional unique identifier to link to this component (with page#id
-      where id is what you set in this field).
+    comment: An optional unique identifier to link to this component (with page#id where id is what you
+      set in this field).
   heading_font:
-    comment: >-
-      Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here.
+    comment: Write the name of any font from [https://fonts.google.com/](https://fonts.google.com/) in
+      data/fonts to access it here.
   content_font:
-    comment: >-
-      Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here.
+    comment: Write the name of any font from [https://fonts.google.com/](https://fonts.google.com/) in
+      data/fonts to access it here.
   hero_library_icon_name:
-    comment: >-
-      Visit [https://heroicons.com/](https://heroicons.com/) to see the full
-      library.
+    comment: Visit [https://heroicons.com/](https://heroicons.com/) to see the full library.
     type: select
     options:
       values:
-        - academic-cap
-        - adjustments-horizontal
-        - adjustments-vertical
-        - archive-box-arrow-down
-        - archive-box-x-mark
-        - archive-box
-        - arrow-down-circle
-        - arrow-down-left
-        - arrow-down-on-square-stack
-        - arrow-down-on-square
-        - arrow-down-right
-        - arrow-down-tray
-        - arrow-down
-        - arrow-left-circle
-        - arrow-left-on-rectangle
-        - arrow-left
-        - arrow-long-down
-        - arrow-long-left
-        - arrow-long-right
-        - arrow-long-up
-        - arrow-path-rounded-square
-        - arrow-path
-        - arrow-right-circle
-        - arrow-right-on-rectangle
-        - arrow-right
-        - arrow-small-down
-        - arrow-small-left
-        - arrow-small-right
-        - arrow-small-up
-        - arrow-top-right-on-square
-        - arrow-trending-down
-        - arrow-trending-up
-        - arrow-up-circle
-        - arrow-up-left
-        - arrow-up-on-square-stack
-        - arrow-up-on-square
-        - arrow-up-right
-        - arrow-up-tray
-        - arrow-up
-        - arrow-uturn-down
-        - arrow-uturn-left
-        - arrow-uturn-right
-        - arrow-uturn-up
-        - arrows-pointing-in
-        - arrows-pointing-out
-        - arrows-right-left
-        - arrows-up-down
-        - at-symbol
-        - backspace
-        - backward
-        - banknotes
-        - bars-2
-        - bars-3-bottom-left
-        - bars-3-bottom-right
-        - bars-3-center-left
-        - bars-3
-        - bars-4
-        - bars-arrow-down
-        - bars-arrow-up
-        - battery-0
-        - battery-100
-        - battery-50
-        - beaker
-        - bell-alert
-        - bell-slash
-        - bell-snooze
-        - bell
-        - bolt-slash
-        - bolt
-        - book-open
-        - bookmark-slash
-        - bookmark-square
-        - bookmark
-        - briefcase
-        - bug-ant
-        - building-library
-        - building-office-2
-        - building-office
-        - building-storefront
-        - cake
-        - calculator
-        - calendar-days
-        - calendar
-        - camera
-        - chart-bar-square
-        - chart-bar
-        - chart-pie
-        - chat-bubble-bottom-center-text
-        - chat-bubble-bottom-center
-        - chat-bubble-left-ellipsis
-        - chat-bubble-left-right
-        - chat-bubble-left
-        - chat-bubble-oval-left-ellipsis
-        - chat-bubble-oval-left
-        - check-badge
-        - check-circle
-        - check
-        - chevron-double-down
-        - chevron-double-left
-        - chevron-double-right
-        - chevron-double-up
-        - chevron-down
-        - chevron-left
-        - chevron-right
-        - chevron-up-down
-        - chevron-up
-        - circle-stack
-        - clipboard-document-check
-        - clipboard-document-list
-        - clipboard-document
-        - clipboard
-        - clock
-        - cloud-arrow-down
-        - cloud-arrow-up
-        - cloud
-        - code-bracket-square
-        - code-bracket
-        - cog-6-tooth
-        - cog-8-tooth
-        - cog
-        - command-line
-        - computer-desktop
-        - cpu-chip
-        - credit-card
-        - cube-transparent
-        - cube
-        - currency-bangladeshi
-        - currency-dollar
-        - currency-euro
-        - currency-pound
-        - currency-rupee
-        - currency-yen
-        - cursor-arrow-rays
-        - cursor-arrow-ripple
-        - device-phone-mobile
-        - device-tablet
-        - document-arrow-down
-        - document-arrow-up
-        - document-chart-bar
-        - document-check
-        - document-duplicate
-        - document-magnifying-glass
-        - document-minus
-        - document-plus
-        - document-text
-        - document
-        - ellipsis-horizontal-circle
-        - ellipsis-horizontal
-        - ellipsis-vertical
-        - envelope-open
-        - envelope
-        - exclamation-circle
-        - exclamation-triangle
-        - eye-dropper
-        - eye-slash
-        - eye
-        - face-frown
-        - face-smile
-        - film
-        - finger-print
-        - fire
-        - flag
-        - folder-arrow-down
-        - folder-minus
-        - folder-open
-        - folder-plus
-        - folder
-        - forward
-        - funnel
-        - gif
-        - gift-top
-        - gift
-        - globe-alt
-        - globe-americas
-        - globe-asia-australia
-        - globe-europe-africa
-        - hand-raised
-        - hand-thumb-down
-        - hand-thumb-up
-        - hashtag
-        - heart
-        - home-modern
-        - home
-        - identification
-        - inbox-arrow-down
-        - inbox-stack
-        - inbox
-        - information-circle
-        - key
-        - language
-        - lifebuoy
-        - light-bulb
-        - link
-        - list-bullet
-        - lock-closed
-        - lock-open
-        - magnifying-glass-circle
-        - magnifying-glass-minus
-        - magnifying-glass-plus
-        - magnifying-glass
-        - map-pin
-        - map
-        - megaphone
-        - microphone
-        - minus-circle
-        - minus-small
-        - minus
-        - moon
-        - musical-note
-        - newspaper
-        - no-symbol
-        - paint-brush
-        - paper-airplane
-        - paper-clip
-        - pause-circle
-        - pause
-        - pencil-square
-        - pencil
-        - phone-arrow-down-left
-        - phone-arrow-up-right
-        - phone-x-mark
-        - phone
-        - photo
-        - play-circle
-        - play-pause
-        - play
-        - plus-circle
-        - plus-small
-        - plus
-        - power
-        - presentation-chart-bar
-        - presentation-chart-line
-        - printer
-        - puzzle-piece
-        - qr-code
-        - question-mark-circle
-        - queue-list
-        - radio
-        - receipt-percent
-        - receipt-refund
-        - rectangle-group
-        - rectangle-stack
-        - rocket-launch
-        - rss
-        - scale
-        - scissors
-        - server-stack
-        - server
-        - share
-        - shield-check
-        - shield-exclamation
-        - shopping-bag
-        - shopping-cart
-        - signal-slash
-        - signal
-        - sparkles
-        - speaker-wave
-        - speaker-x-mark
-        - square-2-stack
-        - square-3-stack-3d
-        - squares-2x2
-        - squares-plus
-        - star
-        - stop-circle
-        - stop
-        - sun
-        - swatch
-        - table-cells
-        - tag
-        - ticket
-        - trash
-        - trophy
-        - truck
-        - tv
-        - user-circle
-        - user-group
-        - user-minus
-        - user-plus
-        - user
-        - users
-        - variable
-        - video-camera-slash
-        - video-camera
-        - view-columns
-        - viewfinder-circle
-        - wallet
-        - wifi
-        - window
-        - wrench-screwdriver
-        - wrench
-        - x-circle
-        - x-mark
+      - academic-cap
+      - adjustments-horizontal
+      - adjustments-vertical
+      - archive-box-arrow-down
+      - archive-box-x-mark
+      - archive-box
+      - arrow-down-circle
+      - arrow-down-left
+      - arrow-down-on-square-stack
+      - arrow-down-on-square
+      - arrow-down-right
+      - arrow-down-tray
+      - arrow-down
+      - arrow-left-circle
+      - arrow-left-on-rectangle
+      - arrow-left
+      - arrow-long-down
+      - arrow-long-left
+      - arrow-long-right
+      - arrow-long-up
+      - arrow-path-rounded-square
+      - arrow-path
+      - arrow-right-circle
+      - arrow-right-on-rectangle
+      - arrow-right
+      - arrow-small-down
+      - arrow-small-left
+      - arrow-small-right
+      - arrow-small-up
+      - arrow-top-right-on-square
+      - arrow-trending-down
+      - arrow-trending-up
+      - arrow-up-circle
+      - arrow-up-left
+      - arrow-up-on-square-stack
+      - arrow-up-on-square
+      - arrow-up-right
+      - arrow-up-tray
+      - arrow-up
+      - arrow-uturn-down
+      - arrow-uturn-left
+      - arrow-uturn-right
+      - arrow-uturn-up
+      - arrows-pointing-in
+      - arrows-pointing-out
+      - arrows-right-left
+      - arrows-up-down
+      - at-symbol
+      - backspace
+      - backward
+      - banknotes
+      - bars-2
+      - bars-3-bottom-left
+      - bars-3-bottom-right
+      - bars-3-center-left
+      - bars-3
+      - bars-4
+      - bars-arrow-down
+      - bars-arrow-up
+      - battery-0
+      - battery-100
+      - battery-50
+      - beaker
+      - bell-alert
+      - bell-slash
+      - bell-snooze
+      - bell
+      - bolt-slash
+      - bolt
+      - book-open
+      - bookmark-slash
+      - bookmark-square
+      - bookmark
+      - briefcase
+      - bug-ant
+      - building-library
+      - building-office-2
+      - building-office
+      - building-storefront
+      - cake
+      - calculator
+      - calendar-days
+      - calendar
+      - camera
+      - chart-bar-square
+      - chart-bar
+      - chart-pie
+      - chat-bubble-bottom-center-text
+      - chat-bubble-bottom-center
+      - chat-bubble-left-ellipsis
+      - chat-bubble-left-right
+      - chat-bubble-left
+      - chat-bubble-oval-left-ellipsis
+      - chat-bubble-oval-left
+      - check-badge
+      - check-circle
+      - check
+      - chevron-double-down
+      - chevron-double-left
+      - chevron-double-right
+      - chevron-double-up
+      - chevron-down
+      - chevron-left
+      - chevron-right
+      - chevron-up-down
+      - chevron-up
+      - circle-stack
+      - clipboard-document-check
+      - clipboard-document-list
+      - clipboard-document
+      - clipboard
+      - clock
+      - cloud-arrow-down
+      - cloud-arrow-up
+      - cloud
+      - code-bracket-square
+      - code-bracket
+      - cog-6-tooth
+      - cog-8-tooth
+      - cog
+      - command-line
+      - computer-desktop
+      - cpu-chip
+      - credit-card
+      - cube-transparent
+      - cube
+      - currency-bangladeshi
+      - currency-dollar
+      - currency-euro
+      - currency-pound
+      - currency-rupee
+      - currency-yen
+      - cursor-arrow-rays
+      - cursor-arrow-ripple
+      - device-phone-mobile
+      - device-tablet
+      - document-arrow-down
+      - document-arrow-up
+      - document-chart-bar
+      - document-check
+      - document-duplicate
+      - document-magnifying-glass
+      - document-minus
+      - document-plus
+      - document-text
+      - document
+      - ellipsis-horizontal-circle
+      - ellipsis-horizontal
+      - ellipsis-vertical
+      - envelope-open
+      - envelope
+      - exclamation-circle
+      - exclamation-triangle
+      - eye-dropper
+      - eye-slash
+      - eye
+      - face-frown
+      - face-smile
+      - film
+      - finger-print
+      - fire
+      - flag
+      - folder-arrow-down
+      - folder-minus
+      - folder-open
+      - folder-plus
+      - folder
+      - forward
+      - funnel
+      - gif
+      - gift-top
+      - gift
+      - globe-alt
+      - globe-americas
+      - globe-asia-australia
+      - globe-europe-africa
+      - hand-raised
+      - hand-thumb-down
+      - hand-thumb-up
+      - hashtag
+      - heart
+      - home-modern
+      - home
+      - identification
+      - inbox-arrow-down
+      - inbox-stack
+      - inbox
+      - information-circle
+      - key
+      - language
+      - lifebuoy
+      - light-bulb
+      - link
+      - list-bullet
+      - lock-closed
+      - lock-open
+      - magnifying-glass-circle
+      - magnifying-glass-minus
+      - magnifying-glass-plus
+      - magnifying-glass
+      - map-pin
+      - map
+      - megaphone
+      - microphone
+      - minus-circle
+      - minus-small
+      - minus
+      - moon
+      - musical-note
+      - newspaper
+      - no-symbol
+      - paint-brush
+      - paper-airplane
+      - paper-clip
+      - pause-circle
+      - pause
+      - pencil-square
+      - pencil
+      - phone-arrow-down-left
+      - phone-arrow-up-right
+      - phone-x-mark
+      - phone
+      - photo
+      - play-circle
+      - play-pause
+      - play
+      - plus-circle
+      - plus-small
+      - plus
+      - power
+      - presentation-chart-bar
+      - presentation-chart-line
+      - printer
+      - puzzle-piece
+      - qr-code
+      - question-mark-circle
+      - queue-list
+      - radio
+      - receipt-percent
+      - receipt-refund
+      - rectangle-group
+      - rectangle-stack
+      - rocket-launch
+      - rss
+      - scale
+      - scissors
+      - server-stack
+      - server
+      - share
+      - shield-check
+      - shield-exclamation
+      - shopping-bag
+      - shopping-cart
+      - signal-slash
+      - signal
+      - sparkles
+      - speaker-wave
+      - speaker-x-mark
+      - square-2-stack
+      - square-3-stack-3d
+      - squares-2x2
+      - squares-plus
+      - star
+      - stop-circle
+      - stop
+      - sun
+      - swatch
+      - table-cells
+      - tag
+      - ticket
+      - trash
+      - trophy
+      - truck
+      - tv
+      - user-circle
+      - user-group
+      - user-minus
+      - user-plus
+      - user
+      - users
+      - variable
+      - video-camera-slash
+      - video-camera
+      - view-columns
+      - viewfinder-circle
+      - wallet
+      - wifi
+      - window
+      - wrench-screwdriver
+      - wrench
+      - x-circle
+      - x-mark
   hero:
-    comment: >-
-      If a hero is not explicitly included, the default is to display the page
-      title.
+    comment: If a hero is not explicitly included, the default is to display the page title.
     type: object
     options:
       structures: _structures.hero_blocks
   show_note:
     type: switch
-    comment: >-
-      Hide/show the note that contains helpful information about the live
-      editing of this component.
+    comment: Hide/show the note that contains helpful information about the live editing of this component.
 _structures:
   content_blocks:
     style: modal
+    values_from_glob:
+    - /src/_includes/components/sections/*/*.cloudcannon.structure-value.yml
+  hero_blocks:
+    style: select
+    values_from_glob:
+    - /src/_includes/components/heroes/*/*.cloudcannon.structure-value.yml
+  form_blocks:
+    style: select
+    values_from_glob:
+    - /src/_includes/components/form/*/*.cloudcannon.structure-value.yml
+  # Item shapes for the arrays inside the form group components. Without these an
+  # emptied array has nothing to add from.
+  checkbox_items:
+    values:
+    - label: Checkbox
+      icon: check_box
+      picker_preview:
+        text:
+        - Checkbox
+        icon:
+        - check_box
+      preview:
+        text:
+        - Checkbox
+        subtext:
+        - key: label
+        - Checkbox option
+        icon:
+        - check_box
+      value:
+        label:
+        id:
+        checked: false
+        required: false
+  radio_button_items:
+    values:
+    - label: Radio Button
+      icon: radio_button_unchecked
+      picker_preview:
+        text:
+        - Radio Button
+        icon:
+        - radio_button_unchecked
+      preview:
+        text:
+        - Radio Button
+        subtext:
+        - key: label
+        - Radio button option
+        icon:
+        - radio_button_unchecked
+      value:
+        label:
+        checked: false
+        radio_id:
+  select_options:
+    values:
+    - label: Option
+      icon: list
+      picker_preview:
+        text:
+        - Option
+        icon:
+        - list
+      preview:
+        text:
+        - Option
+        subtext:
+        - key: name
+        - Dropdown option
+        icon:
+        - list
+      value:
+        name:
+  icon_blocks:
+    style: select
+    values_from_glob:
+    - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
+  asset_blocks:
+    style: select
+    values_from_glob:
+    - /src/_includes/components/assets/*/*.cloudcannon.structure-value.yml
+  card_imagery_blocks:
+    style: select
+    values_from_glob:
+    - /src/_includes/components/icons/*/*.cloudcannon.structure-value.yml
+    - /src/_includes/components/assets/image/image.cloudcannon.structure-value.yml
+  button_blocks:
+    values:
+    - label: Button
+      icon: ads_click
+      picker_preview:
+        text:
+        - Button
+        icon:
+        - ads_click
+      preview:
+        text:
+        - Button
+        subtext:
+        - key: text
+        - Link styled as a button
+        icon:
+        - ads_click
+      value:
+        _type: components/generic/button/button
+        url: '#'
+        open_in_new_tab: false
+        text: Button text
+        variant: primary
+        arrow: right
+        onclick:
+      _inputs:
+        onclick:
+          hidden: true
+        open_in_new_tab:
+          hidden: '!url'
+  custom_embed_blocks:
+    values:
+    - label: Custom Embed
+      icon: code
+      picker_preview:
+        text:
+        - Custom Embed
+        icon:
+        - code
+      preview:
+        text:
+        - Custom Embed
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Custom HTML or embed code
+        icon:
+        - code
+      value:
+        _type: components/generic/custom-embed/custom-embed
+        embed:
+        ratio: default
+      _inputs:
+        embed:
+          type: code
+        ratio:
+          comment: The ratio of the width to height for the embed container (The second number indicates
+            how many x the width the height will be)
+          type: select
+          options:
+            value_key: ratio_value
+            preview:
+              text:
+              - key: name
+            values:
+            - name: Default
+              ratio_value: auto
+            - name: A4 Document
+              ratio_value: 1 / 1.41
+            - name: Video
+              ratio_value: 16 / 9
+            - name: 1 / 0.5
+              ratio_value: 1 / 0.5
+            - name: 1 / 0.75
+              ratio_value: 1 / 0.75
+            - name: 1 / 1
+              ratio_value: 1 / 1
+            - name: 1 / 1.25
+              ratio_value: 1 / 1.25
+            - name: 1 / 1.5
+              ratio_value: 1 / 1.5
+  heading_blocks:
+    values:
+    - label: Heading
+      icon: title
+      picker_preview:
+        text:
+        - Heading
+        icon:
+        - title
+      preview:
+        text:
+        - Heading
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Eyebrow and primary heading
+        icon:
+        - title
+      value:
+        _type: components/generic/heading/heading
+        eyebrow_headline: Eyebrow Heading
+        primary_heading: Primary Heading
+        eyebrow_headline_hierarchy: h3
+        primary_heading_hierarchy: h2
+      _inputs:
+        eyebrow_headline_hierarchy:
+          hidden: true
+          type: select
+          options:
+            values:
+            - h2
+            - h3
+            - h4
+        primary_heading_hierarchy:
+          hidden: true
+          type: select
+          options:
+            values:
+            - h1
+            - h2
+            - h3
+            - h4
+  image_blocks:
+    values:
+    - label: Image
+      icon: image
+      picker_preview:
+        text:
+        - Image
+        icon:
+        - image
+      preview:
+        text:
+        - Image
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Image with alt text
+        icon:
+        - image
+      value:
+        _type: components/assets/image/image
+        image_path:
+        image_alt:
+        image_sizes:
+      _inputs:
+        image_sizes:
+          hidden: true
+          type: text
+  text_block_blocks:
+    values:
+    - label: Text block
+      icon: notes
+      picker_preview:
+        text:
+        - Text block
+        icon:
+        - notes
+      preview:
+        text:
+        - Text block
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Block of rich text
+        icon:
+        - notes
+      value:
+        _type: components/generic/text-block/text-block
+        text: '### Your rich text content
+
+          You can use **bold text** and *italic text* along with [links](http://google.com) and others
+          options.'
+      _inputs:
+        text:
+          type: markdown
+          options:
+            link: true
+            blockquote: false
+            bold: true
+            format: p h3 h4 h5 h6
+            italic: true
+            strike: true
+            subscript: true
+            superscript: true
+            underline: true
+            bulletedlist: true
+            numberedlist: true
+            indent: false
+            outdent: false
+            code: false
+            embed: false
+            horizontalrule: false
+            image: false
+            table: false
+            undo: true
+            redo: true
+            removeformat: true
+            copyformatting: true
+  form_builder_blocks:
+    values:
+    - label: Form Builder
+      icon: list_alt
+      picker_preview:
+        text:
+        - Form Builder
+        icon:
+        - list_alt
+      preview:
+        text:
+        - Form Builder
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Form with custom fields and submissions
+        icon:
+        - list_alt
+      value:
+        _type: components/simple/form-builder/form-builder
+        id:
+        form_submission_type: email/cloudcannon
+        inbox_key:
+        subject:
+        success_page: ''
+        form_elements: []
+        submit_button:
+          text: Button text
+          variant: primary
+          arrow: right
+      _inputs:
+        form_submission_type:
+          type: disabled
+        success_page:
+          type: url
+          comment: The page to redirect to after submission
+        inbox_key:
+          comment: The key that you configured for your cloudcannon inbox. If not set it will go to the
+            default inbox you set up. Instructions for setting up an inbox key can be found [here](https://cloudcannon.com/documentation/articles/creating-an-inbox-to-receive-your-forms/).
+        subject:
+          comment: The subject line for the form submission emails
+  image_gallery_blocks:
+    values:
+    - label: Image Gallery
+      icon: photo_library
+      picker_preview:
+        text:
+        - Image Gallery
+        icon:
+        - photo_library
+      preview:
+        text:
+        - Image Gallery
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Grid of images
+        icon:
+        - photo_library
+      value:
+        _type: components/simple/image-gallery/image-gallery
+        show_note: true
+        images: []
+        button:
+          text: Load more
+          variant: primary
+          arrow: down
+      _inputs:
+        images:
+          comment: Your images will be cropped into squares for the best presentation
+        button:
+          type: object
+          options:
+            preview:
+              text:
+              - Button
+              subtext:
+              - key: text
+              - Link styled as a button
+              icon:
+              - ads_click
+  map_blocks:
+    values:
+    - label: Map Embed
+      icon: map
+      picker_preview:
+        text:
+        - Map Embed
+        icon:
+        - map
+      preview:
+        text:
+        - Map Embed
+        subtext:
+        - key: primary_heading
+        - key: text
+        - key: image_alt
+        - Map centered on set coordinates
+        icon:
+        - map
+      value:
+        _type: components/simple/map/map
+        latitude:
+        longitude:
+        zoom_level: 9
+      _inputs:
+        zoom_level:
+          type: range
+          options:
+            step: 1
+            max: 13
+            min: 0
+  grid_items:
+    style: modal
+    values:
+    - label: Card
+      icon: sticky_note_2
+      picker_preview:
+        text:
+        - Card
+        icon:
+        - sticky_note_2
+      preview:
+        text:
+        - Card
+        subtext:
+        - key: heading.primary_heading
+        - Card with imagery, heading, text and buttons
+        icon:
+        - sticky_note_2
+      value:
+        imagery:
+        heading:
+          _type: components/generic/heading/heading
+          eyebrow_headline: Eyebrow Heading
+          primary_heading: Primary Heading
+          eyebrow_headline_hierarchy: h3
+          primary_heading_hierarchy: h2
+        description:
+        buttons: []
+      _inputs:
+        imagery:
+          type: object
+          options:
+            structures: _structures.card_imagery_blocks
+            preview:
+              icon: image
+        heading:
+          type: object
+          options:
+            structures: _structures.heading_blocks
+            preview:
+              icon: title
+        buttons:
+          type: array
+          options:
+            structures: _structures.button_blocks
+  icon_types:
+    style: select
+    values:
+    - label: Icon from library
+      icon: star
+      picker_preview:
+        text:
+        - Icon from library
+        icon:
+        - star
+      preview:
+        text:
+        - Icon from library
+        subtext:
+        - key: icon_text
+        - Icon from the library with a label
+        icon:
+        - star
+      value:
+        hero_library_icon_name: face-smile
+        icon_type: outline
+        icon_text: Icon label
+    - label: Custom icon
+      icon: emoji_symbols
+      picker_preview:
+        text:
+        - Custom icon
+        icon:
+        - emoji_symbols
+      preview:
+        text:
+        - Custom icon
+        subtext:
+        - key: icon_text
+        - Uploaded icon with a label
+        icon:
+        - emoji_symbols
+      value:
+        icon_path:
+        icon_type: outline
+        icon_text: Icon label
+  list_items:
+    values:
+    - label: List item
+      icon: sell
+      picker_preview:
+        text:
+        - List item
+        icon:
+        - sell
+      preview:
+        text:
+        - List item
+        subtext:
+        - key: label
+        - Item name with a price or detail
+        icon:
+        - sell
+      value:
+        label: Item name
+        detail: $0
+  list_details:
+    style: modal
+    values:
+    - label: Price list
+      icon: list
+      picker_preview:
+        text:
+        - Price list
+        icon:
+        - list
+      preview:
+        text:
+        - Price list
+        subtext:
+        - key: list_heading
+        - List heading with items
+        icon:
+        - list
+      value:
+        list_heading: List heading
+        list_items: []
+      _inputs:
+        list_items:
+          type: array
+          options:
+            structures: _structures.list_items

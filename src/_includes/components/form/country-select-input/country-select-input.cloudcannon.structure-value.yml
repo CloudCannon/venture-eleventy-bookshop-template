@@ -1,0 +1,27 @@
+label: Country Input
+icon: public
+picker_preview:
+  text:
+  - Country Input
+  icon:
+  - public
+preview:
+  text:
+  - Country Input
+  subtext:
+  - key: label
+  - Dropdown of countries
+  icon:
+  - public
+value:
+  _type: components/form/country-select-input/country-select-input
+  label: ''
+  id:
+  helper_text:
+_inputs:
+  helper_text:
+    comment: Helpful text for the user such as 'Your primary country of residence'
+  id:
+    hidden: true
+    type: text
+    instance_value: UUID

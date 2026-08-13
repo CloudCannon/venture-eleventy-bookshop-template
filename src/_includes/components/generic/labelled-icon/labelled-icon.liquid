@@ -1,0 +1,13 @@
+{% comment %}
+  Data-shaped partial bound to one stored labelled-icon object.
+{% endcomment %}
+{% assign_local c = 'c-labelled-icon' %}
+
+<div class="{{ c }} {{ c }}--{{ arrangement }}">
+    {% if icon %}
+      <div data-editable="component" data-component="{{ icon._type }}" data-prop="icon">
+        {% assign _t = icon._type %}{% includeWith _t, icon %}
+      </div>
+    {% endif %}
+    {% include "components/generic/text-block/text-block", text: text, prop: "text" %}
+</div>

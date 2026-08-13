@@ -14,17 +14,55 @@
     <body>
         {% include 'partials/nav/navigation.html' %}
         <main id="main">
-            {% bookshop_include "hero" hero: hero title: title permalink: permalink %}
+            {% if hero %}
+                <div data-editable="component" data-component="{{ hero._type }}" data-prop="hero">
+                    {% assign _hero_type = hero._type %}{% includeWith _hero_type, hero %}
+                </div>
+            {% elsif permalink != "/components/" %}
+                {% capture default_hero %}
+                    content:
+                        heading:
+                            primary_heading: {{ title }}
+                            primary_heading_hierarchy: h1
+                    styles:
+                        content_alignment: center
+                        color_group: "primary"
+                {% endcapture %}
+                {% assign default_hero = default_hero | ymlify %}
+                {% includeWith "components/heroes/hero--simple/hero--simple", default_hero %}
+            {% endif %}
 
-            {% bookshop_include "page" content_blocks: content_blocks %}
+            {% comment %}
+              Page builder. `data-id` is the loop index, not the default
+              (`_type`): pages repeat block types, and identical ids collide
+              when the editor matches DOM nodes to items on reorder.
+            {% endcomment %}
+            <div data-editable="array" data-prop="content_blocks" data-component-key="_type">
+                {% for block in content_blocks %}
+                    {% assign _t = block._type %}
+                    <div data-editable="array-item" data-component="{{ _t }}" data-id="{{ forloop.index0 }}">
+                        {% includeWith _t, block %}
+                    </div>
+                {% endfor %}
+            </div>
             {{ content }}
         </main>
         {% include 'partials/footer/footer.html' %}
+
+        <script>
+          if (window.inEditorMode) {
+            import("/register-components.js").catch((e) => console.warn(e));
+          }
+        </script>
     </body>
-    {% if content_blocks %}
-        {% assign include-map = content_blocks | contains_block: "simple/google-map-embed" %}
-        {% if site.google_maps_api_key and include-map %}
-            {% include 'partials/map/map-initialisation.html' %}
-        {% endif %}
-    {% endif %}
+    {% comment %}
+      Removed a dead map-initialisation block here. It tested
+      `content_blocks | contains_block: "simple/google-map-embed"`, but
+      content_blocks only ever holds sections, so it never matched — which is
+      the only reason it was harmless: the partial it included
+      (partials/map/map-initialisation.html) does not exist, and
+      site.google_maps_api_key is unset. Re-pointing it at a block that does
+      exist would have turned it into a missing-include build error. The map
+      initialises from src/assets/js/map.js.
+    {% endcomment %}
 </html>

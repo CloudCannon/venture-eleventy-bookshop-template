@@ -10,19 +10,18 @@ layout: layouts/page.html
 permalink: /booking/
 eleventyExcludeFromCollections: false
 hero:
-  _bookshop_name: sections/hero
+  _type: components/heroes/hero/hero
   content:
     heading:
-      _bookshop_name: generic/heading
+      _type: components/generic/heading/heading
       eyebrow_headline: Tag or label headline
       primary_heading: A hero for a booking form page
-      eyebrow_headline_hierarchy: h3
-      primary_heading_hierarchy: h2
-    description: >-
-      Here are a few options to use above the fold. Customize these elements to
-      display your products or services in the best way possible.
+      eyebrow_headline_hierarchy: h2
+      primary_heading_hierarchy: h1
+    description: Here are a few options to use above the fold. Customize these elements to display your
+      products or services in the best way possible.
     button:
-      _bookshop_name: generic/button
+      _type: components/generic/button/button
       url: '#'
       open_in_new_tab: false
       text: Add an optional button
@@ -30,7 +29,7 @@ hero:
       arrow: right
       onclick:
     image:
-      _bookshop_name: generic/image
+      _type: components/assets/image/image
       image_path: /assets/images/Hero--background-feature-3.png
       image_alt: Person wearing a black hat and smiling
       image_sizes:
@@ -38,43 +37,43 @@ hero:
     image_alignment: right
     color_group: secondary0
 content_blocks:
-  - _bookshop_name: sections/form
+  - _type: components/sections/form/form
     content:
       id: booking-form
       heading:
-        _bookshop_name: generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Booking form
         eyebrow_headline_hierarchy: h3
         primary_heading_hierarchy: h2
-      description: ''
+      description:
       form:
-        _bookshop_name: simple/form-builder
+        _type: components/simple/form-builder/form-builder
         id:
         form_submission_type: email/cloudcannon
         inbox_key:
         subject:
         success_page: ''
         form_elements:
-          - _bookshop_name: generic/form/text-input
+          - _type: components/form/text-input/text-input
             label: Full name
             placeholder: John Smith
             id:
             required: true
             helper_text:
-          - _bookshop_name: generic/form/email-input
+          - _type: components/form/email-input/email-input
             label: Email address
             id:
             required: true
             placeholder: mybusiness@example.com
             helper_text:
-          - _bookshop_name: generic/form/phone-input
+          - _type: components/form/phone-input/phone-input
             label: Phone number
             placeholder: 123 456 78910
             id:
             required: false
             helper_text:
-          - _bookshop_name: generic/form/date-input
+          - _type: components/form/date-input/date-input
             label: Choose a date
             id:
             required: true
@@ -83,7 +82,7 @@ content_blocks:
             max_today: false
             max:
             helper_text:
-          - _bookshop_name: generic/form/text-area-input
+          - _type: components/form/text-area-input/text-area-input
             label: Message
             placeholder: Any helpful information we should know about.
             id:
@@ -97,37 +96,34 @@ content_blocks:
     styles:
       color_group: primary
       content_alignment: center
-  - _bookshop_name: sections/simple-text-block
+  - _type: components/sections/simple-text-block/simple-text-block
     content:
       id:
       heading:
-        _bookshop_name: generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: A simple text block for your FAQs
         eyebrow_headline_hierarchy: h3
         primary_heading_hierarchy: h2
-      text:
-        _bookshop_name: generic/text-block
-        text: >-
-          ### **How do I use the service?**
+      text: >-
+        ### **How do I use the service?**
 
 
-          Customers want to know all the information before making a final
-          decision. Make sure you provide it to them.
+        Customers want to know all the information before making a final
+        decision. Make sure you provide it to them.
 
 
-          ### **How do I pay for the service?**
+        ### **How do I pay for the service?**
 
 
-          Let your customers know if they can pay by EFTPOS or credit
-          card.
+        Let your customers know if they can pay by EFTPOS or credit card.
     styles:
       color_group: secondary0
-  - _bookshop_name: sections/icon-cards
+  - _type: components/sections/icon-cards/icon-cards
     content:
       id:
       heading:
-        _bookshop_name: generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Bite-sized information
         primary_heading: An icon card grid
         eyebrow_headline_hierarchy: h3
@@ -136,47 +132,62 @@ content_blocks:
         Sometimes you only need a small amount of text. An icon section within a
         card grid is a great option to showcase your content.
       grid_items:
-        - icon:
+        - imagery:
+            _type: components/icons/hero-library-icon/hero-library-icon
             hero_library_icon_name: puzzle-piece
+            icon_size: small
             icon_type: outline
+            rounded_border: false
+            theme_color: true
+            color: '#7d7f7c'
           heading:
-            _bookshop_name: generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
-            eyebrow_headline_hierarchy: h3
-            primary_heading_hierarchy: h2
+            eyebrow_headline_hierarchy: h5
+            primary_heading_hierarchy: h4
           description: >-
             These versatile cards can be used to talk about your services or
             products, or anything else you are keen to share with your audience.
           buttons: []
-        - icon:
-            hero_library_icon_name: puzzle-piece
+        - imagery:
+            _type: components/icons/hero-library-icon/hero-library-icon
+            hero_library_icon_name: archive-box
+            icon_size: small
             icon_type: outline
+            rounded_border: false
+            theme_color: true
+            color: '#7d7f7c'
           heading:
-            _bookshop_name: generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
-            eyebrow_headline_hierarchy: h3
-            primary_heading_hierarchy: h2
+            eyebrow_headline_hierarchy: h5
+            primary_heading_hierarchy: h4
           description: >-
             These versatile cards can be used to talk about your services or
             products, or anything else you are keen to share with your audience.
           buttons: []
-        - icon:
+        - imagery:
+            _type: components/icons/hero-library-icon/hero-library-icon
             hero_library_icon_name: puzzle-piece
+            icon_size: small
             icon_type: outline
+            rounded_border: false
+            theme_color: true
+            color: '#7d7f7c'
           heading:
-            _bookshop_name: generic/heading
+            _type: components/generic/heading/heading
             eyebrow_headline: icon card
             primary_heading: Heading
-            eyebrow_headline_hierarchy: h3
-            primary_heading_hierarchy: h2
+            eyebrow_headline_hierarchy: h5
+            primary_heading_hierarchy: h4
           description: >-
             These versatile cards can be used to talk about your services or
             products, or anything else you are keen to share with your audience.
           buttons: []
       buttons:
-        - _bookshop_name: generic/button
+        - _type: components/generic/button/button
           url: '#'
           open_in_new_tab: false
           text: Another optional button!
@@ -187,11 +198,11 @@ content_blocks:
       color_group: primary
       card_color_group: secondary0
       content_alignment: center
-  - _bookshop_name: sections/centered-large-asset
+  - _type: components/sections/centered-large-asset/centered-large-asset
     content:
       id:
       heading:
-        _bookshop_name: generic/heading
+        _type: components/generic/heading/heading
         eyebrow_headline: Eyebrow Heading
         primary_heading: Large image or video block
         eyebrow_headline_hierarchy: h3
@@ -200,15 +211,16 @@ content_blocks:
         Have a strong visual element you want to share? This component gives you
         the flexibility to either add a YouTube video or an image.
       asset:
-        _bookshop_name: generic/video
+        _type: components/assets/video/video
         video_source: YouTube
         video_url: https://youtu.be/gVUloujNd_I?si=M9Pb81oigA6TKXyf
         fallback_image:
-          _bookshop_name: generic/image
           image_path:
           image_alt:
+          _type: components/assets/image/image
+          image_sizes:
       button:
-        _bookshop_name: generic/button
+        _type: components/generic/button/button
         url: '#booking-form'
         open_in_new_tab: false
         text: Book Now

@@ -20,11 +20,20 @@ value:
   icon_size: small
   icon_type: solid
   rounded_border: false
-  theme_color: false
+  theme_color: true
   default_color: false
   color: '#7d7f7c'
 _inputs:
+  icon_size:
+    hidden: true
+  rounded_border:
+    hidden: true
+  default_color:
+    hidden: true
   theme_color:
     comment: Use your theme color for the icon color (if the icon is an svg) and the rounded border color
       (if one is included)
     type: checkbox
+    hidden: true
+  color:
+    hidden: theme_color

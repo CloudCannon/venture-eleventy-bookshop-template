@@ -48,7 +48,7 @@
 
 {% capture media_html %}
   {% if content.map %}
-    <div data-editable="component" data-component="components/simple/map/map" data-prop="content.map">
+    <div class="c-left-right-block__map" data-editable="component" data-component="components/simple/map/map" data-prop="content.map">
       {% includeWith "components/simple/map/map", content.map %}
     </div>
   {% endif %}

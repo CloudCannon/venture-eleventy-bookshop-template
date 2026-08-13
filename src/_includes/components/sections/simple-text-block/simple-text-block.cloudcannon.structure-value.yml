@@ -43,8 +43,24 @@ _inputs:
     type: markdown
     options:
       link: true
+      blockquote: false
       bold: true
+      format: p h3 h4 h5 h6
       italic: true
+      strike: true
+      subscript: true
+      superscript: true
+      underline: true
+      bulletedlist: true
+      numberedlist: true
+      indent: false
+      outdent: false
+      code: false
+      embed: false
+      horizontalrule: false
+      image: false
+      table: false
       undo: true
       redo: true
-      initial_height: 135
+      removeformat: true
+      copyformatting: true

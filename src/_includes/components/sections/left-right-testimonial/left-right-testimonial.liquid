@@ -18,8 +18,8 @@
     {% endif %}
   </header>
   {% if content.author_name %}
-    <div class="c-left-right-block__content-text">
-      {% include "components/generic/text-block/text-block", text: content.author_name, prop: "content.author_name" %}
+    <div class="c-left-right-block__content-text" data-editable="text" data-type="span" data-prop="content.author_name">
+      {{ content.author_name }}
     </div>
   {% endif %}
 {% endcapture %}

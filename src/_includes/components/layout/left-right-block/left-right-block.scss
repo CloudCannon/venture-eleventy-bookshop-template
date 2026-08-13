@@ -20,6 +20,7 @@
   }
 
   &__content-text {
+    line-height: var(--line-height);
     margin-bottom: 24px;
     max-width: 32.0625rem;
     text-wrap: pretty;

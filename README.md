@@ -4,7 +4,7 @@ Venture is a polished, marketing website template for Eleventy. Browse through a
 
 ![Small business template screenshot](/src/assets/images/_screenshot.png)
 
-[![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register/#sites/connect/github/cloudcannon/venture-eleventy-bookshop-template)
+[![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register/#sites/connect/github/cloudcannon/venture-eleventy-template)
 
 ## Features
 
@@ -74,18 +74,6 @@ If you use Claude Code, you can install them as a plugin instead:
 ```
 
 Plugin skills are namespaced, e.g. `agent-skills:cloudcannon-configuration`.
-
-| Skill | Purpose |
-| --- | --- |
-| `migrating-to-cloudcannon` | Full migration orchestrator |
-| `cloudcannon-configuration` | CloudCannon config setup |
-| `cloudcannon-visual-editing` | Visual Editor and editable regions |
-| `cloudcannon-snippets` | Snippet configuration |
-| `brainstorming` | Structured design exploration |
-
-One skill *is* committed: `.agents/skills/eleventy-bookshop-migration/`. It's specific to this
-template rather than a CloudCannon-wide skill, and documents how the components are wired for
-editable regions, plus the verification scripts in its `scripts/` directory.
 
 ## Editor documentation
 

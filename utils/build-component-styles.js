@@ -2,10 +2,6 @@
  * Generates src/assets/styles/components.scss — an index of every co-located
  * component stylesheet under src/_includes/components/.
  *
- * Replaces `bookshop-sass`, which discovered component SCSS automatically. The
- * generated file is @use'd into the normal sass pipeline, so adding a component
- * still needs no manual stylesheet registration.
- *
  * Each entry gets a unique namespace alias: component filenames repeat across
  * directories (two `hero.scss`, several `image.scss`), and sass rejects two
  * @use rules that resolve to the same default namespace.

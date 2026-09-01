@@ -1,5 +1,5 @@
 {
-	"name": "venture-eleventy-bookshop-template",
+	"name": "venture-eleventy-template",
 	"version": "1.0.0",
 	"description": "Venture is a polished, marketing website template for Eleventy.",
 	"scripts": {
@@ -15,14 +15,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/CloudCannon/venture-eleventy-bookshop-template.git"
+		"url": "git+https://github.com/CloudCannon/venture-eleventy-template.git"
 	},
 	"author": "CloudCannon <support@cloudcannon.com>",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/CloudCannon/venture-eleventy-bookshop-template/issues"
+		"url": "https://github.com/CloudCannon/venture-eleventy-template/issues"
 	},
-	"homepage": "https://github.com/CloudCannon/venture-eleventy-bookshop-template#readme",
+	"homepage": "https://github.com/CloudCannon/venture-eleventy-template#readme",
 	"dependencies": {
 		"@11ty/eleventy": "^3.0.0",
 		"@11ty/eleventy-img": "^5.0.0",
